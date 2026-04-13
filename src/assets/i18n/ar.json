@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "الصفحة الرئيسية",
+    "about": "من نحن",
+    "products": "المنتجات",
+    "trading": "التداول",
+    "partnerships": "الشراكات",
+    "resources": "الموارد",
+    "contact": "اتصل بنا",
+    "blogs": "المدونات"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "جرب العرض التوضيحي المجاني",
+    "OPEN_ACCOUNT": "فتح حساب",
+    "WELCOME_TITLE": "مرحبا بك في UPFOREX - شريكك الأول في تداول الفوركس",
+    "TRADE_TAGLINE": "تداول بذكاء. اكسب بسرعة. نمو عالمي.",
+    "DESCRIPTION": "في UPFOREX نقدم حلول تداول فوركس من الجيل التالي مصممة للمتداولين الأفراد والمستثمرين المحترفين والوسطاء المُقدمين.",
+    "TRADING_CALCULATORS": "آلات حاسبة التداول",
+    "MARKET_ANALYSIS": "تحليل السوق",
+    "MARKET_REVIEWS": "آراء السوق"
+  },
+  "auth": {
+    "register": "تسجيل",
+    "signIn": "تسجيل الدخول"
+  },
+  "products": {
+    "forexCfds": "عقود الفروقات على العملات",
+    "stockCfds": "عقود الفروقات على الأسهم",
+    "preciousMetal": "المعادن الثمينة",
+    "indexCfds": "عقود الفروقات على المؤشرات",
+    "energyCfds": "عقود الفروقات على الطاقة",
+    "cryptocurrenciesCfd": "عقود الفروقات على العملات الرقمية"
+  },
+  "accounts": {
+    "accounts": "الحسابات",
+    "mt5Platform": "منصة ميتاتريدر 5 (MT5)"
+  }
+}

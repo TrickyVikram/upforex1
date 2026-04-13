@@ -1,0 +1,43 @@
+<div class="container tw-font-montserrat tw-text-white">
+  <div class="tw-text-center">
+    <h1 class="tw-mt-4">Privacy Policy</h1>
+    <p class="p-0">Effective Date: 1st Dec 2024</p>
+  </div>
+  <p class="tw-text-white">
+    Welcome to Upforex.com or UP Global Markets Ltd (“Upforex”, “we”, “us”, or “our”,
+    "UP Global Markets Ltd"). Your privacy is important to us. This Privacy Policy
+    explains how we collect, use, disclose, and safeguard your information when
+    you use our services, including our website and trading platforms
+    (collectively, the “Services”). By accessing or using our Services, you
+    agree to this Privacy Policy. If you do not agree, please refrain from using
+    our Services.
+  </p>
+
+  <div class="tw-mt-8">
+    <div *ngFor="let data of privacyPolicyData; let i = index">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        {{ i + 1 }}. {{ data.primaryTitle }}
+      </h5>
+      <p
+        class="tw-text-gray-200 tw-ml-4"
+        *ngFor="let primaryDescription of data.primaryDescription"
+      >
+        {{ primaryDescription }}
+      </p>
+
+      <ng-container *ngIf="data.group">
+        <div *ngFor="let group of data.group; let j = index">
+          <h5 class="tw-font-montserrat tw-text-gray-100 tw-ml-6 tw-font-bold">
+            {{ i + 1 }}.{{ j + 1 }} {{ group.subTitle }}
+          </h5>
+          <p
+            class="tw-text-gray-200 tw-ml-8"
+            *ngFor="let subDescription of group.subDescription"
+          >
+            {{ subDescription }}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

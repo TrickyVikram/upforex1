@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="row gap-2">
+        <h1 class="tw-font-montserrat text-center text-white">
+          Risk Disclosure Statement
+        </h1>
+        <p class="p-0 text-center text-white">Issued by UP Global Markets Ltd.</p>
+      </div>
+      <h5 class="tw-font-montserrat tw-text-gray-100">Introduction</h5>
+      <p class="tw-font-montserrat p-0 tw-text-gray-200">
+        Trading in leveraged financial instruments such as Forex, CFDs, indices,
+        and cryptocurrencies involves significant risk and is not suitable for
+        all investors. Before engaging in trading activities, it is important to
+        carefully consider your financial objectives, level of experience, and
+        risk tolerance.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100">Key Risk Factors</h5>
+    </div>
+    <div *ngFor="let risks of riskArray; let i = index" class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        {{ i + 1 }}. {{ risks.risk_type }}
+      </h5>
+      <p class="tw-text-gray-200 tw-font-montserrat tw-ml-4">
+        {{ risks.description }}
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Client Responsibility
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        Clients should fully understand the risks involved in trading leveraged
+        instruments and seek independent financial advice if necessary.
+      </p>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        It is the responsibility of the client to monitor their trading
+        positions and ensure adequate margin levels are maintained.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        No Guarantees
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        UP Global Markets Ltd. does not guarantee profits or the avoidance of losses. Past
+        performance is not indicative of future results.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Disclaimer
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        By trading with UP Global Markets Ltd., you acknowledge that you have read,
+        understood, and accepted the risks associated with trading leveraged
+        financial instruments. You agree to bear full responsibility for any
+        losses incurred and waive any liability on the part of UP Global Markets Ltd.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Conclusion
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        Trading leveraged products carries a high level of risk and may not be
+        suitable for all investors. Ensure that you fully understand the risks
+        and trade responsibly.
+      </p>
+    </div>
+  </div>
+</div>

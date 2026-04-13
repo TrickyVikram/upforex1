@@ -1,0 +1,110 @@
+<div class="container-fluid p-0">
+  <nav
+    class="navbar sticky-top p-3 navbar-expand-lg navbar-dark bg-dark navbar-color"
+    [ngClass]="{
+      'tw-h-screen': !isMenuCollapsed,
+      'tw-overflow-auto': !isMenuCollapsed,
+      '!tw-items-start': !isMenuCollapsed,
+    }"
+  >
+    <div class="container">
+      <!-- Logo and Home Button on the Left -->
+      <a class="navbar-brand d-flex gap-1" [routerLink]="'/admin/home'">
+        <img
+          loading="lazy"
+          src="../../../assets/images/updated-logos/logo-1.webp"
+          style="height: 66px; width: 150px; object-fit: contain"
+          alt="upforex logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler toggler-button"
+        type="button"
+        (click)="isMenuCollapsed = !isMenuCollapsed"
+      >
+        <span class="toggle-button">
+          <i class="fa-xl fa-solid fa-bars"></i>
+        </span>
+      </button>
+
+      <!-- Collapsible menu (for smaller screens) -->
+      <div
+        [ngbCollapse]="isMenuCollapsed"
+        class="collapse navbar-collapse tw-text-2xl md:tw-text-lg lg:tw-text-base tw-mt-6 lg:tw-mt-0"
+      >
+        <ul
+          class="navbar-nav d-flex gap-3 justify-content-start !tw-items-start lg:tw-mt-0"
+        >
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/admin/home'"
+              routerLinkActive="active-route"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+          </li>
+          <!-- Blogs Route -->
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/admin/blogs'"
+              routerLinkActive="active-route"
+              >Blogs</a
+            >
+          </li>
+          <!-- Category Route -->
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/admin/category'"
+              routerLinkActive="active-route"
+              >Category</a
+            >
+          </li>
+
+          <!-- Terms & Conditions Route -->
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/admin/terms'"
+              routerLinkActive="active-route"
+              >T&C</a
+            >
+          </li>
+
+          <!-- Users Route -->
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/admin/users'"
+              routerLinkActive="active-route"
+              >Users</a
+            >
+          </li>
+          <!-- Logout Button aligned to the right -->
+        </ul>
+        <div
+          class="tw-mt-4 button tw-w-full tw-flex tw-justify-center lg:tw-justify-end tw-items-center tw-gap-4"
+        >
+          <p
+            *ngIf="isMenuCollapsed"
+            class="tw-text-white tw-font-montserrat tw-mb-0 tw-text-xl tw-font-semibold"
+          >
+            Welcome, {{ store.adminData()?.name ?? "" }}
+          </p>
+          <a class="tw-text-white tw-no-underline">
+            <button
+              class="px-4 py-2 w-auto navbar-button-invert !tw-text-black"
+              (click)="logout()"
+            >
+              Logout
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>

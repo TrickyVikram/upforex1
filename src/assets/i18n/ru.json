@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "О нас",
+    "products": "Продукты",
+    "trading": "Торговля",
+    "partnerships": "Партнерство",
+    "resources": "Ресурсы",
+    "contact": "Контакты",
+    "blogs": "Блоги"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "Попробуйте бесплатную демо",
+    "OPEN_ACCOUNT": "Открыть счет",
+    "WELCOME_TITLE": "Добро пожаловать в UPFOREX - ваш главный партнер по торговле на Forex",
+    "TRADE_TAGLINE": "Торгуйте умнее. Зарабатывайте быстрее. Растите глобально.",
+    "DESCRIPTION": "В UPFOREX мы предоставляем решения для торговли на Форексе нового поколения, предназначенные для розничных трейдеров, профессиональных инвесторов и вводящих брокеров.",
+    "TRADING_CALCULATORS": "Торговые калькуляторы",
+    "MARKET_ANALYSIS": "Анализ рынка",
+    "MARKET_REVIEWS": "Обзоры рынка"
+  },
+  "auth": {
+    "register": "Регистрация",
+    "signIn": "Вход"
+  },
+  "products": {
+    "forexCfds": "Форекс CFD",
+    "stockCfds": "Акции CFD",
+    "preciousMetal": "Драгоценные металлы",
+    "indexCfds": "Индексы CFD",
+    "energyCfds": "Энергия CFD",
+    "cryptocurrenciesCfd": "Криптовалюты CFD"
+  },
+  "accounts": {
+    "accounts": "Аккаунты",
+    "mt5Platform": "Платформа MetaTrader 5 (MT5)"
+  }
+}

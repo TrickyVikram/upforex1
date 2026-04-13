@@ -1,0 +1,267 @@
+.banner-div {
+  // background: url("../../../assets/images/home_banner.webp");
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // width: 100%;
+
+  .banner-text {
+    font-weight: 500;
+    line-height: 1.5;
+    color: white;
+    animation: scale-up-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    .banner-span {
+      color: #3cff19;
+    }
+  }
+
+  .banner-subtext {
+    color: white;
+    word-spacing: 1.5;
+    font-weight: 500;
+    animation: scale-up-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+
+  .banner-button {
+    animation: scale-up-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    .btn {
+      background-color: #3cff19;
+      color: black !important;
+      border: 2px solid #3cff19;
+      transition: all 0.2s ease-in;
+      font-weight: 650;
+      &:hover {
+        background-color: transparent;
+        color: #3cff19 !important;
+      }
+    }
+  }
+
+  .banner-sub-div {
+    animation: scale-up-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    background-color: rgb(240 248 255 / 43%);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: default;
+
+    &:hover {
+      box-shadow: 0px 0px 50px 0px #4453a192;
+    }
+  }
+}
+
+.image-div {
+  img {
+    animation: tilt-in-left-1 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}
+
+.container-div {
+  .header-text {
+    color: #979797;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    margin-bottom: 18px;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .header-title {
+    text-transform: capitalize;
+    color: #000;
+    font-family: nexa-bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .container-boxes {
+    cursor: default;
+    .content {
+      border: 2px solid #3cff19;
+      border-radius: 5px;
+      transition: all 0.35s ease;
+      // width: 22.5rem;
+      .icon,
+      .text {
+        // color: #3cff19;
+        color: #4454a1;
+        font-weight: 500;
+      }
+
+      &:hover {
+        box-shadow: 5px 0px 25px -8px #3cff19;
+      }
+    }
+  }
+}
+@-webkit-keyframes scale-up-bottom {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+}
+@keyframes scale-up-bottom {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+}
+@-webkit-keyframes tilt-in-left-1 {
+  0% {
+    -webkit-transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+    transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes tilt-in-left-1 {
+  0% {
+    -webkit-transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+    transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+.arrow {
+  color: #3cff19;
+}
+.card {
+  box-shadow: none;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: transparent;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  .icon,
+  .text {
+    color: #fff;
+  }
+  &:hover {
+    box-shadow: 5px 0px 25px -8px #3cff19;
+  }
+}
+.smarter-trade-div {
+  // background-color: #b2d9a0;
+  .card {
+    transition: all 0.5s ease-out;
+    border: 1px solid #c8bbbb;
+    scale: 0.95;
+    cursor: default;
+    button {
+      transition: color 0.5s ease;
+    }
+    &:hover {
+      scale: 1;
+      box-shadow: -8px 10px 11px -13px #3cff19;
+      border: none;
+      button {
+        color: #3cff19;
+        transition: color 0.5s ease;
+      }
+    }
+    .initial-bg {
+      background-color: #3cff19;
+    }
+  }
+}
+.smarter-trade-features-div {
+  background: url("../../../assets/videos/smart_trading.mp4");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  .card {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    background: none;
+    scale: 0.9;
+    transition: all 0.5s ease-out;
+    flex-direction: column;
+
+    &:hover {
+      box-shadow: -8px 10px 11px -13px #3cff19;
+      border: none;
+      scale: 1;
+    }
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.bold-text {
+  color: #3cff19;
+}
+.carousel-img-wrapper {
+  height: 100%;
+  width: 100% !important;
+}
+.carousel-img-wrapper img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep .carousel-indicators button {
+  background-color: #fff !important;
+  border: none !important;
+  width: 10rem !important;
+  height: 3.5px !important;
+  border-radius: 10px !important;
+}

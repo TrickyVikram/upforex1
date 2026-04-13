@@ -1,0 +1,77 @@
+<router-outlet></router-outlet>
+<ng-template #modal let-modal *ngIf="!isAdminRoute">
+  <div
+    class="!tw-bg-[#0d0d0d] !tw-py-10 md:!tw-p-10 tw-font-montserrat tw-border-white tw-border-[1px] tw-rounded-lg"
+  >
+    <div class="tw-flex tw-justify-between">
+      <div class="tw-w-full tw-flex tw-justify-center tw-items-center tw-gap-4">
+        <img src="../assets/images/updated-logos/logo-2.webp" width="40" />
+        <img src="../assets/images/updated-logos/logo-3.webp" width="150" />
+      </div>
+      <button
+        tabindex="-1"
+        type="button"
+        class="tw-flex !tw-mr-4 md:!tw-mr-0"
+        (click)="modal.dismiss()"
+      >
+        <ng-icon name="matClose" color="white" size="28"></ng-icon>
+      </button>
+    </div>
+    <div class="!tw-mt-6 tw-mb-8">
+      <p
+        class="tw-font-semibold tw-text-center tw-text-3xl tw-text-themePrimary tw-tracking-wide"
+      >
+        10% Trading Bonus!
+      </p>
+    </div>
+
+    <div class="tw-mb-8 !tw-mt-6">
+      <ul class="tw-text-white !tw-pl-6 md:!tw-pl-12">
+        <li>🚀 10% Extra Bonus – More Capital, More Opportunities!</li>
+        <li>🚀 Trade Forex, Stocks & Crypto with Extra Funds</li>
+        <li>🚀 Boost Your Profits with a Bigger Balance</li>
+        <li>🚀 Instant Bonus on Your Deposit</li>
+        <li>🚀 Fully Withdrawable! *</li>
+        <li>🚀 Claim Your 10% Bonus Now!</li>
+      </ul>
+    </div>
+
+    <div class="button-container !tw-my-8">
+      <a
+        tabindex="-1"
+        href="https://client.upforex.live/?tab=register"
+        target="_blank"
+        (click)="modal.dismiss()"
+      >
+        <button class="btn btn-claim">Claim Offer</button>
+      </a>
+    </div>
+  </div>
+</ng-template>
+<!-- <ng-template #modal let-modal>
+  <div class="tw-relative">
+    <button
+      tabindex="-1"
+      type="button"
+      class="tw-absolute tw-right-6 tw-top-6"
+      (click)="modal.dismiss()"
+    >
+      <ng-icon name="matClose" color="white" size="32"></ng-icon>
+    </button>
+    <img
+      src="../assets/images/popup/popup_dark_new.webp"
+      style="width: 100%; max-height: 100%; object-fit: contain"
+    />
+    <a
+      tabindex="-1"
+      href="https://client.upforex.live/?tab=register"
+      target="_blank"
+      (click)="modal.dismiss()"
+    >
+      <button class="btn btn-claim !tw-p-2 !tw-px-4 !tw-rounded-lg">
+        Claim Offer
+      </button>
+    </a>
+  </div>
+</ng-template> -->
+<app-confetti *ngIf="!isAdminRoute"></app-confetti>

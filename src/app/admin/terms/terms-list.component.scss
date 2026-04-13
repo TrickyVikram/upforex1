@@ -1,0 +1,29 @@
+/* Terms list specific styles */
+.tw-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom styles for the terms list */
+.tw-terms-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tw-terms-list li {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.3s ease;
+}
+
+.tw-terms-list li:hover {
+  background-color: #f3f4f6;
+}
+
+.tw-terms-list li a {
+  text-decoration: none;
+  color: #1f2937;
+}

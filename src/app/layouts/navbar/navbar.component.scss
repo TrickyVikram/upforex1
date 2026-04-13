@@ -1,0 +1,265 @@
+// ================= HEADER =================
+.navbar-color {
+  background-color: #0d0d0d !important;
+  box-shadow: 0 2px 24px rgba(60, 255, 25, 0.08);
+  min-height: 54px;
+
+  /* ---------- CONTAINER ---------- */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 54px;
+    padding: 0 12px;
+    max-width: 1200px !important;
+    gap: 16px;
+  }
+
+  /* ---------- LOGO ---------- */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      width: auto !important;
+      max-width: 120px;
+      object-fit: contain;
+    }
+  }
+
+  /* ---------- TOGGLER ---------- */
+  .navbar-toggler {
+    line-height: 2 !important;
+
+    .toggle-button {
+      background: linear-gradient(to right, #4454a1, #3cff19);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    &:focus,
+    &:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* ---------- COLLAPSE ---------- */
+  .navbar-collapse {
+    // display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // flex: 1;
+    // min-height: 54px;
+    // gap: 20px;
+  }
+
+  /* ---------- MENU ---------- */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 auto;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  a.navbar-link,
+  button.navbar-link {
+    background: none !important;
+    border: none !important;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    padding: 0.35rem 0.55rem;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0.15rem;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #3cff19;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #3cff19;
+    }
+
+    &:hover::before,
+    &.active-route::before {
+      width: 100%;
+    }
+  }
+
+  /* ---------- DROPDOWN ARROW ---------- */
+
+  .active-route {
+    color: #3cff19 !important;
+    font-weight: 600;
+  }
+
+  // .active-route::after {
+  //   border-color: #3cff19;
+  // }
+
+  /* ---------- DROPDOWN ---------- */
+  .dropdown-menu {
+    background-color: #181a1f;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    padding: 0.5rem 0.25rem;
+    position: absolute !important;
+    left: 0;
+    top: 100%;
+    min-width: 180px;
+
+    .dropdown-item {
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      padding: 0.5rem 1.25rem;
+      transition: background 0.18s, color 0.18s;
+
+      &:hover {
+        color: #3cff19;
+        background-color: #23272f;
+      }
+    }
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .navbar-button,
+  .navbar-button-invert {
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 9px;
+    border: none;
+    background: #3cff19;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    height: 38px;
+    min-width: 90px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 0.8rem rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+  }
+
+  .navbar-button:hover,
+  .navbar-button-invert:hover {
+    background: #4454a1;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 24px rgba(0, 87, 255, 0.18);
+  }
+
+  /* ---------- NO ARROW ---------- */
+  .no-arrow::after,
+  .no-arrow::before {
+    display: none !important;
+  }
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 991px) {
+
+  .navbar-color {
+
+    /* collapse container */
+    .navbar-collapse {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px 12px;
+      gap: 14px;
+    }
+
+    /* nav list */
+    .navbar-nav {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100%;
+      gap: 0px;
+    }
+
+    /* each item */
+    .nav-item {
+      width: 100%;
+      height: auto;              /* 🔴 important */
+      justify-content: flex-start;
+    }
+
+    /* links */
+    a.navbar-link,
+    button.navbar-link {
+      width: 100%;
+      // padding: 12px 6px;
+      font-size: 1rem;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    /* ❌ desktop underline disable */
+    a.navbar-link::before,
+    button.navbar-link::before {
+      display: none !important;
+    }
+
+    /* ✅ active state mobile style */
+    .active-route {
+      color: #3cff19 !important;
+      border-bottom: 1px solid rgba(60, 255, 25, 0.6);
+      padding-bottom: 10px;
+    }
+
+
+    /* dropdown menu mobile */
+    .dropdown-menu {
+      position: static !important;
+      box-shadow: none;
+      background: #111;
+      margin-top: 6px;
+      padding-left: 12px;
+    }
+
+    /* buttons */
+    .navbar-button,
+    .navbar-button-invert {
+      width: 100%;
+      height: 44px;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+  }
+}
+
+/* ========== LANGUAGE SWITCHER (custom dropdown via JS in index.html) ========== */
+/* Styles are in global styles.scss — nothing needed here */

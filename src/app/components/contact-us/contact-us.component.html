@@ -1,0 +1,163 @@
+<!-- Trusted Choice -->
+<div class="container tw-font-montserrat">
+  <div class="tw-text-center p-5">
+    <h1 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4">
+      Contact Us
+    </h1>
+  </div>
+  <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4 md:tw-px-16">
+    <div class="text-white card tw-p-6">
+      <div class="pentagon">
+        <ng-icon class="icon" name="matLocationOn" size="60" color="#3cff19" />
+      </div>
+      <div class="tw-border-b-[1px] tw-border-b-white tw-py-4"></div>
+      <p class="tw-mt-4 tw-text-lg tw-font-extrabold tw-tracking-wider tw-text-center">
+        Registered Office
+      </p>
+      <p class="tw-text-sm tw-font-semibold tw-text-white tw-text-center">
+        4th Floor, Docks 4, The Docks, Caudan, Port Louis, Mauritius
+      </p>
+    </div>
+
+    <div class="text-white card tw-p-6">
+      <div class="pentagon">
+        <ng-icon class="icon" name="matMail" size="60" color="#3cff19" />
+      </div>
+      <div class="tw-border-b-[1px] tw-border-b-white tw-py-4"></div>
+      <p class="tw-mt-4 tw-text-lg tw-font-extrabold tw-text-center">
+        <a href="mailto:support@upforex.com" class="tw-text-white tw-no-underline">support&#64;upforex.com</a>
+      </p>
+      <p class="tw-text-sm tw-font-semibold tw-text-white tw-text-center">
+        For Public Inquiries
+      </p>
+    </div>
+
+    <div class="text-white card tw-p-6">
+      <div class="pentagon">
+        <ng-icon class="icon" name="matPhone" size="60" color="#3cff19" />
+      </div>
+      <div class="tw-border-b-[1px] tw-border-b-white tw-py-4"></div>
+      <p class="tw-mt-4 tw-text-lg tw-font-extrabold tw-text-center">
+
+
+      
+        <a href="tel:+23055004578" class="tw-text-white tw-no-underline">
+          +230 55004578
+        </a>
+
+
+      </p>
+      <p class="tw-text-sm tw-font-semibold tw-text-white tw-text-center">
+        MON - FRI, 9AM - 5PM
+      </p>
+    </div>
+  </div>
+  <section id="contact-us"></section>
+  <hr class="text-white tw-mt-10 md:tw-mt-16 tw-mb-6 md:tw-mb-12" />
+  <!-- Form -->
+
+  <p class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold text-center tw-mb-12">
+    Let's get in touch
+  </p>
+  <section class="md:tw-p-0 tw-mb-12">
+    <div class="tw-flex tw-justify-center tw-flex-col md:tw-flex-row tw-p-0 tw-gap-8 tw-px-6 sm:tw-px-6 ms:tw-px-0">
+      <div class="tw-w-full md:tw-w-1/2 tw-p-0">
+        <form class="tw-max-w-sm tw-mx-auto" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <label for="full-name" class="tw-block tw-mb-2 tw-text-lg tw-font-medium tw-text-white">Full Name</label>
+          <div class="tw-flex">
+            <span
+              class="tw-inline-flex tw-items-center tw-px-3 tw-text-sm tw-border tw-border-e-0 tw-rounded-s-md tw-bg-black">
+              <ng-icon color="#3cff19" name="matPerson" size="22" />
+            </span>
+
+            <select name="initials"
+              class="tw-inline-flex tw-items-center tw-px-3 tw-text-sm tw-border tw-border-e-0 tw-bg-black tw-text-white tw-outline-none tw-cursor-default select-wrapper"
+              (change)="changeSelect($event)">
+              <option *ngFor="let initial of initials" [value]="initial">
+                {{ initial }}
+              </option>
+            </select>
+            <input type="text" id="full-name"
+              class="tw-rounded-none tw-outline-none tw-text-white tw-rounded-e-lg tw-border tw-border-s-0 tw-block tw-flex-1 tw-min-w-0 tw-w-full tw-text-sm tw-p-2.5 tw-bg-black"
+              placeholder="Enter Full Name" formControlName="fullName" />
+          </div>
+          <p class="tw-mt-2 tw-text-sm tw-font-semibold tw-text-red-600" *ngIf="
+              contactForm.get('fullName')?.invalid &&
+              contactForm.get('fullName')?.touched
+            ">
+            This field is required.
+          </p>
+
+          <label for="email" class="tw-block tw-mt-6 tw-mb-2 tw-text-lg tw-font-medium tw-text-white">Email</label>
+          <div class="tw-flex">
+            <span
+              class="tw-inline-flex tw-items-center tw-px-3 tw-text-sm tw-border tw-border-e-0 tw-rounded-s-md tw-bg-black">
+              <ng-icon color="#3cff19" name="matMail" size="22" />
+            </span>
+            <input type="text" id="email"
+              class="tw-rounded-none tw-outline-none tw-text-white tw-rounded-e-lg tw-border tw-block tw-flex-1 tw-min-w-0 tw-w-full tw-text-sm tw-p-2.5 tw-bg-black"
+              placeholder="Enter Email" formControlName="email" />
+          </div>
+          <p *ngIf="
+              contactForm.get('email')?.invalid &&
+                contactForm.get('email')?.touched &&
+                !contactForm.get('email')?.hasError('email');
+              else emailValidError
+            " class="tw-mt-2 tw-text-sm tw-font-semibold tw-text-red-600">
+            This field is required.
+          </p>
+
+          <ng-template #emailValidError>
+            <p *ngIf="
+                contactForm.get('email')?.invalid &&
+                contactForm.get('email')?.touched &&
+                contactForm.get('email')?.hasError('email')
+              " class="tw-mt-2 tw-text-sm tw-font-semibold tw-text-red-600">
+              Please enter a valid email address.
+            </p>
+          </ng-template>
+
+          <label for="subject" class="tw-block tw-mt-6 tw-mb-2 tw-text-lg tw-font-medium tw-text-white">Subject</label>
+          <div class="tw-flex">
+            <span
+              class="tw-inline-flex tw-items-center tw-px-3 tw-text-sm tw-border tw-border-e-0 tw-rounded-s-md tw-bg-black">
+              <ng-icon color="#3cff19" name="matEdit" size="22" />
+            </span>
+            <input type="text" id="subject"
+              class="tw-rounded-none tw-outline-none tw-text-white tw-rounded-e-lg tw-border tw-block tw-flex-1 tw-min-w-0 tw-w-full tw-text-sm tw-p-2.5 tw-bg-black"
+              placeholder="Enter Subject" formControlName="subject" />
+          </div>
+          <p class="tw-mt-2 tw-text-sm tw-font-semibold tw-text-red-600" *ngIf="
+              contactForm.get('subject')?.invalid &&
+              contactForm.get('subject')?.touched
+            ">
+            This field is required.
+          </p>
+
+          <label for="message" class="tw-block tw-mt-6 tw-mb-2 tw-text-lg tw-font-medium tw-text-white">Message</label>
+
+          <div class="tw-flex">
+            <textarea id="message"
+              class="tw-rounded-lg tw-resize-none tw-outline-none tw-text-white tw-border tw-block tw-flex-1 tw-min-w-0 tw-w-full tw-text-sm tw-p-2.5 tw-bg-black"
+              placeholder="Enter Message" rows="4" formControlName="message"></textarea>
+          </div>
+          <p class="tw-mt-2 tw-text-sm tw-font-semibold tw-text-red-600" *ngIf="
+              contactForm.get('message')?.invalid &&
+              contactForm.get('message')?.touched
+            ">
+            This field is required.
+          </p>
+          <button class="btn btn-md tw-w-full tw-mt-4 text-white tw-mb-4 navbar-button-invert"
+            [ngClass]="contactForm.invalid ? 'btn-disabled' : 'btn-enabled'"
+            [disabled]="contactForm.invalid || isLoading">
+            {{ buttonName }}
+          </button>
+        </form>
+      </div>
+      <div class="tw-w-full md:tw-w-1/2 tw-flex tw-justify-center md:tw-items-start md:tw-mt-8">
+        <img [src]="s3URL + 'assets/images/JPG/contact-us.webp'" height="600" width="600" class="tw-rounded-2xl"
+          loading="lazy" alt="contact us" />
+      </div>
+    </div>
+  </section>
+</div>

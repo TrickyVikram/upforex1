@@ -1,0 +1,90 @@
+<div class="container tw-font-montserrat">
+  <div class="row py-2">
+    <div class="col-12 col-md-4 col-lg-4">
+      <select
+        (change)="changeSelect($event)"
+        class="form-select bg-dark text-white"
+        aria-label="Default select example"
+      >
+        <option value="1" selected>Forex</option>
+        <option value="7">Forex Timings</option>
+        <option value="2">Indices</option>
+        <option value="8">Indices Timings</option>
+        <option value="3">Commodities</option>
+        <option value="9">Commodities Timings</option>
+        <option value="4">Metals</option>
+        <option value="10">Metals Timings</option>
+        <option value="5">Cryptocurrencies</option>
+        <option value="11">Cryptocurrencies Timings</option>
+        <option value="6">Stocks</option>
+        <option value="12">Stocks Timings</option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="isSpecifications" class="row py-2">
+    <div
+      class="col-12 p-0 tw-max-h-[60vh] md:tw-max-h-[70vh] tw-overflow-auto table-responsive"
+    >
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th class="text-white tw-align-top">Instrument</th>
+            <th width="25%" class="text-white tw-align-top">Full Name</th>
+            <th width="14%" class="text-white">
+              Notional Value of contract size
+            </th>
+            <th class="text-white">Quote precision</th>
+            <th class="text-white">Minimum Order Size in Units</th>
+            <th class="text-white">Minimum Transaction Step</th>
+            <th class="text-white">Swap Long (points)</th>
+            <th class="text-white">Swap Short (points)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableContent" class="tw-text-sm">
+            <td>{{ item.instrument }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.notionalValue }}</td>
+            <td>{{ item.quotePrecision }}</td>
+            <td>{{ item.minOrderSize }}</td>
+            <td>{{ item.minTransactionStep }}</td>
+            <td class="!tw-text-themePrimary">{{ item.swapLong }}</td>
+            <td class="!tw-text-red-500">{{ item.swapShort }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="!isSpecifications" class="row py-2">
+    <div class="col-12">
+      <div class="col-12 p-0 table-responsive">
+        <table class="table table-dark table-hover">
+          <thead>
+            <tr>
+              <th class="text-white">Instrument</th>
+              <th class="text-white">Monday (GMT+0)</th>
+              <th class="text-white">Tuesday (GMT+0)</th>
+              <th class="text-white">Wednesday (GMT+0)</th>
+              <th class="text-white">Thursday (GMT+0)</th>
+              <th class="text-white">Friday (GMT+0)</th>
+              <th class="text-white">Saturday (GMT+0)</th>
+              <th class="text-white">Sunday (GMT+0)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of dayContent">
+              <td>{{ item.Instrument }}</td>
+              <td>{{ item.rest }}</td>
+              <td>{{ item.rest }}</td>
+              <td>{{ item.rest }}</td>
+              <td>{{ item.rest }}</td>
+              <td>{{ item.friday }}</td>
+              <td>{{ item.rest }}</td>
+              <td>{{ item.sunday }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

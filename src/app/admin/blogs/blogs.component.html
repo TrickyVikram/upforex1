@@ -1,0 +1,514 @@
+<app-data-table
+  [columns]="columns"
+  [data]="data"
+  (actionEmitter)="tableActions($event)"
+  [collectionSize]="totalPageSize"
+  [pageNum]="pageNum"
+  [pageLimit]="pageLimit"
+  (pageChangeEmitter)="handlePageChange($event)"
+  (pageSizeChangeEmitter)="handlePageSizeChange($event)"
+  (addActionEmitter)="createBlog()"
+  (searchEmitter)="handleSearch($event)"
+  (contentEmitter)="handleContent($event)"
+  [buttonTitle]="'Add Blog'"
+  [isLoading]="isDataLoading"
+></app-data-table>
+
+<ng-template #blogModal let-modal>
+  <div
+    class="tw-relative tw-bg-white tw-rounded-lg tw-shadow-xl tw-p-8 tw-max-w-2xl tw-mx-auto"
+  >
+    <!-- Close button -->
+    <button
+      tabindex="-1"
+      type="button"
+      class="tw-absolute tw-right-2 tw-top-4 tw-text-gray-600 hover:tw-text-gray-900"
+      (click)="modal.dismiss()"
+    >
+      <svg
+        class="tw-w-6 tw-h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+
+    <div class="tw-text-center tw-mb-8">
+      <p class="tw-font-bold tw-text-3xl tw-text-themePrimary">
+        {{ isUpdate ? "Update" : "Create" }} Blog
+      </p>
+    </div>
+
+    <div>
+      <form
+        [formGroup]="blogForm"
+        enctype="multipart/form-data"
+        (ngSubmit)="handleAddUpdateBlog()"
+      >
+        <!-- Title and Meta Title in one row -->
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-1/2 tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Title</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Title"
+              formControlName="title"
+              (change)="createPermaLink($event)"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.title.invalid &&
+                blogForm.controls.title.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.title.errors?.required">
+                Title is required
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-w-1/2 tw-pl-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Meta Title</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Meta Title"
+              formControlName="metaTitle"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.metaTitle.invalid &&
+                blogForm.controls.metaTitle.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.metaTitle.errors?.required">
+                Meta Title is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description and Content -->
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-full tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Description</label
+            >
+            <textarea
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Description"
+              formControlName="description"
+              rows="3"
+            ></textarea>
+
+            <div
+              *ngIf="
+                blogForm.controls.description.invalid &&
+                blogForm.controls.description.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.description.errors?.required">
+                Description is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-full">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700">
+              Content
+            </label>
+            <angular-editor
+              formControlName="content"
+              [config]="editorConfig"
+            ></angular-editor>
+
+            <div
+              *ngIf="
+                blogForm.controls.content.invalid &&
+                blogForm.controls.content.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.content.errors?.required">
+                Content is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image and Video in one row -->
+        <div class="tw-flex tw-mb-6 lg:tw-items-end">
+          <div class="tw-w-1/2 tw-pr-2 tw-relative">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Image</label
+            >
+            <ng-container *ngIf="mediaFiles.image.previewUrl">
+              <img
+                [src]="mediaFiles.image.previewUrl"
+                style="
+                  object-fit: contain;
+                  min-height: 150px;
+                  min-width: 220px;
+                  max-height: 150px;
+                  max-width: 220px;
+                  margin-top: 1rem;
+                "
+              />
+              <button
+                class="btn-close"
+                type="button"
+                (click)="handleFileClear('image')"
+              ></button>
+            </ng-container>
+            <input
+              type="file"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              formControlName="imageUrl"
+              accept="image/*"
+              (change)="handleFileChange($event, 'image')"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.imageUrl.invalid &&
+                blogForm.controls.imageUrl.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.imageUrl.errors?.required">
+                Image is required
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-w-1/2 tw-pl-2 tw-relative">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Video</label
+            >
+            <ng-container *ngIf="mediaFiles.video.previewUrl">
+              <video
+                [controls]="false"
+                [muted]="true"
+                autoplay
+                loop
+                [src]="mediaFiles.video.previewUrl"
+                style="
+                  object-fit: contain;
+                  min-height: 150px;
+                  min-width: 220px;
+                  max-height: 150px;
+                  max-width: 220px;
+                  margin-top: 1rem;
+                "
+              ></video>
+              <button
+                class="btn-close"
+                type="button"
+                (click)="handleFileClear('video')"
+              ></button>
+            </ng-container>
+            <input
+              type="file"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              formControlName="videoUrl"
+              accept="video/*"
+              (change)="handleFileChange($event, 'video')"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.videoUrl.invalid &&
+                blogForm.controls.videoUrl.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.videoUrl.errors?.required">
+                Video is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Field and Categories in one row -->
+        <div class="tw-flex tw-mb-6 lg:tw-items-end">
+          <div class="tw-w-1/2 tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Text Field</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Text Field"
+              formControlName="textField"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.textField.invalid &&
+                blogForm.controls.textField.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.textField.errors?.required">
+                Text Field is required
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-w-1/2 tw-pl-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Categories
+            </label>
+            <ng-select
+              [items]="categoriesData"
+              bindLabel="label"
+              bindValue="value"
+              [multiple]="true"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2 custom-placeholder"
+              formControlName="categories"
+              [placeholder]="
+                blogForm.controls.categories.value &&
+                blogForm.controls.categories.value.length
+                  ? ''
+                  : 'Select Categories'
+              "
+            ></ng-select>
+            <div
+              *ngIf="
+                blogForm.controls.categories.invalid &&
+                blogForm.controls.categories.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.categories.errors?.required">
+                Categories are required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Alt Tag and Video Alt Tag in one row -->
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-1/2 tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Image Alt Tag</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Image Alt Tag"
+              formControlName="imageAltTag"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.imageAltTag.invalid &&
+                blogForm.controls.imageAltTag.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.imageAltTag.errors?.required">
+                Image Alt Tag is required
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-w-1/2 tw-pl-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Video Alt Tag</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Video Alt Tag"
+              formControlName="videoAltTag"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.videoAltTag.invalid &&
+                blogForm.controls.videoAltTag.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.videoAltTag.errors?.required">
+                Video Alt Tag is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-full tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Tags</label
+            >
+            <ng-select
+              [items]="tagsItems"
+              bindLabel="value"
+              bindValue="id"
+              [addTag]="addCustomTags"
+              [multiple]="true"
+              formControlName="tags"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2 custom-placeholder"
+              [placeholder]="
+                blogForm.controls.tags.value &&
+                blogForm.controls.tags.value.length
+                  ? ''
+                  : 'Select Tags'
+              "
+            >
+            </ng-select>
+            <div
+              *ngIf="
+                blogForm.controls.tags.invalid && blogForm.controls.tags.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.tags.errors?.required">
+                Tags are required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-mb-6">
+          <div class="tw-w-1/2 tw-pr-2">
+            <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+              >Permalink</label
+            >
+            <input
+              type="text"
+              class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+              placeholder="Enter Title"
+              formControlName="permaLink"
+            />
+            <div
+              *ngIf="
+                blogForm.controls.permaLink.invalid &&
+                blogForm.controls.permaLink.touched
+              "
+              class="tw-text-red-500 tw-text-xs tw-mt-1"
+            >
+              <div *ngIf="blogForm.controls.permaLink.errors?.required">
+                PermaLink is required
+              </div>
+            </div>
+          </div>
+          <div class="tw-w-1/2 tw-pr-2">
+            <div class="tw-pr-2 tw-relative">
+              <label class="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                >Featured Image</label
+              >
+              <ng-container *ngIf="mediaFiles.featuredImage.previewUrl">
+                <img
+                  [src]="mediaFiles.featuredImage.previewUrl"
+                  style="
+                    object-fit: contain;
+                    min-height: 150px;
+                    min-width: 220px;
+                    max-height: 150px;
+                    max-width: 220px;
+                    margin-top: 1rem;
+                  "
+                />
+                <button
+                  class="btn-close"
+                  type="button"
+                  (click)="handleFileClear('featuredImage')"
+                ></button>
+              </ng-container>
+              <input
+                type="file"
+                class="tw-shadow-md tw-focus:tw-ring-2 tw-focus:tw-ring-blue-500 tw-block tw-w-full tw-sm:tw-text-sm tw-border-gray-300 tw-rounded-lg tw-p-3 tw-mt-2"
+                formControlName="featuredImageUrl"
+                accept="image/*"
+                (change)="handleFileChange($event, 'featuredImage')"
+              />
+              <div
+                *ngIf="
+                  blogForm.controls.featuredImageUrl.invalid &&
+                  blogForm.controls.featuredImageUrl.touched
+                "
+                class="tw-text-red-500 tw-text-xs tw-mt-1"
+              >
+                <div
+                  *ngIf="blogForm.controls.featuredImageUrl.errors?.required"
+                >
+                  Featured Image is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary tw-w-full"
+          [disabled]="blogForm.invalid || isLoading"
+        >
+          {{ isUpdate ? "Update" : "Create" }} Blog
+          <ng-container *ngIf="isLoading">
+            <div
+              class="spinner-border tw-text-white"
+              role="status"
+              style="width: 1rem; height: 1rem"
+            ></div>
+          </ng-container>
+        </button>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #deleteConfirmation let-modal>
+  <div class="modal-body tw-p-7">
+    <button
+      tabindex="-1"
+      class="btn-close tw-absolute !tw-right-2 !tw-top-2"
+      type="button"
+      (click)="modal.dismiss()"
+    ></button>
+    <h2 class="tw-font-medium tw-text-sm mb-2">
+      {{ deleteModalMessage }}
+    </h2>
+
+    <div class="tw-mt-10 tw-flex tw-flex-row-reverse tw-gap-2">
+      <button
+        class="btn btn-sm btn-danger"
+        [disabled]="isLoading"
+        (click)="handleBlogDelete(removeVideoModal !== null)"
+      >
+        Yes
+      </button>
+      <button class="btn btn-sm btn-light" (click)="handleModal(modal)">
+        No
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #contentModal let-modal>
+  <button
+    tabindex="-1"
+    class="btn-close tw-z-10"
+    type="button"
+    (click)="modal.dismiss()"
+  ></button>
+  <div
+    class="tw-p-8 tw-pt-12"
+    [innerHTML]="blogForm.controls.content.value | sanitizeHtml"
+  ></div>
+</ng-template>

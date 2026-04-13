@@ -1,0 +1,160 @@
+<div class="container tw-font-montserrat">
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <p
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+    >
+      Forex Trading Overview
+    </p>
+    <p
+      class="tw-text-xl tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+    >
+      MetaTrader 5 Features
+    </p>
+    <p
+      class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+    >
+      MetaTrader 5 provides robust tools for tracking open positions,
+      calculating profit/loss, and managing account equity. It offers full
+      back-office functionality, allowing traders to monitor account metrics
+      effectively. Despite the automation, understanding manual calculations
+      ensures better decision-making and risk management.
+    </p>
+    <p
+      class="tw-text-xl tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Major Currency Pairs
+    </p>
+    <p
+      class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Popular pairs include:
+    </p>
+    <div class="table-responsive">
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th class="tw-text-themePrimary">Term</th>
+            <th class="tw-text-themePrimary">Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of currencyPairs">
+            <td>{{ item.pair }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p
+      class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      These pairs dominate trading due to their high liquidity and narrow
+      spreads.
+    </p>
+  </div>
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <p
+      class="tw-text-xl tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Currency Mechanics
+    </p>
+    <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">Base Currency : </b>
+      The first currency in a pair; determines the trade size.
+    </p>
+    <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">Quote Currency : </b>
+      The second currency; used for profit/loss calculations.
+    </p>
+    <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">Example : </b>
+      n EUR/USD, EUR is the base currency, and USD is the quote.
+    </p>
+    <p
+      class="tw-text-lg tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Margin and Leverage Requirements
+    </p>
+    <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">Margin : </b>
+      A minimum of $1,000 is required for 1 standard lot (100,000 units),
+      corresponding to 1% of trade size.
+    </p>
+    <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">Leverage : </b>
+      Allows traders to control large positions with minimal capital, often
+      1:100.
+    </p>
+    <!-- <p
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      ICM requires no maintenance margin but auto-closes positions if equity
+      falls below 5% of the margin requirement.
+    </p> -->
+  </div>
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <p
+      class="tw-text-lg tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Profit/Loss Examples
+    </p>
+    <div class="row">
+      <div class="col-12 col-lg-6 col-md-6 col-xl-6">
+        <p
+          class="tw-text-themePrimary tw-text-lg tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          EUR/USD Trade:
+        </p>
+        <p class="tw-text-lg tw-text-white tw-tracking-wide tw-leading-relaxed">
+          Buy 5 lots at 1.3450 → Sell at 1.3490 = $2,000 profit.
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          Calculation: ( 1.3490 − 1.3450 ) × 5 × 100 ,
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          000 (1.3490−1.3450)×5×100,000.
+        </p>
+      </div>
+      <div class="col-12 col-lg-6 col-md-6 col-xl-6">
+        <p
+          class="tw-text-themePrimary tw-text-lg tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          USD/CHF Trade:
+        </p>
+        <p class="tw-text-lg tw-text-white tw-tracking-wide tw-leading-relaxed">
+          Sell 3 lots at 0.8982 → Buy at 0.8924 = CHF 1,740 profit.
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          Converted to USD:
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          Profit in CHF ÷ Close Price
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tw-w-full tw-p-0 tw-text-white md:tw-p-4 text-center tw-text-base"
+  >
+    This structured approach ensures clarity in trade planning and evaluation.
+  </div>
+</div>

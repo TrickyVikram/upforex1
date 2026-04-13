@@ -1,0 +1,62 @@
+<!-- <section class="up-hero up-container">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a routerLink="/">Home</a> <span class="homu">/</span> <span aria-current="page" style="margin-left: 1px;" > Legal Documents</span>
+  </nav>
+  <h1 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4">Legal Documents</h1>
+  <p class="muted">Official documents for UP Global Markets Ltd (Mauritius). View or download the latest versions below.</p>
+</section> -->
+
+<section class="up-container" aria-labelledby="docs-title">
+  <h2 id="docs-title" class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4">All Documents</h2>
+
+  <div class="up-grid">
+    <article
+      class="up-card"
+      *ngFor="let doc of docs"
+      [attr.data-doc]="doc.slug"
+      itemscope
+      itemtype="https://schema.org/CreativeWork"
+    >
+      <h3 itemprop="name" class="muted">{{ doc.name }}</h3>
+      <p class="muted" itemprop="about">{{ doc.about }}</p>
+
+      <div class="row justify">
+        <div class="row" role="group" aria-label="actions">
+          <a class="btn"
+             [href]="doc.viewUrl"
+             target="_blank"
+             rel="noopener"
+             [attr.aria-label]="'View ' + doc.name + ' PDF'"
+             (click)="onView(doc)">
+            <span class="icon" aria-hidden="true"></span> View PDF
+          </a>
+        
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- <section class="up-container">
+  <div class="up-card">
+    <h2 class="h2-tight">Need help choosing the right document?</h2>
+    <p class="muted">Contact our 24/7 support team. We’ll guide you to the correct policy for your case.</p>
+    <div class="row gap8">
+      <a class="btn" routerLink="/contact-us">Contact Us</a>
+      <a class="btn" href="mailto:support@upforex.com">Email Support</a>
+      <button class="btn" type="button" (click)="openLiveChat()">Open Live Chat</button>
+    </div>
+  </div>
+</section> -->
+
+<section class="up-container up-footer-note" role="note">
+  <div class="up-card">
+    <p>
+      Trading leveraged products involves a high level of risk and may not be suitable for all investors.
+      Please read the relevant documents carefully before you decide whether to acquire any product.
+    </p>
+    <!-- <p class="muted">UP Global Markets Ltd (Mauritius) — Company No. [PLACEHOLDER]. Licensed by [Regulator Placeholder].</p> -->
+  </div>
+</section>
+
+

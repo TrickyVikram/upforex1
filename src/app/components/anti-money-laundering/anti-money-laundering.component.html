@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="row gap-2">
+        <h1 class="tw-font-montserrat text-center text-white">
+          Anti-Money Laundering (AML) Policy Statement
+        </h1>
+        <p class="p-0 text-center text-white tw-font-montserrat">
+          Issued by UP Global Markets Ltd.
+        </p>
+        <p class="p-0 text-white tw-font-montserrat">
+          UP Global Markets Ltd. is fully committed to the prevention of money laundering
+          and the financing of terrorism. We adhere to international standards
+          and applicable legal requirements to detect, deter, and report
+          suspicious financial activities.
+        </p>
+      </div>
+    </div>
+    <h5 class="tw-font-montserrat tw-text-gray-100">Our Commitments</h5>
+    <div *ngFor="let compliance of commitmentsArray; let i = index" class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        {{ i + 1 }}. {{ compliance.compliance_area }}
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        {{ compliance.description }}
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Client Responsibility
+      </h5>
+      <p class="tw-text-gray-200">
+        Clients must ensure that all funds deposited into their trading accounts
+        are derived from legitimate sources.
+      </p>
+      <p class="tw-text-gray-200">
+        It is strictly prohibited to use UpForex accounts for illegal
+        activities, including money laundering or terrorism financing.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Zero Tolerance Policy
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        UP Global Markets Ltd. has a zero-tolerance policy toward money laundering and
+        reserves the right to refuse or terminate accounts where activities are
+        suspected to contravene AML/CTF regulations.
+      </p>
+    </div>
+    <div class="row">
+      <h5 class="tw-font-montserrat tw-text-gray-100 tw-font-bold">
+        Safeguarding the Financial System
+      </h5>
+      <p class="tw-text-gray-200 tw-ml-4 tw-font-montserrat">
+        Our commitment to AML compliance is part of a broader effort to maintain
+        the integrity of the financial system and to ensure a safe and
+        transparent trading environment for all our clients.
+      </p>
+      <p class="tw-text-gray-200 tw-font-montserrat">
+        By using our services, clients acknowledge and agree to comply with
+        UP Global Markets Ltd.’s AML policies and procedures.
+      </p>
+    </div>
+  </div>
+</div>

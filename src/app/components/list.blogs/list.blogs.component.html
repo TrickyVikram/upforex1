@@ -1,0 +1,75 @@
+<div class="container tw-font-montserrat">
+  <div class="tw-text-center">
+    <h1
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4"
+    >
+      Blogs
+    </h1>
+  </div>
+</div>
+<div
+  class="tw-flex tw-w-full tw-justify-center tw-items-center tw-mt-8 tw-h-[60vh]"
+  *ngIf="isLoading"
+>
+  <div
+    class="spinner-border tw-text-white"
+    role="status"
+    style="width: 3rem; height: 3rem"
+  ></div>
+</div>
+<div *ngIf="!isLoading" class="container py-5">
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 p-0 col-md-6 col-lg-3" *ngFor="let article of articles">
+      <a
+        [routerLink]="['/blogs', article.permaLink]"
+        class="text-decoration-none"
+      >
+        <div class="card article-card">
+          <div class="card-header">
+            <img
+              [src]="s3URL + article.featuredImageUrl"
+              class="img-fluid rounded article-image mb-3"
+              [alt]="article.imageAltTag"
+            />
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <span class="article-time">
+                <ng-icon name="matDateRange"></ng-icon>
+                {{ article.createdAt.slice(0, 10) }}</span
+              >
+            </div>
+            <h5 class="article-title d-block mb-3 text-white">
+              {{ article.title }}
+            </h5>
+          </div>
+          <div class="card-footer mb-2 d-flex justify-content-between">
+            <ng-container *ngIf="article.categories.length">
+              <a class="article-tag">
+                {{ article.categories[0].categoryName }}
+              </a>
+            </ng-container>
+            <a
+              [routerLink]="['/blogs', article.permaLink]"
+              class="btn text-white"
+              >Read More <ng-icon name="matOpenInNew"></ng-icon
+            ></a>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row my-2" *ngIf="articles.length != totalPageSize">
+    <div class="col-12 d-flex justify-content-center">
+      <button
+        [disabled]="isLoading"
+        (click)="loadMore()"
+        type="button"
+        class="mt-2 blog-load-more-btn"
+      >
+        Load More
+      </button>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

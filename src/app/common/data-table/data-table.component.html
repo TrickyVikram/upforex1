@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="tw-my-6 tw-flex tw-gap-6 tw-flex-col md:tw-flex-row-reverse">
+    <input
+      class="form-control sm"
+      type="text"
+      placeholder="Search"
+      [formControl]="searchTerm"
+      [readonly]="isLoading"
+    />
+    <button
+      class="btn btn-outline-success tw-w-full lg:tw-w-[15%]"
+      (click)="addActionEmitter.emit()"
+      [disabled]="isLoading"
+    >
+      {{ buttonTitle }}
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th
+            scope="col"
+            *ngFor="let column of columns; let i = index"
+            [class.tw-text-end]="i === columns.length - 1"
+          >
+            {{ column.name }}
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ng-container *ngIf="isLoading; else dataLoaded">
+          <tr>
+            <td colspan="100%" class="text-center py-4">
+              <div
+                class="spinner-border tw-text-white"
+                role="status"
+                style="width: 2.5rem; height: 2.5rem"
+              ></div>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #dataLoaded>
+          <tr *ngIf="!data.length">
+            <td colspan="100%" class="tw-text-center tw-text-xl tw-font-bold">
+              No data found
+            </td>
+          </tr>
+
+          <tr *ngFor="let item of data" class="tw-align-middle">
+            <td *ngFor="let column of columns; let i = index">
+              <ng-container *ngIf="column.key === 'actions'">
+                <div
+                  class="tw-flex tw-items-center tw-gap-4"
+                  [class.!tw-justify-end]="i === columns.length - 1"
+                >
+                  <div *ngFor="let action of column.actions">
+                    <button
+                      class="btn btn-sm !tw-flex !tw-items-center !tw-gap-2"
+                      [class]="action.class"
+                      (click)="handleActions(action, item)"
+                    >
+                      <ng-icon name="{{ action.icon }}" size="16"></ng-icon>
+                    </button>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- <ng-container *ngIf="column.type === 'image'">
+                <img
+                  [src]="s3BaseUrl + item[column.key]"
+                  height="80"
+                  width="80"
+                />
+              </ng-container>
+
+              <ng-container *ngIf="column.type === 'video'">
+                <video
+                  [controls]="false"
+                  autoplay
+                  loop
+                  [src]="s3BaseUrl + item[column.key]"
+                  height="80"
+                  width="80"
+                  [muted]="true"
+                ></video>
+              </ng-container> -->
+
+              <ng-container *ngIf="column.key === 'content'">
+                <button
+                  class="btn btn-sm btn-outline-primary !tw-flex"
+                  (click)="contentEmitter.emit(item)"
+                >
+                  <ng-icon name="matRemoveRedEyeOutline" size="16"></ng-icon>
+                </button>
+              </ng-container>
+
+              <ng-container
+                *ngIf="
+                  column.key !== 'actions' &&
+                  column.type !== 'image' &&
+                  column.type !== 'video' &&
+                  column.key !== 'content'
+                "
+              >
+                {{
+                  item[column.key] && item[column.key].toString().length > 20
+                    ? item[column.key].toString().substring(0, 20) + "..."
+                    : item[column.key]
+                }}
+              </ng-container>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex justify-content-between p-2" *ngIf="data.length">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [page]="pageNum"
+      [pageSize]="pageLimit"
+      (pageChange)="handlePageChange($event)"
+    >
+    </ngb-pagination>
+
+    <select
+      class="form-select sm"
+      style="width: auto"
+      [value]="pageLimit"
+      name="pageSize"
+      (change)="handlePageSizeChange($event)"
+    >
+      <option value="5">5 items per page</option>
+      <option value="10">10 items per page</option>
+      <option value="25">25 items per page</option>
+      <option value="50">50 items per page</option>
+      <option value="100">100 items per page</option>
+    </select>
+  </div>
+</div>

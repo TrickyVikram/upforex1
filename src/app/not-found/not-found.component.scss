@@ -1,0 +1,46 @@
+.upforex-404-wrapper {
+  height: 100vh;
+  background: linear-gradient(to right, #0a0f1f, #10142a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.upforex-404-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 50px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(61, 255, 26, 0.1);
+
+  h1 {
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: #3dff1a;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+
+  .btn-back-home {
+    padding: 12px 30px;
+    background: #3cff19;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #3cff19bb;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+// .navbar {
+//   box-shadow: 0px -1px 23px 0px aliceblue;
+// }
+.navbar-color {
+  // background-color: #0e1120 !important;
+  // background-color: #042326 !important;
+  background-color: #0d0d0d !important;
+  .navbar-brand {
+    transition: background-size 0.25s ease-in;
+  }
+  .nav-item {
+    text-align: center;
+    width: 100%;
+  }
+  .navbar-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+    border: 1px solid transparent;
+    // position: relative;
+    // display: inline-block;
+    // background: linear-gradient(
+    //   90deg,
+    //   rgba(68, 84, 161, 1) 0%,
+    //   rgba(81, 183, 72, 1) 62%
+    // );
+    // background-repeat: no-repeat;
+    // background-size: 100% 2px;
+    // background-position: 0 100%;
+    // transition: all 0.25s ease-in;
+
+    &:hover {
+      border-radius: 5px;
+      // background-color: #363843;
+      background-size: 100%;
+      border: 1px solid #3cff19;
+    }
+  }
+  .active-route {
+    // background-size: 100% 100%;
+    background-color: transparent;
+    border: 1px solid #3cff19;
+    width: 100%;
+  }
+  .navbar-button-invert {
+    color: white;
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+    text-align: center;
+    border-radius: 5px;
+    // box-shadow: 0px 0px 149px 0px #3cff19;
+    border: 3px solid #3cff19;
+    background-color: #3cff19;
+    &:hover {
+      border-radius: 10px;
+      background-color: transparent;
+    }
+  }
+  .navbar-toggler {
+    line-height: 2 !important;
+  }
+  .toggle-button {
+    background: linear-gradient(to right, #4454a1, #3cff19);
+    color: transparent;
+    background-clip: text;
+  }
+
+  .toggler-button {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+.active-route {
+  color: linear-gradient(to right, #4454a1, #3cff19);
+  background-color: #363843;
+  border-radius: 5px;
+  // box-shadow: 0px 0px 149px 0px #3cff19;
+  box-shadow: 0px 0px 60px -10px #3cff19;
+}

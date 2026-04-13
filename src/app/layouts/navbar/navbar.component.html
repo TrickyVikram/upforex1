@@ -1,0 +1,331 @@
+<div class="container-fluid p-0">
+  <nav
+    class="navbar sticky-top p-3 navbar-expand-lg navbar-dark bg-dark navbar-color"
+    [ngClass]="{
+      'tw-h-screen': !isMenuCollapsed,
+      'tw-overflow-auto': !isMenuCollapsed,
+      '!tw-items-start': !isMenuCollapsed,
+    }"
+  >
+    <div class="container">
+      <a class="navbar-brand d-flex gap-1" [routerLink]="'/'">
+        <!-- <img
+          loading="lazy"
+          [src]="s3URL + 'assets/images/PNG/logo png-01.webp'"
+          style="height: 66px; width: 150px; object-fit: contain"
+        /> -->
+        <img
+          loading="lazy"
+          src="../../../assets/images/updated-logos/logo-1.webp"
+          style="height: 50px; width: 120px; object-fit: contain"
+          alt="upforex logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler toggler-button"
+        type="button"
+        (click)="isMenuCollapsed = !isMenuCollapsed"
+      >
+        <span class="toggle-button"
+          ><i class="fa-xl fa-solid fa-bars"></i
+        ></span>
+      </button>
+      <div
+        [ngbCollapse]="isMenuCollapsed"
+        class="collapse navbar-collapse tw-text-2xl md:tw-text-lg lg:tw-text-base"
+      >
+        <ul
+          class="navbar-nav d-lfex tw-gap-0 justify-content-center !tw-items-center w-100 tw-mt-6 lg:tw-mt-0"
+        >
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/'"
+              routerLinkActive="active-route"
+              (click)="dropDownBtnClicked('', '')"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ "nav.home" | translate }}</a
+            >
+          </li>
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/about-us'"
+              routerLinkActive="active-route"
+              (click)="dropDownBtnClicked('', '')"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ "nav.about" | translate }}</a
+            >
+          </li>
+          <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center"
+            >
+              <button
+                type="button"
+                class="nav-link navbar-link"
+                id="products"
+                ngbDropdownToggle
+                [ngClass]="menuName === 'products' ? 'active-route' : ''"
+              >
+                {{ "nav.products" | translate }}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="products">
+                <button
+                  ngbDropdownItem
+                  [routerLink]="menu.routerLink"
+                  *ngFor="let menu of productsDropdown"
+                  (click)="
+                    dropDownBtnClicked(
+                      menu.name.split(' ').join('').toLowerCase(),
+                      'products'
+                    )
+                  "
+                  [ngClass]="
+                    menu.name.split(' ').join('').toLowerCase() === subMenuName
+                      ? 'active-route'
+                      : ''
+                  "
+                >
+                  {{ menu.name }}
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center"
+            >
+              <button
+                type="button"
+                class="nav-link navbar-link"
+                id="accounts"
+                [ngClass]="
+                  menuName === 'accounts' || menuName === 'platforms'
+                    ? 'active-route'
+                    : ''
+                "
+                ngbDropdownToggle
+              >
+                {{ "nav.trading" | translate }}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="accounts">
+                <button
+                  ngbDropdownItem
+                  [routerLink]="menu.routerLink"
+                  *ngFor="let menu of accountsDropdown; let i = index"
+                  (click)="
+                    dropDownBtnClicked(
+                      menu.name.split(' ').join('').toLowerCase(),
+                      'accounts',
+                      i
+                    )
+                  "
+                  [ngClass]="i === selectedIndex ? 'active-route' : ''"
+                >
+                  {{ menu.name }}
+                </button>
+              </div>
+            </div>
+          </li>
+          <!-- <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center"
+            >
+              <button
+                type="button"
+                class="nav-link navbar-link"
+                id="platforms"
+                [ngClass]="menuName === 'platforms' ? 'active-route' : ''"
+                ngbDropdownToggle
+              >
+                Platforms
+              </button>
+              <div ngbDropdownMenu aria-labelledby="platforms">
+                <button
+                  ngbDropdownItem
+                  [routerLink]="menu.routerLink"
+                  *ngFor="let menu of platformDropdown"
+                  [ngClass]="subMenuName === 'mt5' ? 'active-route' : ''"
+                  (click)="dropDownBtnClicked('mt5', 'platforms')"
+                >
+                  {{ menu.name }}
+                </button>
+              </div>
+            </div>
+          </li> -->
+          <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center"
+            >
+              <button
+                type="button"
+                class="nav-link navbar-link"
+                id="platforms"
+                [ngClass]="menuName === 'partnerships' ? 'active-route' : ''"
+                ngbDropdownToggle
+              >
+                {{ "nav.partnerships" | translate }}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="platforms">
+                <button
+                  ngbDropdownItem
+                  [routerLink]="menu.routerLink"
+                  *ngFor="let menu of partnershipDropdown"
+                  (click)="
+                    dropDownBtnClicked(
+                      menu.name.split(' ').join('').toLowerCase(),
+                      'partnerships'
+                    )
+                  "
+                  [ngClass]="
+                    menu.name.split(' ').join('').toLowerCase() === subMenuName
+                      ? 'active-route'
+                      : ''
+                  "
+                >
+                  {{ menu.name }}
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center"
+            >
+              <button
+                type="button"
+                class="nav-link navbar-link"
+                id="platforms"
+                [ngClass]="menuName === 'resources' ? 'active-route' : ''"
+                ngbDropdownToggle
+              >
+                {{ "nav.resources" | translate }}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="platforms">
+                <button
+                  ngbDropdownItem
+                  [routerLink]="menu.routerLink"
+                  *ngFor="let menu of resourceDropdown"
+                  (click)="
+                    dropDownBtnClicked(
+                      menu.name.split(' ').join('').toLowerCase(),
+                      'resources'
+                    )
+                  "
+                  [ngClass]="
+                    menu.name.split(' ').join('').toLowerCase() === subMenuName
+                      ? 'active-route'
+                      : ''
+                  "
+                >
+                  {{ menu.name }}
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/contact-us'"
+              routerLinkActive="active-route"
+              (click)="dropDownBtnClicked('', '')"
+              >{{ "nav.contact" | translate }}</a
+            >
+          </li>
+          <li class="nav-item mt-1">
+            <a
+              class="nav-link navbar-link"
+              [routerLink]="'/blogs'"
+              routerLinkActive="active-route"
+              (click)="dropDownBtnClicked('', 'blogs')"
+              >{{ "nav.blogs" | translate }}</a
+            >
+          </li>
+
+          <!-- Language Dropdown with Flag and Code -->
+          <li class="nav-item mt-1 dropdown">
+            <div
+              ngbDropdown
+              class="d-flex !tw-w-full !tw-flex-col tw-justify-center notranslate"
+            >
+              <!-- mark notranslate so external google scripts don't rewrite innerHTML -->
+              <button
+                type="button"
+                class="nav-link navbar-link tw-flex tw-items-center tw-gap-2 notranslate"
+                id="languages"
+                ngbDropdownToggle
+                (click)="$event.stopPropagation()"
+              >
+                <span class="tw-mr-2">{{ currentLanguage.flag }}</span>
+                <span>{{ currentLanguage.code.toUpperCase() }}</span>
+              </button>
+              <div
+                ngbDropdownMenu
+                aria-labelledby="languages"
+                class="notranslate"
+              >
+                <button
+                  ngbDropdownItem
+                  *ngFor="let lang of languages"
+                  (click)="changeLanguage(lang.code); $event.stopPropagation()"
+                  [ngClass]="
+                    lang.code === currentLanguage.code ? 'active-route' : ''
+                  "
+                  class="tw-flex tw-items-center tw-gap-3 notranslate"
+                >
+                  <span class="tw-text-lg tw-mr-2">{{ lang.flag }}</span>
+                  <span class="tw-text-sm tw-text-gray-400">{{
+                    lang.name
+                  }}</span>
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Register and Sign In buttons -->
+          <li
+            class="nav-item mt-1 d-flex align-items-center tw-w-full tw-flex-col lg:tw-flex-row tw-gap-2"
+          >
+            <a
+              class="tw-text-white tw-no-underline tw-w-full lg:tw-w-auto"
+              href="https://client.upforex.live/?tab=register"
+              target="_blank"
+            >
+              <button class="px-4 py-2 !w-100 navbar-button-invert">
+                {{ "auth.register" | translate }}
+              </button>
+            </a>
+            <a
+              class="tw-text-white tw-no-underline tw-w-full lg:tw-w-auto"
+              href="https://client.upforex.live"
+              target="_blank"
+            >
+              <button class="py-2 w-100 navbar-button">
+                {{ "auth.signIn" | translate }}
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid p-0">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="tw-my-4"></div>
+  <!-- <div class="container diff tw-flex tw-flex-col tw-gap-8">
+    <div></div>
+    <div></div>
+  </div> -->
+  <!-- Social Media -->
+  <app-social-menu></app-social-menu>
+  <!-- Copyright and disclaimer -->
+  <app-disclaimer></app-disclaimer>
+</div>

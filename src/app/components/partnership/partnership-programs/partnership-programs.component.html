@@ -1,0 +1,63 @@
+<div class="container tw-font-montserrat">
+  <div class="md:tw-p-0 tw-p-8" *ngFor="let item of partnershipPrograms">
+    <div
+      class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-4 tw-p-0 tw-gap-8"
+    >
+      <div class="tw-w-full tw-p-0 md:tw-px-12">
+        <p
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4"
+        >
+          {{ item.heading }}
+        </p>
+        <p
+          class="tw-text-sm !tw-mb-2 tw-text-gray-300 tw-tracking-wide tw-leading-relaxed"
+          *ngFor="let headindPrimary of item.headingPrimary"
+        >
+          {{ headindPrimary }}
+        </p>
+
+        <div *ngFor="let headingSecondary of item.headingSecondary">
+          <p
+            class="tw-text-base tw-text-gray-300 tw-font-bold !tw-mb-0 tw-tracking-wider tw-leading-relaxed"
+          >
+            {{ headingSecondary.heading }}
+          </p>
+          <p
+            class="tw-text-sm tw-text-gray-200 tw-tracking-wider tw-leading-relaxed"
+          >
+            {{ headingSecondary.text }}
+          </p>
+
+          <div
+            class="my-3 d-flex flex-column gap-3 tw-items-start"
+            *ngIf="headingSecondary.list"
+          >
+            <div
+              class="d-flex gap-2 tw-items-center"
+              *ngFor="let content of headingSecondary.list"
+            >
+              <i
+                class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+              ></i>
+              <h5 class="tw-text-gray-200 tw-ml-2 tw-text-base !tw-mb-0">
+                <span class="text-white"
+                  ><b>{{ content.boldText }} </b></span
+                >
+                {{ content.text }}
+              </h5>
+            </div>
+          </div>
+          <div *ngIf="headingSecondary.buttonText">
+            <button
+              class="btn text-white tw-mb-4"
+              routerLink="/contact-us"
+              fragment="contact-us"
+            >
+              {{ headingSecondary.buttonText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,656 @@
+/* Terms form specific styles */
+
+/* Angular Editor Styles */
+::ng-deep angular-editor {
+  .angular-editor-toolbar {
+    background-color: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    border-bottom: none !important;
+  }
+
+  .angular-editor-toolbar .angular-editor-toolbar-set {
+    background-color: transparent !important;
+  }
+
+  .angular-editor-toolbar button {
+    background-color: transparent !important;
+    color: #ffffff !important; /* White tool icons */
+    border: none !important;
+  }
+
+  .angular-editor-toolbar button:hover {
+    background-color: #4b5563 !important;
+    color: #ffffff !important; /* White on hover */
+  }
+
+  .angular-editor-toolbar button.angular-editor-button-active {
+    background-color: #10b981 !important;
+    color: #ffffff !important; /* White when active */
+  }
+
+  /* Tool icons styling */
+  .angular-editor-toolbar button .fa,
+  .angular-editor-toolbar button i {
+    color: #ffffff !important; /* White icons */
+  }
+
+  .angular-editor-toolbar button:hover .fa,
+  .angular-editor-toolbar button:hover i {
+    color: #ffffff !important; /* White icons on hover */
+  }
+
+  /* Dropdown styling */
+  .angular-editor-toolbar select {
+    background-color: #374151 !important; /* Dark dropdown background */
+    color: #ffffff !important; /* White text */
+    border: 1px solid #4b5563 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+  }
+
+  .angular-editor-toolbar select option {
+    background-color: #374151 !important; /* Dark option background */
+    color: #ffffff !important; /* White option text */
+  }
+
+  .angular-editor-toolbar select:focus {
+    border-color: #10b981 !important;
+    outline: none !important;
+  }
+
+  /* Font size and font family dropdowns */
+  .angular-editor-toolbar .angular-editor-toolbar-set select {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border: 1px solid #4b5563 !important;
+  }
+
+  /* Text content area */
+  .angular-editor-textarea {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    border: 1px solid #4b5563 !important;
+    border-top: none !important;
+    min-height: 300px !important;
+  }
+
+  .angular-editor-textarea:focus {
+    border-color: #10b981 !important;
+    outline: none !important;
+  }
+
+  .angular-editor-placeholder {
+    color: #9ca3af !important;
+  }
+
+  /* Color picker styling */
+  .angular-editor-toolbar input[type="color"] {
+    background-color: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    border-radius: 4px !important;
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  /* Link dialog styling */
+  .angular-editor-toolbar .angular-editor-button .angular-editor-toolbar-set {
+    background-color: #374151 !important;
+  }
+
+  /* Ensure all text in toolbar is white */
+  .angular-editor-toolbar {
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar * {
+    color: #ffffff !important;
+  }
+
+  /* Special styling for dropdown arrows */
+  .angular-editor-toolbar select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 8px center !important;
+    background-size: 12px !important;
+    padding-right: 24px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+  }
+
+  /* Bold, Italic, Underline specific styling */
+  .angular-editor-toolbar button[title="Bold"],
+  .angular-editor-toolbar button[title="Italic"],
+  .angular-editor-toolbar button[title="Underline"],
+  .angular-editor-toolbar button[title="Strike Through"],
+  .angular-editor-toolbar button[title="Subscript"],
+  .angular-editor-toolbar button[title="Superscript"] {
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+
+  /* List buttons */
+  .angular-editor-toolbar button[title="Unordered List"],
+  .angular-editor-toolbar button[title="Ordered List"] {
+    color: #ffffff !important;
+  }
+
+  /* Alignment buttons */
+  .angular-editor-toolbar button[title*="Align"] {
+    color: #ffffff !important;
+  }
+
+  /* Link and unlink buttons */
+  .angular-editor-toolbar button[title="Insert Link"],
+  .angular-editor-toolbar button[title="Unlink"] {
+    color: #ffffff !important;
+  }
+
+  /* AE Picker (dropdown) styling */
+  .ae-picker {
+    background-color: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    border-radius: 4px !important;
+  }
+
+  .ae-picker-label {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  .ae-picker-label:hover {
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
+  }
+
+  /* Dropdown options container */
+  .ae-picker-options {
+    background-color: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Individual dropdown items */
+  .ae-picker-item {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 8px 12px !important;
+    text-align: left !important;
+    width: 100% !important;
+    transition: background-color 0.2s ease !important;
+  }
+
+  .ae-picker-item:hover {
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
+  }
+
+  .ae-picker-item.selected {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+  }
+
+  .ae-picker-item.focused {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+  }
+
+  /* SVG icons in dropdown */
+  .ae-picker-label svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Select heading dropdown */
+  .select-heading .ae-picker-label {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+  }
+
+  .select-heading .ae-picker-options {
+    background-color: #374151 !important;
+  }
+
+  /* Font family dropdown */
+  .select-font .ae-picker-label {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+  }
+
+  .select-font .ae-picker-options {
+    background-color: #374151 !important;
+  }
+
+  /* Font size dropdown */
+  .select-font-size .ae-picker-label {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+  }
+
+  .select-font-size .ae-picker-options {
+    background-color: #374151 !important;
+  }
+}
+
+/* Dark theme for editor content */
+::ng-deep .angular-editor-textarea {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Custom styles for editor content */
+::ng-deep .angular-editor-textarea h1,
+::ng-deep .angular-editor-textarea h2,
+::ng-deep .angular-editor-textarea h3,
+::ng-deep .angular-editor-textarea h4,
+::ng-deep .angular-editor-textarea h5,
+::ng-deep .angular-editor-textarea h6 {
+  color: #f3f4f6 !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep .angular-editor-textarea p {
+  color: #e5e7eb !important;
+  line-height: 1.6 !important;
+}
+
+::ng-deep .angular-editor-textarea ul,
+::ng-deep .angular-editor-textarea ol {
+  color: #e5e7eb !important;
+  margin-left: 20px !important;
+}
+
+::ng-deep .angular-editor-textarea a {
+  color: #10b981 !important;
+}
+
+::ng-deep .angular-editor-textarea strong {
+  color: #f3f4f6 !important;
+  font-weight: 600 !important;
+}
+
+/* Global Angular Editor styling for all ae-picker components */
+::ng-deep {
+  /* Make sure all ae-picker elements have dark theme */
+  .ae-picker-options {
+    background-color: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    border-radius: 4px !important;
+    z-index: 9999 !important;
+  }
+
+  .ae-picker-item {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 8px 12px !important;
+  }
+
+  .ae-picker-item:hover {
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
+  }
+
+  .ae-picker-item.selected {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+  }
+
+  .ae-picker-item.focused {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+  }
+
+  .ae-picker-label {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border: 1px solid #4b5563 !important;
+  }
+
+  .ae-picker-label:hover {
+    background-color: #4b5563 !important;
+  }
+
+  /* Specific styling for the HTML elements you showed */
+  ae-select {
+    .ae-picker {
+      background-color: #374151 !important;
+    }
+
+    .ae-picker-label {
+      background-color: #374151 !important;
+      color: #ffffff !important;
+      border: 1px solid #4b5563 !important;
+    }
+
+    .ae-picker-options {
+      background-color: #374151 !important;
+      border: 1px solid #4b5563 !important;
+    }
+
+    .ae-picker-item {
+      background-color: #374151 !important;
+      color: #ffffff !important;
+    }
+
+    .ae-picker-item:hover {
+      background-color: #4b5563 !important;
+    }
+
+    .ae-picker-item.selected,
+    .ae-picker-item.focused {
+      background-color: #10b981 !important;
+    }
+  }
+
+  /* For the specific classes you mentioned */
+  .select-heading {
+    .ae-picker-options {
+      background-color: #374151 !important;
+    }
+  }
+
+  /* SVG Icons Styling - Make all SVG icons white */
+  .angular-editor-toolbar button svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar button svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Specific styling for ordered list button */
+  .angular-editor-toolbar button[title="Ordered List"] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar button[title="Ordered List"] svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Unordered list button */
+  .angular-editor-toolbar button[title="Unordered List"] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar button[title="Unordered List"] svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* All toolbar button SVGs */
+  .angular-editor-toolbar .angular-editor-button svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar .angular-editor-button svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* aebutton specific styling */
+  button[aebutton] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  button[aebutton] svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Hover state for SVG icons */
+  .angular-editor-toolbar button:hover svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar button:hover svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Active state for SVG icons */
+  .angular-editor-toolbar button.angular-editor-button-active svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .angular-editor-toolbar button.angular-editor-button-active svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Specific icon names styling */
+  button[iconname="orderedList"] svg,
+  button[iconname="unorderedList"] svg,
+  button[iconname="bold"] svg,
+  button[iconname="italic"] svg,
+  button[iconname="underline"] svg,
+  button[iconname="strikeThrough"] svg,
+  button[iconname="alignLeft"] svg,
+  button[iconname="alignCenter"] svg,
+  button[iconname="alignRight"] svg,
+  button[iconname="alignJustify"] svg,
+  button[iconname="link"] svg,
+  button[iconname="unlink"] svg,
+  button[iconname="subscript"] svg,
+  button[iconname="superscript"] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  button[iconname="orderedList"] svg use,
+  button[iconname="unorderedList"] svg use,
+  button[iconname="bold"] svg use,
+  button[iconname="italic"] svg use,
+  button[iconname="underline"] svg use,
+  button[iconname="strikeThrough"] svg use,
+  button[iconname="alignLeft"] svg use,
+  button[iconname="alignCenter"] svg use,
+  button[iconname="alignRight"] svg use,
+  button[iconname="alignJustify"] svg use,
+  button[iconname="link"] svg use,
+  button[iconname="unlink"] svg use,
+  button[iconname="subscript"] svg use,
+  button[iconname="superscript"] svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Force override for any SVG within editor toolbar */
+  .angular-editor-toolbar-set svg,
+  .angular-editor-toolbar-set svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* HTML Code mode styling */
+  .angular-editor-textarea.html-mode {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* HTML Code toggle button active state */
+  button[iconname="htmlCode"].active svg,
+  button[iconname="htmlCode"].angular-editor-button-active svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Source code view background */
+  .angular-editor-textarea[contenteditable="false"] {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+  }
+
+  /* When in HTML source mode */
+  .angular-editor-textarea.sourcemode,
+  .angular-editor-textarea.source-mode {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    font-family: 'Courier New', monospace !important;
+  }
+
+  /* Override any transparent backgrounds */
+  .angular-editor-textarea {
+    background-color: #374151 !important;
+    background: #374151 !important;
+    /* Override any rgba transparent backgrounds */
+    background: rgba(55, 65, 81, 1) !important;
+  }
+
+  /* HTML Code button styling */
+  button[title="HTML Code"] {
+    color: #ffffff !important;
+  }
+
+  button[title="HTML Code"] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  button[title="HTML Code"] svg use {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Fix transparent background issue */
+  .angular-editor-textarea {
+    background-color: #374151 !important;
+    background: #374151 !important;
+    /* Override any rgba transparent backgrounds */
+    background: rgba(55, 65, 81, 1) !important;
+  }
+
+  /* Specific fix for the transparent background you mentioned */
+  .angular-editor-textarea[style*="background-color: rgb(58 60 60 / 0%)"] {
+    background-color: #374151 !important;
+    background: #374151 !important;
+  }
+
+  /* Force override for any inline styles */
+  .angular-editor-textarea[style] {
+    background-color: #374151 !important;
+    background: #374151 !important;
+  }
+
+  /* HTML source view specific */
+  .angular-editor-wrapper .angular-editor-textarea {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+  }
+
+  /* When editor is in source/HTML mode */
+  angular-editor.html-mode .angular-editor-textarea,
+  angular-editor[html-mode] .angular-editor-textarea {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    font-family: 'Courier New', 'Monaco', monospace !important;
+  }
+
+  /* Additional override for any editor state */
+  .angular-editor-textarea,
+  .angular-editor-textarea:focus,
+  .angular-editor-textarea:active {
+    background-color: #374151 !important;
+    background: #374151 !important;
+    color: #e5e7eb !important;
+  }
+
+  /* Fix for sourceText element (HTML Code mode) */
+  #sourceText {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #e5e7eb !important;
+    border: 1px solid #4b5563 !important;
+    padding: 12px !important;
+    border-radius: 4px !important;
+    font-family: 'Courier New', 'Monaco', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Override inline styles for sourceText */
+  code#sourceText[style] {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #e5e7eb !important;
+  }
+
+  /* Force override any yellow background */
+  code#sourceText[style*="background-color: rgb(255, 245, 185)"] {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+  }
+
+  /* Alternative - if you want transparent background */
+  /*
+  code#sourceText {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #ffffff !important;
+  }
+  */
+
+  /* General code element styling in editor */
+  .angular-editor-wrapper code {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Courier New', monospace !important;
+  }
+
+  /* Source text area when contenteditable */
+  code[contenteditable="true"] {
+    background-color: #374151 !important;
+    color: #e5e7eb !important;
+    outline: none !important;
+  }
+
+  /* Alternative transparent background option for sourceText */
+  /* Uncomment these lines if you want transparent background instead of dark */
+  /*
+  #sourceText {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #ffffff !important;
+  }
+
+  code#sourceText[style] {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #ffffff !important;
+  }
+  */
+
+  /* Ultimate override for any yellow background */
+  * {
+    &[style*="background-color: rgb(255, 245, 185)"] {
+      background-color: #374151 !important;
+      background: #374151 !important;
+    }
+  }
+
+  /* Specific override for inline yellow background */
+  [style*="background-color: rgb(255, 245, 185)"] {
+    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: #e5e7eb !important;
+  }
+}

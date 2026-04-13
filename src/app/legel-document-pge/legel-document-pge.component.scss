@@ -1,0 +1,112 @@
+/* Container / Layout */
+.up-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1rem !important;
+}
+
+/* Hero Section */
+.up-hero {
+  background: linear-gradient(135deg, rgb(0 0 0 / 13%), #5451590f) !important;
+  color: #fff !important;
+  padding: 3rem 2rem !important;
+  border-radius: 1rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.up-hero .breadcrumb {
+  margin-bottom: 1rem !important;
+  font-size: 0.9rem !important;
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.up-hero .breadcrumb a {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+/* Grid System */
+.up-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+}
+
+/* Card Base */
+.up-card {
+  background: #ffffff08 !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  color: #f0f0f0 !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.up-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25) !important;
+  border-color: rgba(255,255,255,0.25) !important;
+}
+
+/* Card Typography */
+.up-card h3,
+.up-card h2 {
+  font-size: 1.05rem !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.up-card p {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 1rem !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+/* Buttons */
+.up-card .btn {
+  color: #0f0f0fb3 !important;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  background: linear-gradient(135deg, #3cff19, #3cff19) !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background 0.3s ease, transform 0.2s ease !important;
+}
+
+.up-card .btn:hover {
+  color: #fff !important;
+  background: linear-gradient(135deg, #4454a1, #4454a1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Footer Note Section */
+.up-footer-note {
+  margin-top: 3rem !important;
+}
+
+.up-footer-note .up-card {
+  background: #0f0f0f !important;
+  color: #ddd !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.up-footer-note .up-card p {
+  margin-bottom: 0.8rem !important;
+}
+.homu{
+  margin-left: 4px;
+  margin-right: 4px;
+}

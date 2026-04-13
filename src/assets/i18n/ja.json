@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "について",
+    "products": "製品",
+    "trading": "取引",
+    "partnerships": "パートナーシップ",
+    "resources": "リソース",
+    "contact": "お問い合わせ",
+    "blogs": "ブログ"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "無料デモを試す",
+    "OPEN_ACCOUNT": "アカウントを開く",
+    "WELCOME_TITLE": "UPFOREXへようこそ - あなたの主要なFOREX取引パートナー",
+    "TRADE_TAGLINE": "スマートに取引します。より速く稼ぐ。グローバルに成長します。",
+    "DESCRIPTION": "UPFOREXでは、小売トレーダー、プロの投資家、紹介ブローカー向けに次世代外国為替取引ソリューションを提供しています。",
+    "TRADING_CALCULATORS": "トレーディング計算機",
+    "MARKET_ANALYSIS": "市場分析",
+    "MARKET_REVIEWS": "市場レビュー"
+  },
+  "auth": {
+    "register": "登録",
+    "signIn": "ログイン"
+  },
+  "products": {
+    "forexCfds": "ForexCFD",
+    "stockCfds": "株式CFD",
+    "preciousMetal": "貴金属",
+    "indexCfds": "指数CFD",
+    "energyCfds": "エネルギーCFD",
+    "cryptocurrenciesCfd": "暗号通貨CFD"
+  },
+  "accounts": {
+    "accounts": "アカウント",
+    "mt5Platform": "MetaTrader 5（MT5）プラットフォーム"
+  }
+}

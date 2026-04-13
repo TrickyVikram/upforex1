@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #0d0d0d !important;
+  // background-color: #002333 !important;
+  // background-color: #002333 !important;
+}
+
+a {
+  color: #3cff19 !important;
+}
+
+a:hover {
+  color: #3cff19 !important;
+  opacity: 0.8;
+}
+
+sup {
+  top: -0.07rem !important;
+}
+
+/* ===== FOUC Fix – smooth page reveal after translation ===== */
+html {
+  transition: opacity 0.3s ease !important;
+}
+
+/* ===== Google Translate – hide top banner & fix body shift ===== */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.skiptranslate,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* Critical: stop Google from shifting the whole page down */
+body {
+  top: 0 !important;
+  position: static !important;
+  margin-top: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-te-gadget > span > a {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* Translate popup menu style */
+.goog-te-menu-frame {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===== Custom Language Dropdown (uf-lang) ===== */
+.uf-lang-wrap {
+  position: relative;
+}
+
+.uf-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(60, 255, 25, 0.45);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+  line-height: 1.4;
+
+  span {
+    font-size: 0.82rem;
+    color: #fff;
+  }
+
+  .uf-arrow {
+    font-style: normal;
+    font-size: 0.7rem;
+    color: #3cff19;
+    margin-left: 2px;
+    transition: transform 0.2s;
+  }
+
+  &.active,
+  &:hover {
+    background: rgba(60, 255, 25, 0.08);
+    border-color: #3cff19;
+  }
+
+  &.active .uf-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+.uf-lang-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 170px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #1a1a1a;
+  border: 1px solid rgba(60, 255, 25, 0.25);
+  border-radius: 8px;
+  padding: 4px 0;
+  list-style: none;
+  margin: 0;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  &.open {
+    display: block;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(60, 255, 25, 0.35);
+    border-radius: 4px;
+  }
+}
+
+.uf-lang-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  color: #ccc;
+  font-size: 0.83rem;
+
+  .uf-flag {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .uf-lname {
+    flex: 1;
+  }
+
+  &:hover {
+    background: rgba(60, 255, 25, 0.09);
+    color: #fff;
+  }
+
+  &.uf-active {
+    background: rgba(60, 255, 25, 0.14);
+    color: #3cff19;
+    font-weight: 600;
+  }
+}
+
+/* Mobile: dropdown opens upward inside collapsed navbar */
+@media (max-width: 991px) {
+  .uf-lang-menu {
+    position: static;
+    box-shadow: none;
+    border: 1px solid rgba(60, 255, 25, 0.2);
+    margin-top: 4px;
+    max-height: 220px;
+  }
+}
+
+/* ===== RTL support when Arabic is selected ===== */
+[dir="rtl"] {
+  .navbar-nav {
+    flex-direction: row-reverse;
+  }
+  .uf-lang-menu {
+    right: auto;
+    left: 0;
+  }
+  .uf-lang-item {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+}

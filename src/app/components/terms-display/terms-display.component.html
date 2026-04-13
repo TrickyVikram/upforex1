@@ -1,0 +1,127 @@
+<div class="tw-min-h-screen tw-bg-gray-900 tw-py-12">
+  <div class="tw-max-w-4xl tw-mx-auto tw-px-6">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="tw-text-center tw-py-12">
+      <div
+        class="tw-animate-spin tw-rounded-full tw-h-12 tw-w-12 tw-border-b-2 tw-border-green-500 tw-mx-auto"
+      ></div>
+      <p class="tw-text-gray-400 tw-mt-4">Loading terms and conditions...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="tw-text-center tw-py-12">
+      <ng-icon
+        name="matError"
+        size="48"
+        class="tw-text-red-500 tw-mx-auto tw-mb-4"
+      ></ng-icon>
+      <h2 class="tw-text-xl tw-font-semibold tw-text-white tw-mb-2">
+        Terms Not Found
+      </h2>
+      <p class="tw-text-gray-400">
+        The requested terms and conditions could not be found.
+      </p>
+      <a
+        routerLink="/"
+        class="tw-inline-block tw-mt-4 tw-bg-green-600 hover:tw-bg-green-700 tw-text-white tw-px-6 tw-py-3 tw-rounded-lg"
+      >
+        Go Home
+      </a>
+    </div>
+
+    <!-- Terms Content -->
+    <div
+      *ngIf="terms && !loading && !error"
+      class="tw-bg-white tw-rounded-lg tw-shadow-lg tw-overflow-hidden terms-content"
+    >
+      <!-- Header -->
+      <div class="tw-bg-gray-800 tw-text-white tw-p-6">
+        <div class="tw-flex tw-justify-between tw-items-start tw-mb-4">
+          <div>
+            <h1 class="tw-text-2xl tw-font-bold tw-mb-2">{{ terms.title }}</h1>
+            <div
+              class="tw-flex tw-flex-wrap tw-gap-4 tw-text-sm tw-text-gray-300"
+            >
+              <span class="tw-flex tw-items-center tw-gap-2">
+                <ng-icon name="matLocalOffer" size="16"></ng-icon>
+                Version: {{ terms.version }}
+              </span>
+              <span class="tw-flex tw-items-center tw-gap-2">
+                <ng-icon name="matCalendarToday" size="16"></ng-icon>
+                Effective: {{ terms.effectiveDate | date : "longDate" }}
+              </span>
+              <span class="tw-flex tw-items-center tw-gap-2">
+                <ng-icon name="matUpdate" size="16"></ng-icon>
+                Updated: {{ terms.lastModified | date : "short" }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="tw-flex tw-gap-2">
+            <button
+              (click)="printTerms()"
+              class="tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-flex tw-items-center tw-gap-2 tw-text-sm"
+            >
+              <ng-icon name="matPrint" size="16"></ng-icon>
+              Print
+            </button>
+            <button
+              (click)="downloadTerms()"
+              [disabled]="downloadingPdf"
+              class="tw-bg-green-600 hover:tw-bg-green-700 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-flex tw-items-center tw-gap-2 tw-text-sm tw-disabled:tw-opacity-50 tw-disabled:tw-cursor-not-allowed"
+            >
+              <div
+                *ngIf="downloadingPdf"
+                class="tw-animate-spin tw-rounded-full tw-h-4 tw-w-4 tw-border-b-2 tw-border-white"
+              ></div>
+              <ng-icon
+                *ngIf="!downloadingPdf"
+                name="matDownload"
+                size="16"
+              ></ng-icon>
+              {{ downloadingPdf ? "Generating PDF..." : "Download PDF" }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Body -->
+      <div class="tw-p-8">
+        <div
+          class="tw-prose tw-prose-lg tw-max-w-none prose-headings:tw-text-gray-800 prose-p:tw-text-gray-600 prose-strong:tw-text-gray-800 prose-a:tw-text-green-600 prose-ul:tw-text-gray-600 prose-ol:tw-text-gray-600"
+          [innerHTML]="terms.content"
+        ></div>
+      </div>
+
+      <!-- Footer -->
+      <div class="tw-bg-gray-50 tw-px-8 tw-py-6 tw-border-t tw-border-gray-200">
+        <div
+          class="tw-flex tw-justify-between tw-items-center tw-text-sm tw-text-gray-500"
+        >
+          <p>© {{ currentYear }} Upforex. All rights reserved.</p>
+          <p>Document generated on {{ currentDate | date : "short" }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Print Styles -->
+<style>
+  @media print {
+    .tw-bg-gray-800,
+    .tw-bg-gray-50 {
+      background: white !important;
+      color: black !important;
+    }
+
+    button {
+      display: none !important;
+    }
+
+    .tw-shadow-lg {
+      box-shadow: none !important;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+.form-select:focus {
+  box-shadow: none;
+}
+
+.form-select {
+  border-color: #3cff19 !important;
+}
+
+.table-dark,
+th,
+td {
+  background-color: transparent !important;
+  border-color: #3cff19 !important;
+  color: white;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../../../../assets/images/svg/arrow-down.svg");
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3cff19;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 0;
+}

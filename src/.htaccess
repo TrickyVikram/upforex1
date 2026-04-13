@@ -1,0 +1,10 @@
+# BEGIN Upforex 410 Rules
+RewriteEngine On
+
+# Set specific pages to 410 Gone
+Redirect 410 /products/us-stocks
+Redirect 410 /products/stocks-cfd
+Redirect 410 /demo
+Redirect 410 /products/index-future
+Redirect 410 /cdn-cgi/l/email-protection
+# END Upforex 410 Rules

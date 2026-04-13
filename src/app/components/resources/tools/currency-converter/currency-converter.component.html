@@ -1,0 +1,42 @@
+<div class="container">
+  <div
+    class="tw-flex align-items-center text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4"
+  >
+    <button
+      class="tw-flex tw-items-center !tw-mr-2"
+      routerLink="/resources/tools"
+    >
+      <ng-icon name="matArrowBack" size="20"></ng-icon>
+    </button>
+    <p
+      class="mb-0 tw-text-lg tw-underline tw-cursor-pointer tw-text-themePrimary"
+      routerLink="/resources/tools"
+    >
+      Tools
+    </p>
+    <p class="mb-0 tw-text-lg">&nbsp;/&nbsp;</p>
+    <p class="mb-0 tw-text-lg">Currency Converter</p>
+  </div>
+
+  <div
+    class="tw-flex tw-flex-col tw-p-3 lg:tw-flex-row tw-gap-8 tw-w-full tw-mt-8"
+  >
+    <iframe
+      title="fx"
+      src="https://wise.com/gb/currency-converter/fx-widget/converter?sourceCurrency=GBP&targetCurrency=EUR"
+      frameBorder="0"
+      allowtransparency="true"
+      class="!tw-h-[420px] md:!tw-h-[230px] lg:!tw-h-[420px] lg:!tw-w-1/2"
+    ></iframe>
+
+    <div class="lg:!tw-w-1/2">
+      <iframe
+        title="fx"
+        src="https://wise.com/gb/currency-converter/fx-widget/chart?sourceCurrency=GBP&targetCurrency=EUR"
+        height="600"
+        width="100%"
+        frameBorder="0"
+      ></iframe>
+    </div>
+  </div>
+</div>

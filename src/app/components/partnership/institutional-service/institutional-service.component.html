@@ -1,0 +1,122 @@
+<div class="container tw-font-montserrat">
+  <div class="md:tw-p-0 tw-p-8">
+    <div
+      class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row md:tw-p-6 tw-p-0 tw-gap-8"
+    >
+      <div class="tw-w-full tw-p-0 md:tw-p-4">
+        <h1
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+        >
+          UPFOREX Institutional Services
+      </h1>
+        <p
+          class="tw-text-xl tw-text-white tw-font-bold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+        >
+          Deep Liquidity. Ultra-Fast Execution. Tailored Solutions.
+        </p>
+        <p
+          class="tw-text-xl !tw-mb-8 tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          Our Institutional Servicesre designed for high-volume traders and
+          financial institutions seeking scalable liquidity and seamless trade
+          execution.
+        </p>
+
+        <p
+          class="tw-text-xl tw-text-white tw-font-bold tw-tracking-wider tw-leading-relaxed tw-my-6"
+        >
+          Who Can Benefit?
+        </p>
+        <div
+          class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4"
+        >
+          <div *ngFor="let item of whoCanJoin" class="tw-flex">
+            <div
+              class="tw-bg-gray-800/50 tw-rounded-xl tw-p-6 tw-transition-all tw-duration-300 hover:tw-transform hover:tw-scale-105 hover:tw-shadow-lg hover:tw-shadow-themePrimary/20 d-flex tw-items-start tw-mb-4 lg:tw-ml-4 tw-animate-slideUp"
+            >
+              <i
+                class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary !tw-flex tw-items-center tw-h-full"
+              ></i>
+              <h5
+                class="tw-text-white tw-ml-4 tw-text-base lg:tw-text-lg !tw-mb-0"
+              >
+                <b class="tw-text-themePrimary tw-text-base"
+                  >{{ item.boldText }}
+                  <span *ngIf="item.subText"> : </span>
+                </b>
+                <span class="tw-text-sm">
+                  {{ item.subText }}
+                </span>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <p
+          class="tw-text-xl tw-text-white tw-font-bold tw-tracking-wider tw-leading-relaxed tw-my-6"
+        >
+          Why Choose UPFOREX Institutional Services?
+        </p>
+        <div
+          class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4"
+        >
+          <div *ngFor="let item of whyJoin" class="tw-flex">
+            <div
+              class="tw-bg-gray-800/50 tw-rounded-xl tw-p-6 tw-transition-all tw-duration-300 hover:tw-transform hover:tw-scale-105 hover:tw-shadow-lg hover:tw-shadow-themePrimary/20 d-flex tw-items-start tw-mb-4 lg:tw-ml-4 tw-animate-slideUp"
+            >
+              <i
+                class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary !tw-flex tw-items-center tw-h-full"
+              ></i>
+              <h5
+                class="tw-text-white tw-ml-4 tw-text-base lg:tw-text-lg !tw-mb-0"
+              >
+                <b class="tw-text-themePrimary tw-text-base"
+                  >{{ item.boldText }}
+                  <span *ngIf="item.subText"> : </span>
+                </b>
+                <span class="tw-text-sm">
+                  {{ item.subText }}
+                </span>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p
+            class="tw-text-2xl tw-text-white tw-font-bold tw-tracking-wider tw-leading-relaxed tw-mt-8"
+          >
+            Start Your Trading Journey Today!
+          </p>
+          <p
+            class="tw-text-base tw-text-white tw-font-bold tw-tracking-wider tw-leading-relaxe"
+          >
+            📩 Join Now -
+            <span>
+              <button
+                class="tw-underline form-btn !tw-font-bold"
+                (click)="openForm()"
+              >
+                Fill out the form
+              </button>
+            </span>
+            or contact
+            <span>
+              <a
+                class="tw-underline tw-text-themePrimary"
+                href="mailto:support@upforex.com"
+                >support&#64;upforex.com</a
+              >
+            </span>
+            to get started.
+          </p>
+        </div>
+        <button
+          class="btn btn-lg !tw-text-black !tw-font-semibold tw-mt-4"
+          (click)="openForm()"
+        >
+          Apply Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "products": "Produtos",
+    "trading": "Negociação",
+    "partnerships": "Parcerias",
+    "resources": "Recursos",
+    "contact": "Contato",
+    "blogs": "Blogs"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "Experimente a demo gratuita",
+    "OPEN_ACCOUNT": "Abrir uma conta",
+    "WELCOME_TITLE": "Bem-vindo ao UPFOREX - Seu principal parceiro de trading de Forex",
+    "TRADE_TAGLINE": "Negocie de forma inteligente. Ganhe mais rápido. Cresça globalmente.",
+    "DESCRIPTION": "Na UPFOREX fornecemos soluções de trading de Forex de próxima geração projetadas para traders de varejo, investidores profissionais e corretoras introdutoras.",
+    "TRADING_CALCULATORS": "Calculadoras de Trading",
+    "MARKET_ANALYSIS": "Análise de Mercado",
+    "MARKET_REVIEWS": "Comentários de Mercado"
+  },
+  "auth": {
+    "register": "Registrar",
+    "signIn": "Entrar"
+  },
+  "products": {
+    "forexCfds": "CFDs Forex",
+    "stockCfds": "CFDs de Ações",
+    "preciousMetal": "Metais Preciosos",
+    "indexCfds": "CFDs de Índices",
+    "energyCfds": "CFDs de Energia",
+    "cryptocurrenciesCfd": "CFDs de Criptomoedas"
+  },
+  "accounts": {
+    "accounts": "Contas",
+    "mt5Platform": "Plataforma MetaTrader 5 (MT5)"
+  }
+}

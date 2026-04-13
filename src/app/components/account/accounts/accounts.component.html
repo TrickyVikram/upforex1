@@ -1,0 +1,192 @@
+<div class="container tw-font-montserrat tw-mb-24">
+  <!-- Accounts -->
+  <div class="md:tw-p-0 tw-p-8">
+    <div
+      class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8"
+    >
+      <div
+        class="tw-w-full lg:tw-w-1/2 tw-flex tw-items-center tw-justify-center"
+      >
+        <img
+          loading="lazy"
+          [src]="s3URL + 'assets/images/JPG/accounts-one.webp'"
+          height="600"
+          width="600"
+          class="tw-rounded-2xl"
+          alt="trading team meeting"
+        />
+      </div>
+
+      <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-p-4">
+        <h1
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+        >
+          UPFOREX Account Types – Tailored for Every Trader
+        </h1>
+        <p
+          class="tw-text-sm !tw-mb-2 tw-text-white tw-tracking-wide tw-leading-relaxed tw-font-semibold"
+        >
+          Managing your Upforex.com account is straightforward, and this support
+          page is here to guide you through your trading journey.
+        </p>
+        <p
+          class="tw-text-sm !tw-mb-2 tw-text-white tw-tracking-wide tw-leading-relaxed tw-font-semibold"
+        >
+          With MetaTrader 5 (MT5), you can enjoy fast and competitive pricing on
+          a wide range of trading instruments, including:
+        </p>
+        <p
+          class="tw-text-base tw-text-white !tw-mb-1 tw-tracking-wide tw-leading-relaxed tw-flex tw-items-center tw-gap-2"
+          *ngFor="
+            let benefits of [
+              'Foreign Exchange (FX)',
+              'CFD Contracts on Oil (WTI & Brent)',
+              'Indices',
+              'Precious Metals like Silver and Gold'
+            ]
+          "
+        >
+          <i
+            class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+          ></i
+          >{{ benefits }}
+        </p>
+        <p
+          class="tw-text-base !tw-mb-2 tw-text-white tw-mt-6 tw-tracking-wide tw-leading-relaxed"
+        >
+          For more details, visit the Trading Products page. MT5 is renowned as
+          one of the most trusted and widely used trading platforms in the
+          industry, offering a seamless and reliable trading experience.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Trade with Us? -->
+  <div class="md:tw-p-0 tw-p-8 tw-mb-12">
+    <div
+      class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-4 lg:tw-pr-12 tw-p-0 tw-gap-8"
+    >
+      <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-px-12">
+        <p
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+        >
+          Why Trade with Us?
+        </p>
+        <div *ngFor="let item of benefits" class="md:tw-mx-2">
+          <div
+            class="d-flex tw-items-center tw-mb-4 lg:tw-ml-4 hover:tw-translate-x-2 tw-transition-all tw-duration-300"
+          >
+            <i
+              class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+            ></i>
+            <h5
+              class="tw-text-white tw-ml-4 tw-text-base lg:tw-text-xl !tw-mb-0"
+            >
+              <b class="tw-text-themePrimary tw-text-base lg:tw-text-xl"
+                >{{ item.boldText }}
+              </b>
+              <span class="tw-text-sm lg:tw-text-xl">
+                {{ item.text }}
+              </span>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center tw-items-start"
+      >
+        <img
+          loading="lazy"
+          [src]="s3URL + 'assets/images/JPG/why-trade.webp'"
+          height="600"
+          width="600"
+          class="tw-rounded-2xl"
+          alt="why trade with us"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Promotions - Carousel -->
+  <ngb-carousel
+    #carousel
+    [showNavigationArrows]="false"
+    [wrap]="true"
+    [keyboard]="true"
+    [interval]="3000"
+  >
+    <ng-template ngbSlide>
+      <div class="carousel-img-wrapper !tw-px-0">
+        <img
+          loading="lazy"
+          appSwipe
+          (leftSwipe)="carousel.next()"
+          (rightSwipe)="carousel.prev()"
+          [src]="s3URL + 'assets/images/JPG/exclusive-offers.webp'"
+          alt="holding card for payment"
+        />
+      </div>
+      <div class="carousel-caption">
+        <p
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold"
+        >
+          Exclusive Offers
+        </p>
+        <a href="https://client.upforex.live" target="_blank">
+          <button
+            class="btn btn-lg text-white hover:tw-scale-105 hover:tw-shadow-lg hover:tw-shadow-themePrimary/20 tw-transition-all tw-duration-300"
+          >
+            Join Now
+          </button>
+        </a>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="carousel-img-wrapper !tw-px-0">
+        <img
+          loading="lazy"
+          appSwipe
+          (leftSwipe)="carousel.next()"
+          (rightSwipe)="carousel.prev()"
+          [src]="s3URL + 'assets/images/JPG/upgrade-your-experience.webp'"
+          alt="Symbolizing successful trade"
+        />
+      </div>
+      <div class="carousel-caption">
+        <p
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold"
+        >
+          Upgrade Your Experience
+        </p>
+        <a href="https://client.upforex.live" target="_blank">
+          <button
+            class="btn btn-lg text-white hover:tw-scale-105 hover:tw-shadow-lg hover:tw-shadow-themePrimary/20 tw-transition-all tw-duration-300"
+          >
+            Join Now
+          </button>
+        </a>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<app-account-types></app-account-types>
+<!-- <div class="tw-w-full tw-p-0 md:tw-p-4">
+  <p
+    class="text-white tw-text-2xl md:tw-text-2xl text-center lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+  >
+    VPS Request Form
+  </p>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6 d-flex justify-content-center">
+      <iframe
+        src="https://broker.forexvps.net/application_freevps.php?bgColor=0d0d0d&txtColor=ffffff&padding=5&returnEmail=pranav.thakker%40upforex.com&client=c345831aceef512035c8c08e17f867e7&formID=2516&submitText=Submit&fontSize=16&v=0&borderColor=3cff19"
+        frameborder="0"
+        seamless
+        width="50%"
+        scrolling="yes"
+        height="300"
+      ></iframe>
+    </div>
+  </div>
+</div> -->

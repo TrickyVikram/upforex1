@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "trading": "交易",
+    "partnerships": "合作伙伴",
+    "resources": "资源",
+    "contact": "联系我们",
+    "blogs": "博客"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "尝试免费演示",
+    "OPEN_ACCOUNT": "开户",
+    "WELCOME_TITLE": "欢迎来到UPFOREX - 您的首选外汇交易合作伙伴",
+    "TRADE_TAGLINE": "智能交易。更快赚钱。全球增长。",
+    "DESCRIPTION": "在UPFOREX，我们为零售交易商、专业投资者和介绍经纪商提供下一代外汇交易解决方案。",
+    "TRADING_CALCULATORS": "交易计算器",
+    "MARKET_ANALYSIS": "市场分析",
+    "MARKET_REVIEWS": "市场评论"
+  },
+  "auth": {
+    "register": "注册",
+    "signIn": "登录"
+  },
+  "products": {
+    "forexCfds": "外汇差价合约",
+    "stockCfds": "股票差价合约",
+    "preciousMetal": "贵金属",
+    "indexCfds": "指数差价合约",
+    "energyCfds": "能源差价合约",
+    "cryptocurrenciesCfd": "加密货币差价合约"
+  },
+  "accounts": {
+    "accounts": "账户",
+    "mt5Platform": "MetaTrader 5 (MT5) 平台"
+  }
+}

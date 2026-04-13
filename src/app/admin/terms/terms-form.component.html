@@ -1,0 +1,203 @@
+<div class="tw-p-6">
+  <!-- Header -->
+  <div class="tw-mb-6">
+    <div class="tw-flex tw-items-center tw-gap-4 tw-mb-4">
+      <button (click)="cancel()" class="tw-text-gray-400 hover:tw-text-white">
+        <ng-icon name="matArrowBack" size="24"></ng-icon>
+      </button>
+      <h1 class="tw-text-2xl tw-font-bold tw-text-white">
+        {{
+          isEditMode
+            ? "Edit Terms & Conditions"
+            : "Create New Terms & Conditions"
+        }}
+      </h1>
+    </div>
+    <p class="tw-text-gray-400">
+      {{
+        isEditMode
+          ? "Update existing terms and conditions"
+          : "Create a new version of terms and conditions"
+      }}
+    </p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading && isEditMode" class="tw-text-center tw-py-12">
+    <div
+      class="tw-animate-spin tw-rounded-full tw-h-12 tw-w-12 tw-border-b-2 tw-border-green-500 tw-mx-auto"
+    ></div>
+    <p class="tw-text-gray-400 tw-mt-4">Loading terms...</p>
+  </div>
+
+  <!-- Form -->
+  <div *ngIf="!loading || !isEditMode">
+    <form [formGroup]="termsForm" (ngSubmit)="onSubmit()" class="tw-space-y-6">
+      <!-- Basic Information -->
+      <div
+        class="tw-bg-gray-800 tw-rounded-lg tw-p-6 tw-border tw-border-gray-700"
+      >
+        <h2 class="tw-text-lg tw-font-semibold tw-text-white tw-mb-4">
+          Basic Information
+        </h2>
+
+        <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
+          <!-- Version -->
+          <div>
+            <label
+              class="tw-block tw-text-sm tw-font-medium tw-text-gray-300 tw-mb-2"
+            >
+              Version *
+            </label>
+            <input
+              type="text"
+              formControlName="version"
+              [readonly]="isEditMode"
+              placeholder="e.g., v1.0, v1.5, v2.0, v2.9, v3.0"
+              class="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-border tw-border-gray-600 tw-bg-gray-700 tw-text-white tw-placeholder-gray-400 focus:tw-outline-none focus:tw-border-green-500"
+              [class.tw-border-red-500]="
+                termsForm.get('version')?.touched &&
+                termsForm.get('version')?.errors
+              "
+            />
+            <p
+              *ngIf="getFieldError('version')"
+              class="tw-text-red-500 tw-text-sm tw-mt-1"
+            >
+              {{ getFieldError("version") }}
+            </p>
+            <p class="tw-text-gray-500 tw-text-sm tw-mt-1">
+              Version format: v[major].[minor] where minor is 0-9.
+              Example: v1.0 → v1.9, then v2.0 → v2.9, then v3.0
+            </p>
+          </div>
+
+          <!-- Effective Date -->
+          <div>
+            <label
+              class="tw-block tw-text-sm tw-font-medium tw-text-gray-300 tw-mb-2"
+            >
+              Effective Date *
+            </label>
+            <input
+              type="date"
+              formControlName="effectiveDate"
+              class="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-border tw-border-gray-600 tw-bg-gray-700 tw-text-white focus:tw-outline-none focus:tw-border-green-500"
+              [class.tw-border-red-500]="
+                termsForm.get('effectiveDate')?.touched &&
+                termsForm.get('effectiveDate')?.errors
+              "
+            />
+            <p
+              *ngIf="getFieldError('effectiveDate')"
+              class="tw-text-red-500 tw-text-sm tw-mt-1"
+            >
+              {{ getFieldError("effectiveDate") }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="tw-mt-6">
+          <label
+            class="tw-block tw-text-sm tw-font-medium tw-text-gray-300 tw-mb-2"
+          >
+            Title *
+          </label>
+          <input
+            type="text"
+            formControlName="title"
+            placeholder="e.g., Terms and Conditions - Version 1.0"
+            class="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-border tw-border-gray-600 tw-bg-gray-700 tw-text-white tw-placeholder-gray-400 focus:tw-outline-none focus:tw-border-green-500"
+            [class.tw-border-red-500]="
+              termsForm.get('title')?.touched && termsForm.get('title')?.errors
+            "
+          />
+          <p
+            *ngIf="getFieldError('title')"
+            class="tw-text-red-500 tw-text-sm tw-mt-1"
+          >
+            {{ getFieldError("title") }}
+          </p>
+        </div>
+
+        <!-- Active Status -->
+        <div class="tw-mt-6">
+          <label class="tw-flex tw-items-center tw-gap-3">
+            <input
+              type="checkbox"
+              formControlName="isActive"
+              class="tw-w-5 tw-h-5 tw-text-green-600 tw-bg-gray-700 tw-border-gray-600 tw-rounded focus:tw-ring-green-500 focus:tw-ring-2"
+            />
+            <span class="tw-text-gray-300">Set as active version</span>
+          </label>
+          <p class="tw-text-gray-500 tw-text-sm tw-mt-1">
+            Only one version can be active at a time. Setting this as active
+            will deactivate other versions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="tw-bg-gray-800 tw-rounded-lg tw-p-6 tw-border tw-border-gray-700"
+      >
+        <h2 class="tw-text-lg tw-font-semibold tw-text-white tw-mb-4">
+          Content
+        </h2>
+
+        <div>
+          <label
+            class="tw-block tw-text-sm tw-font-medium tw-text-gray-300 tw-mb-2"
+          >
+            Terms and Conditions Content *
+          </label>
+          <angular-editor
+            formControlName="content"
+            [config]="editorConfig"
+            placeholder="Enter the complete terms and conditions content..."
+            [class.tw-border-red-500]="
+              termsForm.get('content')?.touched &&
+              termsForm.get('content')?.errors
+            "
+          ></angular-editor>
+          <p
+            *ngIf="getFieldError('content')"
+            class="tw-text-red-500 tw-text-sm tw-mt-1"
+          >
+            {{ getFieldError("content") }}
+          </p>
+          <p class="tw-text-gray-500 tw-text-sm tw-mt-2">
+            Use the rich text editor to format your terms and conditions. You
+            can add headings, lists, links, and more formatting.
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div
+        class="tw-flex tw-justify-end tw-gap-4 tw-pt-6 tw-border-t tw-border-gray-700"
+      >
+        <button
+          type="button"
+          (click)="cancel()"
+          class="tw-px-6 tw-py-3 tw-border tw-border-gray-600 tw-text-gray-300 tw-rounded-lg hover:tw-bg-gray-700 tw-transition-colors"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          [disabled]="loading || termsForm.invalid"
+          class="tw-px-6 tw-py-3 tw-bg-green-600 tw-text-white tw-rounded-lg hover:tw-bg-green-700 tw-disabled:tw-opacity-50 tw-disabled:tw-cursor-not-allowed tw-flex tw-items-center tw-gap-2"
+        >
+          <div
+            *ngIf="loading"
+            class="tw-animate-spin tw-rounded-full tw-h-4 tw-w-4 tw-border-b-2 tw-border-white"
+          ></div>
+          {{ isEditMode ? "Update Terms" : "Create Terms" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

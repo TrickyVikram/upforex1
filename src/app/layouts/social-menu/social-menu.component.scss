@@ -1,0 +1,49 @@
+.footer-bg {
+  border-top: 1px solid #f7f7f7;
+}
+// .icon-bar {
+//   position: fixed;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+.hr-margin {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  width: 95%;
+}
+
+.titke-width {
+  width: 65% !important;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.3s ease;
+  color: #3cff19;
+  text-decoration: none;
+}
+
+.icon {
+  // border: 1px solid #3cff19;
+  color: #3cff19;
+  padding: 10px;
+  // filter: drop-shadow(0px 0px 5px #3cff19);
+}
+
+.social-text {
+  letter-spacing: 2px;
+}
+
+.link-title {
+  padding: 0.5rem;
+  border-bottom: 1px solid #3cff19;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+.fs-18 {
+  font-size: 18px;
+}

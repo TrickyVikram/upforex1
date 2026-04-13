@@ -1,0 +1,305 @@
+<div class="container tw-font-montserrat">
+  <!-- Forex Trading -->
+  <div class="tw-pt-8 md:tw-p-0 ms:tw-pt-0">
+    <div class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8">
+      <div class="tw-w-full lg:tw-w-1/2 tw-flex tw-items-center tw-justify-center">
+        <ngb-carousel #carousel [showNavigationArrows]="false" [wrap]="true" [keyboard]="true" [interval]="3000">
+          <ng-template ngbSlide *ngFor="let item of images; let i = index">
+            <div class="carousel-img-wrapper">
+              <img loading="lazy" appSwipe (leftSwipe)="carousel.next()" (rightSwipe)="carousel.prev()" [src]="item"
+              [alt]="i === 0 ? 'Trade on the Premier MT5 Platform' : i === 1 ? 'trade view' : i === 2 ? 'upforex live market' : i === 3 ? 'analyzing chart' : i === 4 ? 'mobile trading view' : i === 6 ? 'live trading viewchart' : 'upforex trade vision'"
+              />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+
+      <div class="tw-w-full lg:tw-w-1/2 tw-p-8 md:tw-p-4">
+        <h1 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8">
+          Trade on the Premier MT5 Platform: Your Gateway to Global Markets
+        </h1>
+        <!-- <p
+          class="tw-text-xl !tw-mb-2 tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          Advanced Tools for Advanced Trading
+        </p> -->
+        <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8">
+          Welcome to the next generation of trading. The MT5 platform, developed by MetaQuotes, is the industry's
+          leading multi asset trading platform, offering unparalleled access to a world of financial opportunities. At
+          UPFOREX, we provide our clients with seamless access to this powerful software, empowering you to trade Forex,
+          stocks, indices, commodities, and cryptocurrencies all from a single, integrated account. Experience the
+          perfect blend of sophisticated technology and user-friendly design, crafted for both seasoned professionals
+          and those just beginning their trading journey.
+        </p>
+        <!-- <p
+          class="tw-text-base tw-text-white tw-font-bold tw-tracking-wider tw-leading-relaxed"
+        >
+          Key features:
+        </p>
+        <div class="my-3 d-flex flex-column gap-3 tw-items-start">
+          <div class="d-flex gap-2 tw-items-center">
+            <i
+              class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+            ></i>
+            <h5 class="tw-text-white tw-ml-2 tw-text-base !tw-mb-0">
+              Comprehensive tools for market analysis
+            </h5>
+          </div>
+          <div class="d-flex gap-2 tw-items-center">
+            <i
+              class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+            ></i>
+            <h5 class="tw-text-white tw-ml-2 tw-text-base !tw-mb-0">
+              Integrated trading signals and advanced charting tools
+            </h5>
+          </div>
+          <div class="d-flex gap-2 tw-items-center">
+            <i
+              class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+            ></i>
+            <h5 class="tw-text-white tw-ml-2 tw-text-base !tw-mb-0">
+              Mobile compatibility for trading anytime, anywhere
+            </h5>
+          </div>
+          <div class="d-flex gap-2 tw-items-center">
+            <i
+              class="tw-text-lg tw-mt-0.5 fa-solid fa-circle-check tw-text-themePrimary"
+            ></i>
+            <h5 class="tw-text-white tw-ml-2 tw-text-base !tw-mb-0">
+              A seamless, integrated experience for professional and beginner
+              traders alike
+            </h5>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <h2 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8">
+      Why the MT5 Platform is the Ultimate Multi Asset Trading Platform
+    </h2>
+    <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+      The MT5 platform was engineered to be far more than just a Forex terminal. It is a comprehensive financial
+      ecosystem built for the modern trader. Its core strength lies in its ability to function as a true multi asset
+      trading platform, breaking down the barriers between different markets. This means you can diversify your
+      portfolio and capitalize on opportunities across the entire financial landscape without needing multiple accounts
+      or softwares. The platform’s robust infrastructure handles immense volumes of data and trading orders with
+      lightning speed and unwavering stability, ensuring you never miss a beat.
+    </p>
+  </div>
+
+  <!-- Advantages -->
+  <div class="tw-pb-8 tw-px-8">
+    <div class="tw-w-full tw-p-0 md:tw-p-4">
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Advanced Tools for Precision Market Analysis
+      </p>
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Success in trading is fueled by information and insight. The MT5 platform is equipped with a vast arsenal of
+        professional tools designed to give you a decisive edge.
+      </p>
+
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Superior Technical Analysis: Utilize over 80 built-in technical indicators and analytical tools to dissect
+        market trends and identify potential entry and exit points.
+      </p>
+
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Advanced Charting Capabilities: Analyze price movements across 21 timeframes with interactive, multi-asset
+        charts. Employ graphical objects and expert annotations to map out your strategy with precision.
+      </p>
+
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Integrated Trading Signals & Economic Calendar: Stay informed with real-time financial news and an economic
+        calendar directly within the platform. Subscribe to and copy trading signals from experienced investors to
+        inform your own decisions.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <h2 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8">
+      How to Trade on MetaTrader 5: Seamless and Mobile
+    </h2>
+    <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+      Wondering how to trade on MetaTrader 5? The process is intuitively designed. Execute trades with a single click,
+      set pending orders, and implement advanced risk management tools like stop-loss and take-profit orders
+      effortlessly. A significant advantage of the MT5 platform is its absolute flexibility. Whether you are at your
+      desk or on the move, your trading account follows you. The fully synchronized mobile and web terminals ensure you
+      can monitor the markets, perform analysis, and <a href="https://www.upforex.com/platforms/mt5">Trade on MT5</a> from anywhere in the world, at any time.
+    </p>
+  </div>
+
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <h2 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8">
+      Choosing the Best Broker for MetaTrader 5
+    </h2>
+    <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+      The power of the software is amplified by the quality of the broker behind it. So, what makes <a href="https://www.upforex.com/">UPFOREX</a> the best
+      broker for MetaTrader 5? It’s our commitment to providing a superior trading environment.
+      We offer ultra-fast execution speeds, tight spreads, and low commission structures on our ECN accounts, making MT5
+      stock trading and Forex trading more affordable and efficient. Our dedicated support team is always available to
+      help you navigate the platform and get the most out of its extensive features.
+    </p>
+  </div>
+
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <h2 class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8">
+      Expand Your Horizons with MT5 Stock Trading
+    </h2>
+    <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+      While renowned for Forex, MT5 stock trading is a feature that sets it apart from its predecessor. Gain exposure to
+      a wide selection of global company stocks, allowing for greater portfolio diversification and the chance to invest
+      in leading corporations directly through your familiar MT5 interface.
+
+      Ready to experience the power of the world's premier multi asset trading platform?
+      Unlock the full potential of your trading strategy with UPFOREX and the advanced MT5 platform. Open your account
+      today and gain access to powerful tools, competitive conditions, and a world of markets at your fingertips.
+
+    </p>
+  </div>
+
+  <!-- Advantages -->
+  <div class="tw-pb-8 tw-px-8">
+    <div class="tw-w-full tw-p-0 md:tw-p-4">
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Q1: What is the MetaTrader 5 (MT5) Platform?
+      </p>
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        MetaTrader 5 (MT5) is a state-of-the-art, multi-asset trading platform developed by MetaQuotes Software. It is
+        the successor to the popular MT4 platform and is designed for trading Forex, stocks, futures, indices, and
+        cryptocurrencies, all from a single account.
+      </p>
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Q2: What is the Main Difference Between MT4 and MT5?
+      </p>
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        While MT4 was primarily built for Forex trading, MT5 is a true multi asset <a href="https://www.upforex.com/products/stocks-cfd">trading platform</a>. Key differences
+        include the ability to trade more asset classes, more technical indicators and graphical objects, a more
+        advanced economic calendar, a depth of market (DOM) feature, and a superior hedging system.
+      </p>
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Q3: How do I install the MT5 Platform?
+      </p>
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Installing the  <a href="https://www.upforex.com/platforms/mt5">MT5 platform</a> is simple. Visit your broker's website (like UPFOREX), navigate to the platforms
+        section, and download the MT5 desktop application for Windows or Mac. You can also download the mobile app from
+        the Apple App Store or Google Play Store.
+      </p>
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Q4: Can I Trade Stocks on MT5?
+      </p>
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        Yes, <a href="https://www.upforex.com/platforms/mt5">MT5 stock trading</a> is a key feature. The platform provides direct access to a wide range of global stock
+        exchanges. You need to ensure your broker (like UPFOREX) offers stock CFDs or actual shares through their MT5
+        multi asset trading platform.
+      </p>
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size:1.5rem;">
+        Q5. Why is UPFOREX considered a good broker for MetaTrader 5?
+      </p>
+
+      <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+        UPFOREX is regarded as a best broker for MetaTrader 5 because we provide seamless, stable, and fast access to
+        the platform. We offer competitive trading conditions, low latency order execution, and dedicated support to
+        help you maximize all the advanced features MT5 has to offer.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Download -->
+  <div class="tw-pb-8 tw-px-8 mt5-download-div">
+    <img loading="lazy" [src]="s3URL + 'assets/images/PNG/metamt5.webp'" alt="meta trader5" height="200" class="tw-object-contain" />
+    <p class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"></p>
+    <div class="row py-2">
+      <div class="col-12 col-md-4 col-lg-4">
+        <select (change)="changeSelect($event)" class="form-select tw-w-full bg-dark text-white"
+          aria-label="Default select example">
+          <option value="1" selected>MT5 Desktop</option>
+          <option value="2">MT5 For Mac</option>
+          <option value="3">MT5 iOS</option>
+          <option value="4">MT5 Android</option>
+          <!-- <option value="4">MT5 Web Terminal</option> -->
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="selectedDownload === '1'">
+    <a href="https://download.mql5.com/cdn/web/up.global.markets/mt5/upglobalmarkets5setup.exe" target="_blank">
+        <button type="button" class="tw-px-0 md:tw-pr-12 py-2 tw-mt-4 btn tw-block tw-font-montserrat">
+          Download Now
+        </button>
+      </a>
+    </div>
+
+    <div *ngIf="selectedDownload === '2'">
+      <div class="tw-w-full tw-p-0 md:tw-p-4">
+        <p class="tw-text-lg tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed">
+          MetaTrader 5 for Mac
+        </p>
+        <ul class="tw-list-disc tw-ml-4 tw-text-sm tw-text-white">
+          <li class="tw-mt-3">
+            Follow our guide to learn how to install the MetaTrader 5 on your
+            Mac. It’s free and easy to do and only takes a short while to
+            complete.
+          </li>
+          <li class="tw-mt-3">
+            By using the CrossOver software you will be able to run multiple
+            Microsoft Windows-based applications on your Mac or Linux operating
+            systems - including the MetaTrader 5 trading platform.
+          </li>
+          <li class="tw-mt-3">
+            Whether you already have the software, are currently a licenced
+            user, or simply want to test the free trial, you can download the
+            MetaTrader 5 on your Mac by visiting the product page on the
+            Codeweavers website.
+          </li>
+          <li class="tw-mt-3">
+            From here you have the option to 'Install Application', 'Download
+            Free Trial' or buy the full CrossOver version by selecting 'Buy
+            Now'.
+          </li>
+          <li class="tw-mt-3">
+            <b>
+              Once you have chosen between the 14-day free trial, or paid for
+              the full version, you can set-up Crossover by following these
+              steps:
+            </b>
+            <ul class="tw-list-decimal tw-ml-4 tw-mt-5">
+              <li class="tw-mt-3"><b>Download</b> and install CrossOver</li>
+              <li class="tw-mt-3">
+                Visit the MT5 page in their Compatibility Centre
+              </li>
+              <li class="tw-mt-3">
+                Go to the relevant application page, and click on the green
+                button
+              </li>
+              <li class="tw-mt-3">
+                Wait while CrossOver proceeds to install the application
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div *ngIf="selectedDownload === '3'">
+      <a href="https://download.mql5.com/cdn/mobile/mt5/ios?server=UpGlobalMarkets-Trade" target="_blank">
+        <button type="button" class="tw-px-0 md:tw-pr-12 py-2 tw-mt-4 btn tw-block tw-font-montserrat">
+          Download Now
+        </button>
+      </a>
+    </div>
+
+    <div *ngIf="selectedDownload === '4'">
+      <a href="https://download.mql5.com/cdn/mobile/mt5/android?server=UpGlobalMarkets-Trade" target="_blank">
+        <button type="button" class="tw-px-0 md:tw-pr-12 py-2 tw-mt-4 btn tw-block tw-font-montserrat">
+          Download Now
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

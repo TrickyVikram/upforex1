@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-cancel {
+  background: linear-gradient(to right, #963030, #be5656);
+  color: white;
+}
+
+.btn-cancel:hover {
+  background: linear-gradient(to left, #963030, #be5656);
+}
+
+.btn-claim {
+  background: linear-gradient(to right, #2ea278, #3cff19);
+  color: white;
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-claim:hover {
+  background: linear-gradient(to left, #2ea278, #3cff19);
+}
+li {
+  margin-bottom: 1rem;
+}

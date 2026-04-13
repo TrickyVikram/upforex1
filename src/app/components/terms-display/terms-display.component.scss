@@ -1,0 +1,120 @@
+/* Terms display specific styles */
+
+/* Custom prose styles for better readability */
+.tw-prose {
+  line-height: 1.7;
+}
+
+.tw-prose h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.tw-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.tw-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.tw-prose p {
+  margin-bottom: 1rem;
+}
+
+.tw-prose ul, .tw-prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.tw-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.tw-prose strong {
+  font-weight: 600;
+}
+
+.tw-prose a {
+  text-decoration: underline;
+}
+
+.tw-prose a:hover {
+  text-decoration: none;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .tw-prose h1 {
+    page-break-after: avoid;
+  }
+
+  .tw-prose h2, .tw-prose h3 {
+    page-break-after: avoid;
+    margin-top: 1rem;
+  }
+
+  .tw-prose p {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* PDF generation optimized styles */
+.terms-content {
+  /* Ensure proper rendering for PDF generation */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.terms-content * {
+  /* Fix text rendering issues in PDF */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure content is properly sized for PDF */
+.terms-content .tw-prose {
+  max-width: none;
+  font-size: 14px;
+}
+
+.terms-content h1,
+.terms-content h2,
+.terms-content h3 {
+  page-break-after: avoid;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.terms-content p {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.terms-content ul,
+.terms-content ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+/* Hide buttons and interactive elements in PDF */
+@media print {
+  .tw-bg-gray-800 button {
+    display: none !important;
+  }
+}

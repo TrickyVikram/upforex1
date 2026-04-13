@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "products": "Produkte",
+    "trading": "Handel",
+    "partnerships": "Partnerschaften",
+    "resources": "Ressourcen",
+    "contact": "Kontakt",
+    "blogs": "Blogs"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "Kostenlose Demo versuchen",
+    "OPEN_ACCOUNT": "Konto eröffnen",
+    "WELCOME_TITLE": "Willkommen bei UPFOREX - Ihr führender Forex-Handelspartner",
+    "TRADE_TAGLINE": "Handeln Sie intelligent. Verdienen Sie schneller. Wachsen Sie global.",
+    "DESCRIPTION": "Bei UPFOREX bieten wir nächstgenerierende Forex-Handelslösungen für Einzelhändler, professionelle Anleger und Einführungsmakler.",
+    "TRADING_CALCULATORS": "Handelsrechner",
+    "MARKET_ANALYSIS": "Marktanalyse",
+    "MARKET_REVIEWS": "Marktbewertungen"
+  },
+  "auth": {
+    "register": "Registrieren",
+    "signIn": "Anmelden"
+  },
+  "products": {
+    "forexCfds": "Forex-CFDs",
+    "stockCfds": "Aktien-CFDs",
+    "preciousMetal": "Edelmetalle",
+    "indexCfds": "Index-CFDs",
+    "energyCfds": "Energie-CFDs",
+    "cryptocurrenciesCfd": "Kryptowährungs-CFDs"
+  },
+  "accounts": {
+    "accounts": "Konten",
+    "mt5Platform": "MetaTrader 5 (MT5) Plattform"
+  }
+}

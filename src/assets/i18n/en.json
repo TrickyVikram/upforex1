@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "trading": "Trading",
+    "partnerships": "Partnerships",
+    "resources": "Resources",
+    "contact": "Contact",
+    "blogs": "Blogs"
+  },
+  "HOME": {
+    "TRY_FREE_DEMO": "Try Free Demo",
+    "OPEN_ACCOUNT": "Open Account",
+    "WELCOME_TITLE": "Welcome to UPFOREX - Your Premier Forex Trading Partner",
+    "TRADE_TAGLINE": "Trade Smarter. Earn Faster. Grow Globally.",
+    "DESCRIPTION": "At UPFOREX we provide next-generation forex trading solutions designed for retail traders, professional investors, and Introducing Brokers.",
+    "TRADING_CALCULATORS": "Trading Calculators",
+    "MARKET_ANALYSIS": "Market Analysis",
+    "MARKET_REVIEWS": "Market Reviews"
+  },
+  "auth": {
+    "register": "Register",
+    "signIn": "Sign In"
+  },
+  "products": {
+    "forexCfds": "Forex CFDs",
+    "stockCfds": "Stock CFDs",
+    "preciousMetal": "Precious Metal",
+    "indexCfds": "Index CFDs",
+    "energyCfds": "Energy CFDs",
+    "cryptocurrenciesCfd": "Cryptocurrencies CFD"
+  },
+  "accounts": {
+    "accounts": "Accounts",
+    "mt5Platform": "MetaTrader 5 (MT5) platform"
+  }
+}

@@ -1,0 +1,657 @@
+<!-- <div class="container tw-font-montserrat">
+  <p
+    class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4"
+  >
+    Account Types
+  </p>
+  <div class="table-responsive">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns" class="tw-text-themePrimary">
+            {{ col.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td *ngFor="let col of columns">
+            {{ item[col.key] }}
+            <ng-container *ngIf="item.hasSup">
+              <sup
+                *ngIf="item.supColumnKey?.includes(col.key)"
+                class="tw-tracking-widest"
+              >
+                {{ item.sup }}
+              </sup>
+            </ng-container>
+            <ng-container *ngIf="item.hasIcon">
+              <i
+                *ngIf="item.iconColumnKey?.includes(col.key)"
+                class="fa-solid fa-check tw-text-themePrimary"
+              ></i>
+            </ng-container>
+          </td>
+        </tr>
+        <tr class="hover:!tw-bg-transparent">
+          <td></td>
+          <td class="lg:tw-text-center">
+            <a href="https://client.upforex.live/?tab=register" target="_blank">
+              <button class="btn btn-lg text-white">Register</button>
+            </a>
+          </td>
+          <td class="lg:tw-text-center">
+            <a href="https://client.upforex.live/?tab=register" target="_blank">
+              <button class="btn btn-lg text-white">Register</button>
+            </a>
+          </td>
+          <td class="lg:tw-text-center">
+            <a href="https://client.upforex.live/?tab=register" target="_blank">
+              <button class="btn btn-lg text-white">Register</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+<div class="container">
+  <p
+    class="text-white tw-text-center tw-font-montserrat tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4"
+  >
+    Account Types
+  </p>
+</div>
+<div
+  class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4 tw-px-6 md:tw-px-6 lg:tw-px-44 tw-font-montserrat"
+>
+  <div class="text-white card tw-p-6 tw-px-8 !tw-flex-col">
+    <p
+      class="tw-font-montserrat tw-text-3xl tw-font-extrabold tw-tracking-wider tw-text-center"
+    >
+      Standard
+    </p>
+    <div class="tw-border-b-[1px] tw-border-b-gray-200"></div>
+
+    <div class="tw-flex tw-flex-col">
+      <div class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Account Currency
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">USD</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Leverage <sup>(1)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Upto 1:300</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread Type
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Floating</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread From
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            From 0.1 Pips
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Comission
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">0</p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">0.01</p>
+        </div>
+      </div>
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Maximum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">50</p>
+        </div>
+      </div> -->
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Deposit
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">$ 100</p>
+        </div>
+      </div>
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="!tw-mb-4 fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Joining Credit Bonus <sup>(4)</sup>
+          </p>
+        </div>
+      </div> -->
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Swap free <sup>(5)</sup>
+          </p>
+        </div>
+      </div> -->
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Margin Call level <sup>(4)</sup>
+          </p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Stop out level <sup>(5)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">30%</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Trading Platforms
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            MT5: Windows, Mac, iOS, Android, Web Terminal
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Instruments Available
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Forex, Metals, Shares, and Cash CFDs
+          </p>
+        </div>
+      </div>
+
+      <a
+        href="https://client.upforex.live/?tab=register"
+        class="tw-m-auto"
+        target="_blank"
+      >
+        <button class="btn btn-lg text-white">Register</button>
+      </a>
+    </div>
+  </div>
+  <div class="text-white card tw-p-6 tw-px-8 !tw-flex-col">
+    <p
+      class="tw-font-montserrat tw-text-3xl tw-font-extrabold tw-tracking-wider tw-text-center"
+    >
+      Pro-ECN
+    </p>
+    <div class="tw-border-b-[1px] tw-border-b-gray-200"></div>
+
+    <div class="tw-flex tw-flex-col">
+      <div class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Account Currency
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">USD</p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Leverage <sup>(1)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Upto 1:300</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread Type
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Floating</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread From
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            0 <sup>(2)</sup> Pips
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Comission
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            $7/Round lot <sup>(3)</sup>
+          </p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">0.01</p>
+        </div>
+      </div>
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Maximum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">100</p>
+        </div>
+      </div> -->
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Deposit
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">$ 1000</p>
+        </div>
+      </div>
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="!tw-mb-4 fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Joining Credit Bonus <sup>(4)</sup>
+          </p>
+        </div>
+      </div> -->
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Swap free <sup>(5)</sup>
+          </p>
+        </div>
+      </div> -->
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Margin Call level <sup>(4)</sup>
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Stop out level <sup>(5)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">30%</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Trading Platforms
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            MT5: Windows, Mac, iOS, Android, Web Terminal
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Instruments Available
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Forex, Metals, Shares, and Cash CFDs
+          </p>
+        </div>
+      </div>
+
+      <a
+        href="https://client.upforex.live/?tab=register"
+        class="tw-m-auto"
+        target="_blank"
+      >
+        <button class="btn btn-lg text-white">Register</button>
+      </a>
+    </div>
+  </div>
+  <div class="text-white card tw-p-6 tw-px-8 !tw-flex-col">
+    <p
+      class="tw-font-montserrat tw-text-3xl tw-font-extrabold tw-tracking-wider tw-text-center"
+    >
+      Elite-ECN
+    </p>
+    <div class="tw-border-b-[1px] tw-border-b-gray-200"></div>
+
+    <div class="tw-flex tw-flex-col">
+      <div class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Account Currency
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">USD</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Leverage <sup>(1)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Upto 1:300</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread Type
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">Floating</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Spread From
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            From 0.1 Pips
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Comission
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">0</p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">0.01</p>
+        </div>
+      </div>
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Maximum Lot Size
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">100</p>
+        </div>
+      </div> -->
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Minimum Deposit
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">$ 5000</p>
+        </div>
+      </div>
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="!tw-mb-4 fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Joining Credit Bonus <sup>(4)</sup>
+          </p>
+        </div>
+      </div> -->
+
+      <!-- <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Swap free <sup>(5)</sup>
+          </p>
+        </div>
+      </div> -->
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid !tw-mb-4 fa-check tw-text-themePrimary"></i>
+        <div>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Margin Call level <sup>(4)</sup>
+          </p>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Stop out level <sup>(5)</sup>
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">30%</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Trading Platforms
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            MT5: Windows, Mac, iOS, Android, Web Terminal
+          </p>
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-row tw-items-center tw-gap-4">
+        <i class="fa-solid fa-check tw-text-themePrimary"></i>
+        <div>
+          <span
+            class="tw-text-sm tw-font-medium tw-text-gray-300 tw-font-montserrat tw-text-left"
+          >
+            Instruments Available
+          </span>
+          <p class="tw-text-white tw-text-base tw-font-semibold">
+            Forex, Metals, Shares, and Cash CFDs
+          </p>
+        </div>
+      </div>
+
+      <a
+        href="https://client.upforex.live/?tab=register"
+        class="tw-m-auto"
+        target="_blank"
+      >
+        <button class="btn btn-lg text-white">Register</button>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="w-100 px-5 tw-font-montserrat tw-mt-5">
+  <div
+    class="tw-flex tw-flex-col tw-justify-start tw-items-start tw-text-white tw-gap-2 tw-px-4 md:tw-px-0"
+  >
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(1)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1"
+        >Leverage adjustments may apply based on prevailing market conditions
+        and liquidity factors.</span
+      >
+    </div>
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(2)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1"
+        >Spreads start from 0, offering highly competitive trading costs.</span
+      >
+    </div>
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(3)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1"
+        >Commission applies to Forex and Metal trades; No Commission apply to
+        other instruments.</span
+      >
+    </div>
+    <!-- <div>
+      <sup class="tw-text-themePrimary tw-text-base">(4)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1"
+        >Bonus Withdrawal Rule: The total trading bonus amount is withdrawable
+        upon achieving a trading volume target of (Bonus Amount ÷ 2) lots
+        in closed trades.</span
+      >
+    </div>
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(5)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1">
+        Swap-free accounts are accessible for traders adhering to Islamic
+        finance principles.</span
+      >
+    </div> -->
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(4)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1">
+        In our trading environment, the Margin Call Level is set at 50%, for
+        risk management. Client is Responsible to Manage same.</span
+      >
+    </div>
+    <div>
+      <sup class="tw-text-themePrimary tw-text-base">(5)</sup>
+      &nbsp;
+      <span class="tw-text-[15px] tw-mb-1">
+        Stop-Out Level is established at 30%, ensuring automatic position
+        liquidation to prevent excessive losses for all clients.</span
+      >
+    </div>
+  </div>
+</div>

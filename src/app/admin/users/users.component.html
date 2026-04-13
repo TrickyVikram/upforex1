@@ -1,0 +1,457 @@
+<div class="tw-p-6">
+  <!-- Header -->
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-6">
+    <div>
+      <h1 class="tw-text-2xl tw-font-bold tw-text-white">Users Management</h1>
+      <p class="tw-text-gray-400 tw-mt-1">
+        View and manage all registered users
+      </p>
+    </div>
+    <div
+      class="tw-bg-gray-800 tw-rounded-lg tw-px-4 tw-py-2 tw-text-gray-300 tw-text-sm"
+    >
+      Total: <span class="tw-text-green-400 tw-font-bold">{{ totalDocs }}</span>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="tw-mb-6 tw-flex tw-gap-3">
+    <input
+      type="text"
+      [(ngModel)]="search"
+      (input)="onSearchChange()"
+      placeholder="Search by name or email..."
+      class="tw-flex-1 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-border-gray-700 tw-bg-gray-800 tw-text-white tw-placeholder-gray-400 focus:tw-outline-none focus:tw-border-green-500"
+    />
+    <button
+      (click)="onSearch()"
+      class="tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg"
+    >
+      Search
+    </button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="tw-text-center tw-py-16">
+    <div
+      class="tw-animate-spin tw-rounded-full tw-h-12 tw-w-12 tw-border-b-2 tw-border-green-500 tw-mx-auto"
+    ></div>
+    <p class="tw-text-gray-400 tw-mt-4">Loading users...</p>
+  </div>
+
+  <!-- Table -->
+  <div
+    *ngIf="!loading"
+    class="tw-overflow-x-auto tw-rounded-lg tw-border tw-border-gray-700"
+  >
+    <table class="tw-w-full tw-text-sm tw-text-left tw-text-gray-300">
+      <thead class="tw-text-xs tw-uppercase tw-bg-gray-700 tw-text-gray-400">
+        <tr>
+          <th class="tw-px-4 tw-py-3">#</th>
+          <th class="tw-px-4 tw-py-3">Name</th>
+          <th class="tw-px-4 tw-py-3">Email</th>
+          <th class="tw-px-4 tw-py-3">Phone</th>
+          <th class="tw-px-4 tw-py-3">Country</th>
+          <th class="tw-px-4 tw-py-3">Domain</th>
+          <th class="tw-px-4 tw-py-3">Affiliate</th>
+          <th class="tw-px-4 tw-py-3">Status</th>
+          <th class="tw-px-4 tw-py-3">T&amp;C</th>
+          <th class="tw-px-4 tw-py-3">Registered</th>
+          <th class="tw-px-4 tw-py-3 tw-text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let user of users; let i = index"
+          class="tw-bg-gray-800 tw-border-b tw-border-gray-700 hover:tw-bg-gray-700 tw-transition-colors"
+        >
+          <td class="tw-px-4 tw-py-3 tw-text-gray-400 tw-font-mono tw-text-xs">
+            {{ (pageNum - 1) * pageLimit + i + 1 }}
+          </td>
+          <td
+            class="tw-px-4 tw-py-3 tw-font-medium tw-text-white tw-whitespace-nowrap"
+          >
+            {{ user.firstName }} {{ user.lastName }}
+          </td>
+          <td class="tw-px-4 tw-py-3 tw-text-blue-300">{{ user.email }}</td>
+          <td class="tw-px-4 tw-py-3 tw-whitespace-nowrap">
+            <span class="tw-text-gray-400">{{ user.countryCode }}</span>
+            {{ user.phoneNo }}
+          </td>
+          <td class="tw-px-4 tw-py-3 tw-whitespace-nowrap">
+            <!-- <span class="tw-mr-1">{{ getCountryFlag(user.countryId) }}</span> -->
+            <span class="tw-text-gray-200">{{
+              getCountryName(user.countryId)
+            }}</span>
+          </td>
+          <td class="tw-px-4 tw-py-3 tw-text-gray-400 tw-text-xs">
+            {{ user.domain }}
+          </td>
+          <td class="tw-px-4 tw-py-3 tw-text-xs">
+            <span
+              *ngIf="user.affiliateCode"
+              class="tw-bg-purple-900 tw-text-purple-300 tw-px-2 tw-py-0.5 tw-rounded tw-font-mono"
+            >
+              {{ user.affiliateCode }}
+            </span>
+            <span *ngIf="!user.affiliateCode" class="tw-text-gray-600">—</span>
+          </td>
+          <td class="tw-px-4 tw-py-3">
+            <span
+              [class]="
+                'tw-px-2 tw-py-1 tw-rounded-full tw-text-xs tw-font-semibold ' +
+                getStatusBadgeClass(user.isActive)
+              "
+            >
+              {{ user.isActive ? "Active" : "Inactive" }}
+            </span>
+          </td>
+          <td class="tw-px-4 tw-py-3">
+            <span
+              *ngIf="user.conditions"
+              class="tw-text-green-400 tw-text-xs tw-flex tw-items-center tw-gap-1"
+            >
+              <ng-icon name="matCheckCircle" size="14"></ng-icon> Accepted
+            </span>
+            <span *ngIf="!user.conditions" class="tw-text-gray-600 tw-text-xs"
+              >—</span
+            >
+          </td>
+          <td
+            class="tw-px-4 tw-py-3 tw-text-gray-400 tw-text-xs tw-whitespace-nowrap"
+          >
+            {{ user.createdAt | date: "dd MMM yyyy" }}<br />
+            <!-- <span class="tw-text-gray-600">{{ user.createdAt | date : 'HH:mm' }}</span> -->
+          </td>
+          <td class="tw-px-4 tw-py-3">
+            <div class="tw-flex tw-gap-1.5 tw-justify-center tw-flex-wrap">
+              <button
+                (click)="viewUser(user)"
+                title="View Full Details"
+                class="tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-px-2.5 tw-py-1 tw-rounded tw-flex tw-items-center tw-gap-1 tw-text-xs tw-whitespace-nowrap"
+              >
+                <ng-icon name="matVisibility" size="13"></ng-icon> View
+              </button>
+              <!-- <button
+                (click)="toggleActive(user)"
+                [title]="user.isActive ? 'Deactivate' : 'Activate'"
+                [class]="'tw-text-white tw-px-2.5 tw-py-1 tw-rounded tw-flex tw-items-center tw-gap-1 tw-text-xs tw-whitespace-nowrap ' +
+                  (user.isActive ? 'tw-bg-yellow-600 hover:tw-bg-yellow-700' : 'tw-bg-green-600 hover:tw-bg-green-700')"
+              >
+                <ng-icon name="matCheckCircle" size="13"></ng-icon>
+                {{ user.isActive ? 'Deactivate' : 'Activate' }}
+              </button>
+              <button
+                (click)="confirmDelete(user)"
+                title="Delete"
+                class="tw-bg-red-600 hover:tw-bg-red-700 tw-text-white tw-px-2.5 tw-py-1 tw-rounded tw-flex tw-items-center tw-gap-1 tw-text-xs"
+              >
+                <ng-icon name="matDelete" size="13"></ng-icon>
+              </button> -->
+            </div>
+          </td>
+        </tr>
+
+        <!-- No Data -->
+        <tr *ngIf="users.length === 0">
+          <td
+            colspan="11"
+            class="tw-text-center tw-py-12 tw-text-gray-500 tw-bg-gray-800"
+          >
+            No users found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!loading && users.length > 0 && totalPages > 1" class="tw-mt-6">
+    <div class="tw-text-center tw-mb-3 tw-text-gray-400 tw-text-sm">
+      Showing {{ (pageNum - 1) * pageLimit + 1 }} to
+      {{ Math.min(pageNum * pageLimit, totalDocs) }} of {{ totalDocs }} users
+    </div>
+    <div
+      class="tw-flex tw-justify-center tw-items-center tw-gap-2 tw-flex-wrap"
+    >
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        (click)="onPageChange(i + 1)"
+        [class]="
+          'tw-px-3 tw-py-2 tw-rounded ' +
+          (pageNum === i + 1
+            ? 'tw-bg-green-600 tw-text-white'
+            : 'tw-bg-gray-700 tw-text-gray-300 hover:tw-bg-gray-600')
+        "
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ======= User Detail Modal ======= -->
+<ng-template #userDetailModal let-modal>
+  <div class="tw-bg-gray-900 tw-rounded-xl tw-shadow-2xl tw-overflow-hidden">
+    <!-- Modal Header -->
+    <div
+      class="tw-bg-gray-800 tw-px-6 tw-py-4 tw-flex tw-justify-between tw-items-center tw-border-b tw-border-gray-700"
+    >
+      <div class="tw-flex tw-items-center tw-gap-3">
+        <div
+          class="tw-w-10 tw-h-10 tw-rounded-full tw-bg-green-600 tw-flex tw-items-center tw-justify-center tw-text-white tw-font-bold tw-text-lg"
+        >
+          {{ selectedUser?.firstName?.charAt(0)
+          }}{{ selectedUser?.lastName?.charAt(0) }}
+        </div>
+        <div>
+          <h2 class="tw-text-lg tw-font-bold tw-text-white">
+            {{ selectedUser?.firstName }} {{ selectedUser?.lastName }}
+          </h2>
+          <p class="tw-text-xs tw-text-gray-400">{{ selectedUser?.email }}</p>
+        </div>
+      </div>
+      <div class="tw-flex tw-items-center tw-gap-3">
+        <span
+          *ngIf="selectedUser"
+          [class]="
+            'tw-px-3 tw-py-1 tw-rounded-full tw-text-xs tw-font-semibold ' +
+            getStatusBadgeClass(selectedUser.isActive)
+          "
+        >
+          {{ selectedUser.isActive ? "Active" : "Inactive" }}
+        </span>
+        <button
+          type="button"
+          (click)="modal.dismiss()"
+          class="tw-text-gray-400 hover:tw-text-white"
+        >
+          <svg
+            class="tw-w-5 tw-h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal Body -->
+    <div
+      *ngIf="selectedUser"
+      class="tw-p-6 tw-space-y-6 tw-max-h-[75vh] tw-overflow-y-auto"
+    >
+      <!-- Personal Info -->
+      <div>
+        <h3
+          class="tw-text-xs tw-font-semibold tw-text-green-400 tw-uppercase tw-tracking-widest tw-mb-3"
+        >
+          Personal Information
+        </h3>
+        <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-4">
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">First Name</p>
+            <p class="tw-text-white tw-font-medium">
+              {{ selectedUser.firstName }}
+            </p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Last Name</p>
+            <p class="tw-text-white tw-font-medium">
+              {{ selectedUser.lastName }}
+            </p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Email</p>
+            <p class="tw-text-blue-300 tw-break-all">
+              {{ selectedUser.email }}
+            </p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Phone Number</p>
+            <p class="tw-text-white tw-font-mono">
+              {{ selectedUser.countryCode }} {{ selectedUser.phoneNo }}
+            </p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Country</p>
+            <p class="tw-text-white">
+              <span class="tw-mr-2 tw-text-xl">{{
+                getCountryFlag(selectedUser.countryId)
+              }}</span>
+              {{ getCountryName(selectedUser.countryId) }}
+              <span class="tw-text-gray-500 tw-text-xs tw-ml-1"
+                >(ID: {{ selectedUser.countryId }})</span
+              >
+            </p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Affiliate Code</p>
+            <p class="tw-text-purple-300 tw-font-mono">
+              {{ selectedUser.affiliateCode || "—" }}
+            </p>
+          </div>
+          <!-- <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Role</p>
+            <p class="tw-text-white tw-capitalize">{{ selectedUser.role }}</p>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Account Info -->
+      <div>
+        <h3
+          class="tw-text-xs tw-font-semibold tw-text-green-400 tw-uppercase tw-tracking-widest tw-mb-3"
+        >
+          Server Information
+        </h3>
+        <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-4">
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Domain</p>
+            <p class="tw-text-white">{{ selectedUser.domain }}</p>
+          </div>
+
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Registration IP</p>
+            <p class="tw-text-white tw-font-mono tw-text-sm">
+              {{ selectedUser.registrationIp || "—" }}
+            </p>
+          </div>
+          <!-- <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">User ID</p>
+            <p class="tw-text-gray-300 tw-font-mono tw-text-xs tw-break-all">{{ selectedUser._id }}</p>
+          </div> -->
+          <!-- <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Registered At</p>
+            <p class="tw-text-white">{{ selectedUser.createdAt | date : 'dd MMM yyyy, HH:mm:ss' }}</p>
+          </div>
+          <div class="tw-bg-gray-800 tw-rounded-lg tw-p-3">
+            <p class="tw-text-xs tw-text-gray-500 tw-mb-1">Last Updated</p>
+            <p class="tw-text-white">{{ selectedUser.updatedAt | date : 'dd MMM yyyy, HH:mm:ss' }}</p>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div *ngIf="selectedUser.conditions">
+        <h3
+          class="tw-text-xs tw-font-semibold tw-text-green-400 tw-uppercase tw-tracking-widest tw-mb-3"
+        >
+          Terms &amp; Conditions Acceptance
+        </h3>
+        <div
+          *ngIf="selectedUser.t_and_c"
+          class="tw-bg-gray-800 tw-rounded-lg tw-p-4 tw-space-y-3"
+        >
+          <div
+            class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-3 tw-text-sm"
+          >
+            <div>
+              <span class="tw-text-gray-500">Accepted: </span>
+              <span class="tw-text-green-400 tw-font-medium">{{
+                selectedUser.t_and_c.accepted ? "✓ Yes" : "✗ No"
+              }}</span>
+            </div>
+            <div>
+              <span class="tw-text-gray-500">Accepted At: </span>
+              <span class="tw-text-white">{{
+                selectedUser.t_and_c.acceptedAt | date: "dd MMM yyyy, HH:mm"
+              }}</span>
+            </div>
+            <div>
+              <span class="tw-text-gray-500">User IP Address: </span>
+              <span class="tw-text-white tw-font-mono">{{
+                selectedUser.t_and_c.ipAddress
+              }}</span>
+            </div>
+            <div class="sm:tw-col-span-2">
+              <span class="tw-text-gray-500">User Agent: </span>
+              <span class="tw-text-gray-300 tw-text-xs tw-break-all">{{
+                selectedUser.t_and_c.userAgent
+              }}</span>
+            </div>
+          </div>
+          <div
+            *ngIf="
+              selectedUser.t_and_c.documents &&
+              selectedUser.t_and_c.documents.length
+            "
+            class="tw-mt-3"
+          >
+            <p class="tw-text-gray-500 tw-text-xs tw-uppercase tw-mb-2">
+              Legal Documents Accepted
+            </p>
+            <div class="tw-space-y-2">
+              <div
+                *ngFor="let doc of selectedUser.t_and_c.documents"
+                class="tw-flex tw-items-center tw-justify-between tw-bg-gray-700 tw-rounded tw-px-3 tw-py-2 tw-text-xs"
+              >
+                <div class="tw-flex tw-items-center tw-gap-2">
+                  <ng-icon
+                    name="matDescription"
+                    size="14"
+                    class="tw-text-blue-400"
+                  ></ng-icon>
+                  <span class="tw-text-gray-200">{{ doc.type }}</span>
+                  <span
+                    class="tw-bg-gray-600 tw-text-gray-300 tw-px-1.5 tw-py-0.5 tw-rounded tw-font-mono"
+                    >{{ doc.version }}</span
+                  >
+                </div>
+                <a
+                  [href]="doc.url"
+                  target="_blank"
+                  class="tw-text-blue-400 hover:tw-text-blue-300 tw-underline tw-ml-2"
+                >
+                  View PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+  </div>
+</ng-template>
+
+<!-- ======= Delete Confirmation Modal ======= -->
+<ng-template #deleteConfirmModal let-modal>
+  <div class="tw-bg-gray-900 tw-rounded-lg tw-shadow-xl tw-p-6">
+    <h3 class="tw-text-lg tw-font-bold tw-text-white tw-mb-3">
+      Confirm Delete
+    </h3>
+    <p class="tw-text-gray-400 tw-mb-6">
+      Are you sure you want to
+      <span class="tw-text-red-400 tw-font-semibold">permanently delete</span>
+      this user? This action cannot be undone.
+    </p>
+    <div class="tw-flex tw-justify-end tw-gap-3">
+      <button
+        (click)="modal.dismiss()"
+        class="tw-bg-gray-700 hover:tw-bg-gray-600 tw-text-white tw-px-5 tw-py-2 tw-rounded-lg"
+      >
+        Cancel
+      </button>
+      <button
+        (click)="handleDelete()"
+        [disabled]="isWorking"
+        class="tw-bg-red-600 hover:tw-bg-red-700 tw-text-white tw-px-5 tw-py-2 tw-rounded-lg disabled:tw-opacity-60 tw-flex tw-items-center tw-gap-2"
+      >
+        <span
+          *ngIf="isWorking"
+          class="tw-animate-spin tw-inline-block tw-w-3 tw-h-3 tw-border-2 tw-border-white tw-border-t-transparent tw-rounded-full"
+        ></span>
+        {{ isWorking ? "Deleting..." : "Delete Permanently" }}
+      </button>
+    </div>
+  </div>
+</ng-template>

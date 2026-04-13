@@ -1,0 +1,48 @@
+<div class="container tw-font-montserrat">
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <h1
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-bold md:tw-my-4 !tw-mb-8"
+    >
+      Forex Trading
+  </h1>
+    <p
+      class="tw-text-xl tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+    >
+      What is Forex?
+    </p>
+    <p
+      class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Forex (Foreign Exchange) is the world's largest financial market, crucial
+      for international capital flow. It involves trading currencies for various
+      purposes, including speculation, international trade, and hedging.
+      Speculative trades dominate, accounting for about 90% of market
+      transactions.
+    </p>
+  </div>
+  <div *ngFor="let items of forexMarketInfo" class="tw-w-full tw-p-0 md:tw-p-4">
+    <p
+      class="tw-text-xl tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      {{ items.title }}
+    </p>
+    <p
+      *ngFor="let desc of items.details"
+      class="tw-text-base tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      <b class="tw-text-themePrimary">{{ desc.feature }} : </b>
+      <span>
+        {{ desc.description }}
+      </span>
+    </p>
+  </div>
+  <div class="tw-w-full tw-p-0 md:tw-p-4">
+    <p
+      class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Forex trading offers immense opportunities but demands discipline, risk
+      management, and thorough knowledge of market dynamics. Always trade within
+      your financial limits to avoid adverse impacts on personal finances.
+    </p>
+  </div>
+</div>
