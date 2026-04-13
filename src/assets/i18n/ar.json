@@ -23,6 +23,19 @@
     "register": "تسجيل",
     "signIn": "تسجيل الدخول"
   },
+  "FOOTER": {
+    "HOME": "الصفحة الرئيسية",
+    "ABOUT_US": "من نحن",
+    "ACCOUNTS": "الحسابات",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "اتصل بنا",
+    "BLOGS": "المدونات",
+    "USEFUL_LINKS": "روابط مفيدة",
+    "RISK_DISCLOSURE": "تحذير المخاطر",
+    "PREVENT_MONEY_LAUNDERING": "منع غسل الأموال",
+    "PRIVACY_POLICY": "سياسة الخصوصية",
+    "LEGAL_DOCUMENTS": "المستندات القانونية"
+  },
   "products": {
     "forexCfds": "عقود الفروقات على العملات",
     "stockCfds": "عقود الفروقات على الأسهم",

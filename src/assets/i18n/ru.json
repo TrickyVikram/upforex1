@@ -23,6 +23,19 @@
     "register": "Регистрация",
     "signIn": "Вход"
   },
+  "FOOTER": {
+    "HOME": "Главная",
+    "ABOUT_US": "О нас",
+    "ACCOUNTS": "Счета",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "Свяжитесь с нами",
+    "BLOGS": "Блоги",
+    "USEFUL_LINKS": "Полезные ссылки",
+    "RISK_DISCLOSURE": "Раскрытие рисков",
+    "PREVENT_MONEY_LAUNDERING": "Противодействие отмыванию денег",
+    "PRIVACY_POLICY": "Политика конфиденциальности",
+    "LEGAL_DOCUMENTS": "Юридические документы"
+  },
   "products": {
     "forexCfds": "Форекс CFD",
     "stockCfds": "Акции CFD",

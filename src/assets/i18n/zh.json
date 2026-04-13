@@ -23,6 +23,19 @@
     "register": "注册",
     "signIn": "登录"
   },
+  "FOOTER": {
+    "HOME": "主页",
+    "ABOUT_US": "关于我们",
+    "ACCOUNTS": "账户",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "联系我们",
+    "BLOGS": "博客",
+    "USEFUL_LINKS": "有用的链接",
+    "RISK_DISCLOSURE": "风险披露",
+    "PREVENT_MONEY_LAUNDERING": "防止洗钱",
+    "PRIVACY_POLICY": "隐私政策",
+    "LEGAL_DOCUMENTS": "法律文件"
+  },
   "products": {
     "forexCfds": "外汇差价合约",
     "stockCfds": "股票差价合约",

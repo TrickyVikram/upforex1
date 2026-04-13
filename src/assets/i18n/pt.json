@@ -23,6 +23,19 @@
     "register": "Registrar",
     "signIn": "Entrar"
   },
+  "FOOTER": {
+    "HOME": "Início",
+    "ABOUT_US": "Sobre nós",
+    "ACCOUNTS": "Contas",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "Entre em contato",
+    "BLOGS": "Blogs",
+    "USEFUL_LINKS": "Links úteis",
+    "RISK_DISCLOSURE": "Divulgação de riscos",
+    "PREVENT_MONEY_LAUNDERING": "Prevenção de lavagem de dinheiro",
+    "PRIVACY_POLICY": "Política de privacidade",
+    "LEGAL_DOCUMENTS": "Documentos legais"
+  },
   "products": {
     "forexCfds": "CFDs Forex",
     "stockCfds": "CFDs de Ações",

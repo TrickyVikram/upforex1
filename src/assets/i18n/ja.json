@@ -23,6 +23,19 @@
     "register": "登録",
     "signIn": "ログイン"
   },
+  "FOOTER": {
+    "HOME": "ホーム",
+    "ABOUT_US": "私たちについて",
+    "ACCOUNTS": "アカウント",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "お問い合わせ",
+    "BLOGS": "ブログ",
+    "USEFUL_LINKS": "便利なリンク",
+    "RISK_DISCLOSURE": "リスク開示",
+    "PREVENT_MONEY_LAUNDERING": "マネーロンダリング防止",
+    "PRIVACY_POLICY": "プライバシーポリシー",
+    "LEGAL_DOCUMENTS": "法的文書"
+  },
   "products": {
     "forexCfds": "ForexCFD",
     "stockCfds": "株式CFD",

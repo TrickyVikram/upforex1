@@ -23,6 +23,19 @@
     "register": "S'inscrire",
     "signIn": "Se connecter"
   },
+  "FOOTER": {
+    "HOME": "Accueil",
+    "ABOUT_US": "À propos de nous",
+    "ACCOUNTS": "Comptes",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "Nous contacter",
+    "BLOGS": "Blogs",
+    "USEFUL_LINKS": "Liens utiles",
+    "RISK_DISCLOSURE": "Divulgation des risques",
+    "PREVENT_MONEY_LAUNDERING": "Prévention du blanchiment d'argent",
+    "PRIVACY_POLICY": "Politique de confidentialité",
+    "LEGAL_DOCUMENTS": "Documents juridiques"
+  },
   "products": {
     "forexCfds": "Contrats sur différence Forex",
     "stockCfds": "Contrats sur différence Actions",
