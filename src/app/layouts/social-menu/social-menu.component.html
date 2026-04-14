@@ -2,79 +2,142 @@
 <div class="container-fluid p-1 footer-bg hr-margin"></div>
 
 <div class="tw-mb-[-1px]">
-  <div class="tw-flex tw-flex-col tw-px-8 md:tw-flex-row md:tw-px-0 tw-gap-12 mt-5 tw-justify-center">
-    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 d-flex flex-column gap-3 align-items-center justify-content-between">
+  <div
+    class="tw-flex tw-flex-col tw-px-8 md:tw-flex-row md:tw-px-0 tw-gap-12 mt-5 tw-justify-center"
+  >
+    <div
+      class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 d-flex flex-column gap-3 align-items-center justify-content-between"
+    >
       <!-- <img
         loading="lazy"
         class="tw-mt-4"
         [src]="s3URL + 'assets/images/PNG/logo png-01.webp'"
         width="150"
       /> -->
-      <img loading="lazy" class="tw-mt-4" src="../../../assets/images/updated-logos/logo-1.webp" width="150" alt="upforex logo"/>
+      <img
+        loading="lazy"
+        class="tw-mt-4"
+        src="../../../assets/images/updated-logos/logo-1.webp"
+        width="150"
+        alt="upforex logo"
+      />
 
       <div class="icon-bar d-flex flex-row gap-4">
-        <a href="https://www.facebook.com/upforexltd
-        " target="_blank" class="icon"><i class="fa-xl fa fa-facebook"></i></a>
-        <a href="https://www.instagram.com/upforexltd
-        " target="_blank" class="icon"><i class="fa-xl fa fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/upforex-ltd" target="_blank" class="icon"><i
-            class="fa-xl fa fa-linkedin"></i></a>
-        <a href="https://x.com/upforexltd" target="_blank" class="icon"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+        <a
+          href="https://www.facebook.com/upforexltd
+        "
+          target="_blank"
+          class="icon"
+          ><i class="fa-xl fa fa-facebook"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/upforexltd
+        "
+          target="_blank"
+          class="icon"
+          ><i class="fa-xl fa fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/company/upforex-ltd"
+          target="_blank"
+          class="icon"
+          ><i class="fa-xl fa fa-linkedin"></i
+        ></a>
+        <a href="https://x.com/upforexltd" target="_blank" class="icon"
+          ><i class="fa-brands fa-x-twitter fa-xl"></i
+        ></a>
       </div>
     </div>
     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
       <h4 class="titke-width tw-font-montserrat text-white link-title fs-18">
         {{ "FOOTER.HOME" | translate }}
       </h4>
-      <div class="py-2 d-flex align-items-center" *ngFor="let items of homeLinks">
+      <div
+        class="py-2 d-flex align-items-center"
+        *ngFor="let items of homeLinks"
+      >
         <i class="fa-xl fa-solid fa-angle-right icon"></i>
-        <a [routerLink]="[items.link]" class="text-white text-decoration-none tw-font-montserrat fs-14">{{ items.title
-          }}</a>
+        <a
+          [routerLink]="[items.link]"
+          class="text-white text-decoration-none tw-font-montserrat fs-14"
+          >{{ items.title | translate }}</a
+        >
       </div>
     </div>
     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
       <h4 class="titke-width tw-font-montserrat text-white link-title fs-18">
         {{ "FOOTER.USEFUL_LINKS" | translate }}
       </h4>
-      <div class="py-2 d-flex align-items-center" *ngFor="let items of usefullLinks">
+      <div
+        class="py-2 d-flex align-items-center"
+        *ngFor="let items of usefullLinks"
+      >
         <i class="fa-xl fa-solid fa-angle-right icon"></i>
-        <a [routerLink]="[items.link]" class="text-white text-decoration-none tw-font-montserrat fs-14">{{ items.title
-          }}</a>
+        <a
+          [routerLink]="[items.link]"
+          class="text-white text-decoration-none tw-font-montserrat fs-14"
+          >{{ items.title | translate }}</a
+        >
       </div>
     </div>
 
     <!-- section add trustpilot -->
 
     <!-- Font Awesome (for star icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      <a
+        href="https://www.trustpilot.com/review/upforex.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-decoration: none;
+          background: transparent;
+          padding: 10px 0;
+          border-radius: 10px;
+          transition: all 0.3s ease;
+        "
+      >
+        <!-- Trustpilot Logo -->
+        <img
+          src="https://cdn.trustpilot.net/brand-assets/4.3.0/logo-white.svg"
+          alt="Trustpilot"
+          style="height: auto; margin-bottom: 10px"
+          alt="Trustpilot logo"
+        />
 
-  <a href="https://www.trustpilot.com/review/upforex.com" target="_blank" rel="noopener noreferrer"
-    style="display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; background:transparent; padding:10px 0; border-radius:10px; transition:all 0.3s ease;">
+        <!-- Rating Stars (3.7/5) -->
+        <div
+          style="
+            display: flex;
+            gap: 6px;
+            font-size: 22px;
+            color: #00b67a;
+            margin-bottom: 6px;
+          "
+        >
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
 
-    <!-- Trustpilot Logo -->
-    <img src="https://cdn.trustpilot.net/brand-assets/4.3.0/logo-white.svg" alt="Trustpilot"
-      style="height:auto;  margin-bottom:10px;" alt="Trustpilot logo">
+        <!-- Rating Number -->
+        <!-- <span style="font-size:18px; font-weight:600; color:#fff; margin-bottom:4px;">3.7 out of 5</span> -->
 
-    <!-- Rating Stars (3.7/5) -->
-    <div style="display:flex; gap:6px; font-size:22px; color:#00b67a; margin-bottom:6px;">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star-half-stroke"></i>
-      <i class="fa-regular fa-star"></i>
+        <!-- Extra Line -->
+        <span style="font-size: 18px; color: #fff"
+          >UpForex is rated among the best with 4.3 Trustpilot reviews</span
+        >
+      </a>
     </div>
-
-    <!-- Rating Number -->
-    <!-- <span style="font-size:18px; font-weight:600; color:#fff; margin-bottom:4px;">3.7 out of 5</span> -->
-
-    <!-- Extra Line -->
-    <span style="font-size:18px; color:#fff;">UpForex is rated among the best with 4.3 Trustpilot reviews</span>
-  </a>
-</div>
-
-
-    
   </div>
 </div>

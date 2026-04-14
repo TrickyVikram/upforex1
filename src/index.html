@@ -301,14 +301,17 @@
       function autoDetectLanguageByCountry() {
         // ❗ If user manually selected a language before → skip auto-detection
         if (localStorage.getItem("uf_lang_manual")) {
+          console.log("✓ Manual language selection found, skipping auto-detection");
           return;
         }
 
         // Check if we already tried auto-detection in this session
         if (sessionStorage.getItem("uf_auto_detected")) {
+          console.log("✓ Auto-detection already done in this session");
           return;
         }
 
+        console.log("🌍 Detecting geo-location...");
         fetch("https://ipapi.co/json/")
           .then(function (res) {
             return res.json();
@@ -319,11 +322,20 @@
             var country = data.country || "";
             var detectedLang = COUNTRY_LANG_MAP[country] || "en";
 
+            console.log("📍 Geo-Location Data:", {
+              country: country,
+              city: data.city,
+              region: data.region,
+              ip: data.ip,
+              detectedLanguage: detectedLang
+            });
+
             // Save auto-detected language
             localStorage.setItem("uf_lang", detectedLang);
 
             // Set cookie for Google Translate AND reload to apply
             if (detectedLang !== "en") {
+              console.alert("🔄 Setting language cookie for:", detectedLang);
               // Map zh to zh-CN for Google Translate
               var gtLangCode = detectedLang === "zh" ? "zh-CN" : detectedLang;
               var cv = "/en/" + gtLangCode;
@@ -347,7 +359,7 @@
             }
           })
           .catch(function (err) {
-            console.log("Country detection failed:", err);
+            console.error("❌ Country detection failed:", err);
             sessionStorage.setItem("uf_auto_detected", "true");
           });
       }
@@ -540,8 +552,13 @@
             var currentLang = localStorage.getItem("uf_lang") || "en";
             if (lang.code === currentLang) return; /* same lang, do nothing */
 
+            console.log("👤 Manual language selection:", lang.code);
+
             /* Save selection immediately */
             localStorage.setItem("uf_lang", lang.code);
+
+            /* Mark as manual selection so auto-detection is skipped */
+            localStorage.setItem("uf_lang_manual", "true");
 
             /* Clear ALL old googtrans cookies */
             document.cookie =

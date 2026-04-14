@@ -29,42 +29,42 @@ export class SocialMenuComponent implements AfterViewInit {
 
   homeLinks = [
     {
-      title: 'About Us',
+      title: 'FOOTER.ABOUT_US',
       link: 'about-us',
     },
     {
-      title: 'Accounts',
+      title: 'FOOTER.ACCOUNTS',
       link: '/accounts',
     },
     {
-      title: 'MetaTrader 5 (MT5)',
+      title: 'FOOTER.MT5',
       link: '/platforms/mt5',
     },
     {
-      title: 'Contact Us',
+      title: 'FOOTER.CONTACT_US',
       link: '/contact-us',
     },
     {
-      title: 'Blogs',
+      title: 'FOOTER.BLOGS',
       link: '/blogs',
     },
   ];
   usefullLinks = [
     {
-      title: 'Risk Disclosure',
+      title: 'FOOTER.RISK_DISCLOSURE',
       link: 'risk-disclosure',
     },
     {
-      title: 'Prevent Money Laundering',
+      title: 'FOOTER.PREVENT_MONEY_LAUNDERING',
       link: 'anti-monry-laundering',
     },
     {
-      title: 'Privacy Policy',
+      title: 'FOOTER.PRIVACY_POLICY',
       link: 'privacy-policy',
     },
     {
       // footer link
-      title: 'Legal Documents',
+      title: 'FOOTER.LEGAL_DOCUMENTS',
       link: 'legal-documents',
     },
   ];
