@@ -324,8 +324,9 @@
 
             // Set cookie for Google Translate AND reload to apply
             if (detectedLang !== "en") {
-              // Always set the cookie for all languages (including Hindi, Chinese, etc)
-              var cv = "/en/" + detectedLang;
+              // Map zh to zh-CN for Google Translate
+              var gtLangCode = detectedLang === "zh" ? "zh-CN" : detectedLang;
+              var cv = "/en/" + gtLangCode;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
                 "googtrans=" +
@@ -376,7 +377,7 @@
         new google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "en,hi,ar,fr,es,de,zh,ja,pt,ru",
+            includedLanguages: "en,hi,ar,fr,es,de,zh-CN,ja,pt,ru",
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false,
             multilanguagePage: true,
@@ -442,8 +443,11 @@
           return;
         }
 
+        /* Map zh to zh-CN for Google Translate */
+        var gtLangCode = langCode === "zh" ? "zh-CN" : langCode;
+
         /* Set fresh cookie for new language */
-        var cv = "/en/" + langCode;
+        var cv = "/en/" + gtLangCode;
         document.cookie = "googtrans=" + cv + "; path=/;";
         document.cookie =
           "googtrans=" + cv + "; path=/; domain=" + location.hostname + ";";
@@ -457,7 +461,7 @@
         sel.dispatchEvent(new Event("change", { bubbles: true }));
 
         setTimeout(function () {
-          sel.value = langCode;
+          sel.value = gtLangCode;
           sel.dispatchEvent(new Event("change", { bubbles: true }));
         }, 50);
       }
@@ -553,7 +557,9 @@
 
             /* Set fresh cookie for new language */
             if (lang.code !== "en") {
-              var cv = "/en/" + lang.code;
+              /* Map zh to zh-CN for Google Translate */
+              var gtLangCode = lang.code === "zh" ? "zh-CN" : lang.code;
+              var cv = "/en/" + gtLangCode;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
                 "googtrans=" +
