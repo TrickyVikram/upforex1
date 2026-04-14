@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於我們",
+    "products": "產品",
+    "trading": "交易",
+    "partnerships": "合作夥伴",
+    "resources": "資源",
+    "contact": "聯絡我們",
+    "blogs": "部落格"
+  },
+  "HOME": {
+    "BANNER_TITLE": "全球市場優勢的革命性智能交易",
+    "BANNER_SUBTITLE": "從您的UPFOREX交易帳戶交易外匯、股票差價合約、貴金屬、指數差價合約、能源差價合約和加密貨幣差價合約",
+    "TRY_FREE_DEMO": "嘗試免費示範",
+    "OPEN_ACCOUNT": "開戶",
+    "WELCOME_TITLE": "歡迎來到UPFOREX - 您值得信賴的外匯交易夥伴",
+    "TRADE_TAGLINE": "聰明交易。更快賺錢。全球成長。",
+    "DESCRIPTION": "在UPFOREX，我們為零售交易者、專業投資者和經紀商提供下一代外匯交易解決方案。憑藉快速執行、更好的流動性和即時提現，我們為您提供最佳的交易體驗。",
+    "CONFIDENCE_TITLE": "自信交易 – 為每位交易者提供卓越的市場條件",
+    "CONFIDENCE_DESC": "在UPFOREX，我們為所有水平的交易者提供最佳交易條件。憑藉緊密的點差、更好的流動性和快速執行，您可以輕鬆自信地交易。",
+    "BEST_PRICES_TITLE": "最佳市場價格和低點差",
+    "BEST_PRICES_DESC": "享受外匯、股票、指數和加密貨幣差價合約的更優定價。",
+    "NEGATIVE_BALANCE": "負餘額保護",
+    "INSTANT_DEPOSITS_TITLE": "即時存款和快速提款",
+    "INSTANT_DEPOSITS_DESC": "透過多種付款選項（如加密貨幣、銀行轉帳、Neteller和Skrill）體驗快速付款。",
+    "SMARTER_TRADE_TITLE": "在全球資產中更聰明地交易",
+    "SMARTER_TRADE_DESC": "透過輕鬆存取廣泛的市場來尋找下一筆交易。",
+    "GLOBAL_TRADING": "透過閃電般快速的ECN連接實現無縫全球交易",
+    "SMART_FEATURES": "智能交易功能",
+    "CARD_1": "為現代交易者而建",
+    "CARD_2": "致力於透明度和安全性",
+    "CARD_3": "下一代交易基礎設施",
+    "CARD_4": "我們隨時為您服務",
+    "MT5_TITLE": "使用MetaTrader 5 (MT5)隨時隨地交易 – 行動、桌面和網路",
+    "MT5_DESC": "透過MetaTrader 5 (MT5)體驗進階交易。這是外匯、股票、指數、商品和加密貨幣的強大平台。無論您在家中、辦公室還是旅途中，MT5都可在行動、桌面和網路上使用，因此您永遠不會錯過交易機會。",
+    "ADVANCED_CHARTS": "進階圖表工具：查看具有多個時間框架和內建指標的即時圖表。",
+    "MULTI_ASSET": "多資產交易：從一個平台交易外匯、股票、指數、商品和加密貨幣。",
+    "FULL_ACCOUNT_CONTROL": "完整的帳戶控制",
+    "FULL_ACCOUNT_CONTROL_DESC": "輕鬆管理您的交易、下單和追蹤您的投資組合。",
+    "REAL_TIME_DATA": "即時市場數據：透過即時價格和新聞保持更新。",
+    "SECURE_EASY": "安全且易於使用",
+    "SECURE_EASY_DESC": "為行動裝置最佳化、快速安全的交易體驗。",
+    "MT5_FINAL": "無論您是新手交易者還是經驗豐富的交易者，MT5都能幫助您把握每一個交易機會。立即下載並交易得更好。",
+    "UNLOCK_MARKETS": "解鎖全球市場的存取權限",
+    "UNLOCK_DESC": "從一個帳戶體驗全球交易的力量",
+    "TRADING_CALCULATORS": "交易計算器",
+    "MARKET_ANALYSIS": "市場分析",
+    "MARKET_REVIEWS": "市場評論"
+  },
+  "auth": {
+    "register": "註冊",
+    "signIn": "登入"
+  },
+  "FOOTER": {
+    "HOME": "首頁",
+    "ABOUT_US": "關於我們",
+    "ACCOUNTS": "帳戶",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "聯絡我們",
+    "BLOGS": "部落格",
+    "USEFUL_LINKS": "有用的連結",
+    "RISK_DISCLOSURE": "風險披露",
+    "PREVENT_MONEY_LAUNDERING": "防止洗錢",
+    "PRIVACY_POLICY": "隱私政策",
+    "LEGAL_DOCUMENTS": "法律文件"
+  },
+  "products": {
+    "forexCfds": "外匯差價合約",
+    "stockCfds": "股票差價合約",
+    "preciousMetal": "貴金屬",
+    "indexCfds": "指數差價合約",
+    "energyCfds": "能源差價合約",
+    "cryptocurrenciesCfd": "加密貨幣差價合約"
+  },
+  "accounts": {
+    "accounts": "帳戶",
+    "mt5Platform": "MetaTrader 5 (MT5) 平台"
+  }
+}

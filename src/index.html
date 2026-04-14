@@ -301,17 +301,14 @@
       function autoDetectLanguageByCountry() {
         // ❗ If user manually selected a language before → skip auto-detection
         if (localStorage.getItem("uf_lang_manual")) {
-          console.log("✓ Manual language selection found, skipping auto-detection");
           return;
         }
 
         // Check if we already tried auto-detection in this session
         if (sessionStorage.getItem("uf_auto_detected")) {
-          console.log("✓ Auto-detection already done in this session");
           return;
         }
 
-        console.log("🌍 Detecting geo-location...");
         fetch("https://ipapi.co/json/")
           .then(function (res) {
             return res.json();
@@ -322,36 +319,16 @@
             var country = data.country || "";
             var detectedLang = COUNTRY_LANG_MAP[country] || "en";
 
-            console.log("📍 Geo-Location Data:", {
-              country: country,
-              city: data.city,
-              region: data.region,
-              ip: data.ip,
-              detectedLanguage: detectedLang
-            });
-
             // Save auto-detected language
             localStorage.setItem("uf_lang", detectedLang);
 
             // Set cookie for Google Translate AND reload to apply
             if (detectedLang !== "en") {
-              console.alert("🔄 Setting language cookie for:", detectedLang);
-              // Map zh to zh-CN for Google Translate
-              var gtLangCode = detectedLang === "zh" ? "zh-CN" : detectedLang;
-              var cv = "/en/" + gtLangCode;
+              // Always set the cookie for all languages (including Hindi, Chinese, etc)
+              var cv = "/en/" + detectedLang;
               document.cookie = "googtrans=" + cv + "; path=/;";
-              document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=" +
-                location.hostname +
-                ";";
-              document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=." +
-                location.hostname +
-                ";";
+              document.cookie = "googtrans=" + cv + "; path=/; domain=" + location.hostname + ";";
+              document.cookie = "googtrans=" + cv + "; path=/; domain=." + location.hostname + ";";
 
               // Hide page while translation happens
               document.documentElement.style.visibility = "hidden";
@@ -359,7 +336,7 @@
             }
           })
           .catch(function (err) {
-            console.error("❌ Country detection failed:", err);
+            console.log("Country detection failed:", err);
             sessionStorage.setItem("uf_auto_detected", "true");
           });
       }
@@ -389,7 +366,7 @@
         new google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "en,hi,ar,fr,es,de,zh-CN,ja,pt,ru",
+            includedLanguages: "en,hi,ar,fr,es,de,zh,ja,pt,ru",
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false,
             multilanguagePage: true,
@@ -455,11 +432,8 @@
           return;
         }
 
-        /* Map zh to zh-CN for Google Translate */
-        var gtLangCode = langCode === "zh" ? "zh-CN" : langCode;
-
         /* Set fresh cookie for new language */
-        var cv = "/en/" + gtLangCode;
+        var cv = "/en/" + langCode;
         document.cookie = "googtrans=" + cv + "; path=/;";
         document.cookie =
           "googtrans=" + cv + "; path=/; domain=" + location.hostname + ";";
@@ -473,7 +447,7 @@
         sel.dispatchEvent(new Event("change", { bubbles: true }));
 
         setTimeout(function () {
-          sel.value = gtLangCode;
+          sel.value = langCode;
           sel.dispatchEvent(new Event("change", { bubbles: true }));
         }, 50);
       }
@@ -552,13 +526,8 @@
             var currentLang = localStorage.getItem("uf_lang") || "en";
             if (lang.code === currentLang) return; /* same lang, do nothing */
 
-            console.log("👤 Manual language selection:", lang.code);
-
             /* Save selection immediately */
             localStorage.setItem("uf_lang", lang.code);
-
-            /* Mark as manual selection so auto-detection is skipped */
-            localStorage.setItem("uf_lang_manual", "true");
 
             /* Clear ALL old googtrans cookies */
             document.cookie =
@@ -574,9 +543,7 @@
 
             /* Set fresh cookie for new language */
             if (lang.code !== "en") {
-              /* Map zh to zh-CN for Google Translate */
-              var gtLangCode = lang.code === "zh" ? "zh-CN" : lang.code;
-              var cv = "/en/" + gtLangCode;
+              var cv = "/en/" + lang.code;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
                 "googtrans=" +

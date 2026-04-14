@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "trading": "交易",
+    "partnerships": "合作伙伴",
+    "resources": "资源",
+    "contact": "联系我们",
+    "blogs": "博客"
+  },
+  "HOME": {
+    "BANNER_TITLE": "全球市场优势的创新型智能交易",
+    "BANNER_SUBTITLE": "从您的UPFOREX交易账户交易外汇、股票差价合约、贵金属、指数差价合约、能源差价合约和加密货币差价合约",
+    "TRY_FREE_DEMO": "尝试免费演示",
+    "OPEN_ACCOUNT": "开户",
+    "WELCOME_TITLE": "欢迎来到UPFOREX - 您的首选外汇交易合作伙伴",
+    "TRADE_TAGLINE": "智能交易。更快赚钱。全球增长。",
+    "DESCRIPTION": "在UPFOREX，我们为零售交易商、专业投资者和介绍经纪商提供下一代外汇交易解决方案。凭借快速执行、更好的流动性和实时提现，我们为您提供最佳的交易体验。",
+    "CONFIDENCE_TITLE": "自信交易 – 为每个交易者提供卓越的市场条件",
+    "CONFIDENCE_DESC": "在UPFOREX，我们为所有水平的交易者提供最佳的交易条件。凭借紧密的点差、更好的流动性和快速执行，您可以轻松自信地交易。",
+    "BEST_PRICES_TITLE": "最佳市场价格和低点差",
+    "BEST_PRICES_DESC": "享受外汇、股票、指数和加密货币差价合约的更优定价。",
+    "NEGATIVE_BALANCE": "负余额保护",
+    "INSTANT_DEPOSITS_TITLE": "即时存款和快速取款",
+    "INSTANT_DEPOSITS_DESC": "通过多种支付选项（如加密货币、银行转账、Neteller和Skrill）体验快速支付。",
+    "SMARTER_TRADE_TITLE": "在全球资产中更聪明地交易",
+    "SMARTER_TRADE_DESC": "通过轻松访问广泛的市场来寻找下一笔交易。",
+    "GLOBAL_TRADING": "通过闪电般快速的ECN连接实现无缝全球交易",
+    "SMART_FEATURES": "智能交易功能",
+    "CARD_1": "为现代交易者而构建",
+    "CARD_2": "致力于透明度和安全性",
+    "CARD_3": "下一代交易基础设施",
+    "CARD_4": "我们随时为您服务",
+    "MT5_TITLE": "使用MetaTrader 5 (MT5)随时随地交易 – 移动、桌面和网络",
+    "MT5_DESC": "通过MetaTrader 5 (MT5)体验高级交易。这是外汇、股票、指数、商品和加密货币的强大平台。无论您在家中、办公室还是旅途中，MT5都可在移动、桌面和网络上使用，因此您永远不会错过交易机会。",
+    "ADVANCED_CHARTS": "高级图表工具：查看具有多个时间框架和内置指标的实时图表。",
+    "MULTI_ASSET": "多资产交易：从一个平台交易外汇、股票、指数、商品和加密货币。",
+    "FULL_ACCOUNT_CONTROL": "完整的账户控制",
+    "FULL_ACCOUNT_CONTROL_DESC": "轻松管理您的交易、下单和跟踪您的投资组合。",
+    "REAL_TIME_DATA": "实时市场数据：通过实时价格和新闻保持更新。",
+    "SECURE_EASY": "安全且易于使用",
+    "SECURE_EASY_DESC": "为移动设备优化、快速安全的交易体验。",
+    "MT5_FINAL": "无论您是新手交易者还是经验丰富的交易者，MT5都能帮助您把握每一个交易机会。立即下载并交易得更好。",
+    "UNLOCK_MARKETS": "解锁全球市场的访问权限",
+    "UNLOCK_DESC": "从一个账户体验全球交易的力量",
+    "TRADING_CALCULATORS": "交易计算器",
+    "MARKET_ANALYSIS": "市场分析",
+    "MARKET_REVIEWS": "市场评论"
+  },
+  "auth": {
+    "register": "注册",
+    "signIn": "登录"
+  },
+  "FOOTER": {
+    "HOME": "主页",
+    "ABOUT_US": "关于我们",
+    "ACCOUNTS": "账户",
+    "MT5": "MetaTrader 5 (MT5)",
+    "CONTACT_US": "联系我们",
+    "BLOGS": "博客",
+    "USEFUL_LINKS": "有用的链接",
+    "RISK_DISCLOSURE": "风险披露",
+    "PREVENT_MONEY_LAUNDERING": "防止洗钱",
+    "PRIVACY_POLICY": "隐私政策",
+    "LEGAL_DOCUMENTS": "法律文件"
+  },
+  "products": {
+    "forexCfds": "外汇差价合约",
+    "stockCfds": "股票差价合约",
+    "preciousMetal": "贵金属",
+    "indexCfds": "指数差价合约",
+    "energyCfds": "能源差价合约",
+    "cryptocurrenciesCfd": "加密货币差价合约"
+  },
+  "accounts": {
+    "accounts": "账户",
+    "mt5Platform": "MetaTrader 5 (MT5) 平台"
+  }
+}
