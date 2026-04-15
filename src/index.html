@@ -166,13 +166,13 @@
         { code: "fr", label: "Français", flag: "🇫🇷" },
         { code: "es", label: "Español", flag: "��" },
         { code: "de", label: "Deutsch", flag: "��" },
-        { code: "zh", label: "中文", flag: "��" },
+        { code: "zh-CN", label: "中文", flag: "��" },
         { code: "ja", label: "日本語", flag: "🇯🇵" },
         { code: "pt", label: "Português", flag: "🇧🇷" },
         { code: "ru", label: "Русский", flag: "🇷🇺" },
       ];
 
-      var RTL_LANGS = ["ar", "he", "fa", "ur"];
+      var RTL_LANGS = ["ar", "he", "fa", "ur","zh-CN"];
 
       /* ── RTL: watch <html lang> attribute ── */
       new MutationObserver(function () {
@@ -327,8 +327,18 @@
               // Always set the cookie for all languages (including Hindi, Chinese, etc)
               var cv = "/en/" + detectedLang;
               document.cookie = "googtrans=" + cv + "; path=/;";
-              document.cookie = "googtrans=" + cv + "; path=/; domain=" + location.hostname + ";";
-              document.cookie = "googtrans=" + cv + "; path=/; domain=." + location.hostname + ";";
+              document.cookie =
+                "googtrans=" +
+                cv +
+                "; path=/; domain=" +
+                location.hostname +
+                ";";
+              document.cookie =
+                "googtrans=" +
+                cv +
+                "; path=/; domain=." +
+                location.hostname +
+                ";";
 
               // Hide page while translation happens
               document.documentElement.style.visibility = "hidden";
