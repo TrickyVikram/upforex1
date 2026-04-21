@@ -161,18 +161,19 @@
       /* ── Language list ── */
       var LANGS = [
         { code: "en", label: "English", flag: "🇬🇧" },
-        { code: "hi", label: "हिन्दी", flag: "�" },
-        { code: "ar", label: "العربية", flag: "🇸�" },
+        { code: "hi", label: "हिन्दी", flag: "🇮🇳" },
+        { code: "ar", label: "العربية", flag: "🇸🇦" },
         { code: "fr", label: "Français", flag: "🇫🇷" },
-        { code: "es", label: "Español", flag: "��" },
-        { code: "de", label: "Deutsch", flag: "��" },
-        { code: "zh-CN", label: "中文", flag: "��" },
+        { code: "es", label: "Español", flag: "🇪🇸" },
+        { code: "de", label: "Deutsch", flag: "🇩🇪" },
+        { code: "zh-CN", label: "中文 (简体)", flag: "🇨🇳" },
+        { code: "zh-TW", label: "中文 (繁體)", flag: "🇹🇼" },
         { code: "ja", label: "日本語", flag: "🇯🇵" },
         { code: "pt", label: "Português", flag: "🇧🇷" },
         { code: "ru", label: "Русский", flag: "🇷🇺" },
       ];
 
-      var RTL_LANGS = ["ar", "he", "fa", "ur","zh-CN"];
+      var RTL_LANGS = ["ar", "he", "fa", "ur"];
 
       /* ── RTL: watch <html lang> attribute ── */
       new MutationObserver(function () {
@@ -282,10 +283,10 @@
         AT: "de", // Austria → German
         LI: "de", // Liechtenstein → German
         LU: "de", // Luxembourg → German
-        CN: "zh", // China → Chinese
-        TW: "zh", // Taiwan → Chinese
-        HK: "zh", // Hong Kong → Chinese
-        MO: "zh", // Macau → Chinese
+        CN: "zh-CN", // China → Simplified Chinese
+        TW: "zh-TW", // Taiwan → Traditional Chinese
+        HK: "zh-TW", // Hong Kong → Traditional Chinese
+        MO: "zh-TW", // Macau → Traditional Chinese
         JP: "ja", // Japan → Japanese
         BR: "pt", // Brazil → Portuguese
         PT: "pt", // Portugal → Portuguese
@@ -376,7 +377,7 @@
         new google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "en,hi,ar,fr,es,de,zh,ja,pt,ru",
+            includedLanguages: "en,hi,ar,fr,es,de,zh-CN,zh-TW,ja,pt,ru",
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false,
             multilanguagePage: true,

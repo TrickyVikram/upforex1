@@ -21,7 +21,8 @@ export class LanguageService {
     { code: 'fr', name: 'Français', flag: '🇫🇷', dir: 'ltr' },
     { code: 'es', name: 'Español', flag: '🇪🇸', dir: 'ltr' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪', dir: 'ltr' },
-    { code: 'zh', name: '中文', flag: '🇨🇳', dir: 'ltr' },
+    { code: 'zh-CN', name: '中文 (简体)', flag: '🇨🇳', dir: 'ltr' },
+    { code: 'zh-TW', name: '中文 (繁體)', flag: '🇹🇼', dir: 'ltr' },
     { code: 'ja', name: '日本語', flag: '🇯🇵', dir: 'ltr' },
     { code: 'pt', name: 'Português', flag: '🇧🇷', dir: 'ltr' },
     { code: 'ru', name: 'Русский', flag: '🇷🇺', dir: 'ltr' },
@@ -41,7 +42,7 @@ export class LanguageService {
     'FR': 'fr', 'BE': 'fr', 'CH': 'fr', 'CA': 'fr', 'CI': 'fr', 'CM': 'fr', 'GA': 'fr', 'HT': 'fr', 'ML': 'fr', 'SN': 'fr', // French countries
     'ES': 'es', 'MX': 'es', 'AR': 'es', 'CL': 'es', 'CO': 'es', 'PE': 'es', 'VE': 'es', 'BO': 'es', 'EC': 'es', 'PY': 'es', 'UY': 'es', // Spanish countries
     'DE': 'de', 'AT': 'de', // German countries
-    'ZH': 'zh', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh', // Chinese countries/regions
+    'CN': 'zh-CN', 'TW': 'zh-TW', 'HK': 'zh-TW', 'MO': 'zh-TW', // Chinese countries/regions (CN=Simplified, TW/HK/MO=Traditional)
     'JP': 'ja', // Japan
     'BR': 'pt', 'PT': 'pt', 'AO': 'pt', 'MZ': 'pt', // Portuguese countries
     'RU': 'ru', 'BY': 'ru', 'KZ': 'ru', 'UA': 'ru', // Russian countries
@@ -109,7 +110,13 @@ export class LanguageService {
         .then((data) => {
           const countryCode = data.country_code?.toUpperCase();
           if (countryCode && this.COUNTRY_LANGUAGE_MAP[countryCode]) {
-            resolve(this.COUNTRY_LANGUAGE_MAP[countryCode]);
+            const mappedLang = this.COUNTRY_LANGUAGE_MAP[countryCode];
+            // Check if the mapped language exists in our languages array
+            if (this.languages.some((l) => l.code === mappedLang)) {
+              resolve(mappedLang);
+            } else {
+              resolve('en');
+            }
           } else {
             resolve('en');
           }
@@ -117,10 +124,16 @@ export class LanguageService {
         .catch(() => {
           // Fallback to browser language
           if (typeof navigator !== 'undefined') {
-            const browserLang = navigator.language || navigator.language;
+            const browserLang = navigator.language || 'en';
             const langCode = browserLang.split('-')[0];
-            if (this.languages.some((l) => l.code === langCode)) {
-              resolve(langCode);
+
+            // Try to find a matching language in our list
+            const matchedLang = this.languages.find(
+              (l) => l.code.toLowerCase().startsWith(langCode.toLowerCase())
+            );
+
+            if (matchedLang) {
+              resolve(matchedLang.code);
             } else {
               resolve('en');
             }
