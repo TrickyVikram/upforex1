@@ -1,13 +1,16 @@
 <div
   class="m-0 banner-div tw-relative tw-w-full tw-h-screen tw-overflow-hidden"
 >
-  <img
-    loading="lazy"
-    class="tw-absolute tw-inset-0 tw-w-full tw-h-[85vh] md:tw-h-[95vh] lg:tw-h-[85vh] tw-object-cover tw-opacity-70"
-   
-    [src]="s3URl + 'assets/images/JPG/home_banner_temp_1.webp'"
-    alt="upforex home banner"
-  />
+ <img
+  loading="lazy"
+  class="tw-absolute tw-inset-0 tw-w-full tw-h-[85vh] md:tw-h-[95vh] lg:tw-h-[85vh] tw-object-cover tw-opacity-70"
+  [src]="
+    currentLanguage?.code === 'ar'
+      ? 'https://drive.google.com/uc?export=view&id=1tLFnyWOPfsg_YsWomp451T_XNMCt0CMn'
+      : s3URl + 'assets/images/JPG/home_banner_temp_1.webp'
+  "
+  alt="upforex home banner"
+/>
   <div class="row m-0 p-0 tw-h-[80vh] lg:tw-h-[85vh]">
     <div class="col-12">
       <div
