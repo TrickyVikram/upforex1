@@ -12,8 +12,12 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  // Only inject token + handle 401-logout for our own admin backend
-  private readonly adminBackend = 'localhost:4500';
+  // Only inject token + handle 401-logout for our own admin/backend APIs.
+  private readonly protectedBackends = [
+    'localhost:4500',
+    'api.upforex.com',
+    'api.upforex.live',
+  ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -21,10 +25,12 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const isAdminBackend = req.url.includes(this.adminBackend);
+    const isProtectedBackend = this.protectedBackends.some((backend) =>
+      req.url.includes(backend)
+    );
 
     // For completely external URLs (country API etc.) — pass through untouched
-    if (!req.url.includes('localhost:4500') && !req.url.includes('api.upforex.live')) {
+    if (!isProtectedBackend) {
       return next.handle(req);
     }
 
@@ -43,8 +49,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((err) => {
-        // Only trigger logout for 401 from the admin backend (localhost:4500)
-        if (err.status === 401 && isAdminBackend) {
+        // Only trigger logout for 401 from protected backend APIs.
+        if (err.status === 401 && isProtectedBackend) {
           if (isPlatformBrowser(this.platformId)) {
             localStorage.clear();
             router.navigate(['admin/login']);

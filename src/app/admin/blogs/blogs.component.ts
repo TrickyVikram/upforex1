@@ -116,6 +116,7 @@ export class BlogsComponent implements OnInit {
       search,
     };
     this.isDataLoading = true;
+    
     this.blogService
       .getAllBlogs(params)
       .subscribe((res) => this.processBlogsResponse(res));
