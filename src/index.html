@@ -143,13 +143,37 @@
 
     <!-- ===== Google Translate (hidden native widget) ===== -->
     <script type="text/javascript">
+      function clearGoogleTranslateCookies() {
+        document.cookie =
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie =
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
+          location.hostname +
+          ";";
+        document.cookie =
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
+          location.hostname +
+          ";";
+      }
+
       /* ─────────────────────────────────────────────
          STEP 0 – If a non-English language is saved,
          hide the body IMMEDIATELY so no English flash
       ───────────────────────────────────────────── */
       (function () {
         var saved = localStorage.getItem("uf_lang");
-        if (saved && saved !== "en") {
+        var manual = localStorage.getItem("upforex_lang_manual") === "true";
+
+        if (!manual) {
+          localStorage.setItem("uf_lang", "en");
+          localStorage.setItem("upforex_language", "en");
+          clearGoogleTranslateCookies();
+          document.documentElement.setAttribute("lang", "en");
+          document.documentElement.setAttribute("dir", "ltr");
+          return;
+        }
+
+        if (manual && saved && saved !== "en") {
           document.documentElement.style.visibility = "hidden";
           /* Safety net: always show after 4s even if GT fails */
           setTimeout(function () {
@@ -242,9 +266,9 @@
 
       /* ── Country to Language Mapping ── */
       var COUNTRY_LANG_MAP = {
-        IN: "hi", // India → Hindi
+        IN: "en", // India defaults to English; Hindi remains manually selectable
+        AE: "en", // UAE defaults to English; Arabic remains manually selectable
         SA: "ar", // Saudi Arabia → Arabic
-        AE: "ar", // UAE → Arabic
         EG: "ar", // Egypt → Arabic
         DZ: "ar", // Algeria → Arabic
         JO: "ar", // Jordan → Arabic
@@ -300,6 +324,15 @@
 
       /* ── Auto-detect user's country and set language ── */
       function autoDetectLanguageByCountry() {
+        if (
+          localStorage.getItem("upforex_lang_manual") !== "true"
+        ) {
+          localStorage.setItem("uf_lang", "en");
+          localStorage.setItem("upforex_language", "en");
+          sessionStorage.setItem("uf_auto_detected", "true");
+          clearGoogleTranslateCookies();
+        }
+        return;
         // ❗ If user manually selected a language before → skip auto-detection
         if (localStorage.getItem("uf_lang_manual")) {
           return;
@@ -318,10 +351,12 @@
             sessionStorage.setItem("uf_auto_detected", "true");
 
             var country = data.country || "";
+            var previousLang = localStorage.getItem("uf_lang") || "en";
             var detectedLang = COUNTRY_LANG_MAP[country] || "en";
 
             // Save auto-detected language
             localStorage.setItem("uf_lang", detectedLang);
+            localStorage.setItem("upforex_language", detectedLang);
 
             // Set cookie for Google Translate AND reload to apply
             if (detectedLang !== "en") {
@@ -344,6 +379,21 @@
               // Hide page while translation happens
               document.documentElement.style.visibility = "hidden";
               location.reload();
+            } else {
+              document.cookie =
+                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              document.cookie =
+                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
+                location.hostname +
+                ";";
+              document.cookie =
+                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
+                location.hostname +
+                ";";
+
+              if (previousLang !== "en") {
+                location.reload();
+              }
             }
           })
           .catch(function (err) {
@@ -393,9 +443,13 @@
 
         /* Restore saved language */
         var saved = localStorage.getItem("uf_lang");
-        if (saved && saved !== "en") {
+        var manual = localStorage.getItem("upforex_lang_manual") === "true";
+        if (manual && saved && saved !== "en") {
           waitForSelectThenTranslate(saved, 60);
         } else {
+          localStorage.setItem("uf_lang", "en");
+          localStorage.setItem("upforex_language", "en");
+          clearGoogleTranslateCookies();
           /* English → just show immediately */
           revealPage();
         }
@@ -435,6 +489,7 @@
           ";";
 
         localStorage.setItem("uf_lang", langCode);
+        localStorage.setItem("upforex_language", langCode);
         updateBtnLabel(langCode);
 
         if (langCode === "en") {
@@ -497,7 +552,8 @@
         if (!wrap || wrap.dataset.built === "1") return;
         wrap.dataset.built = "1";
 
-        var saved = localStorage.getItem("uf_lang") || "en";
+        var manual = localStorage.getItem("upforex_lang_manual") === "true";
+        var saved = manual ? localStorage.getItem("uf_lang") || "en" : "en";
         var current =
           LANGS.filter(function (l) {
             return l.code === saved;
@@ -539,6 +595,9 @@
 
             /* Save selection immediately */
             localStorage.setItem("uf_lang", lang.code);
+            localStorage.setItem("uf_lang_manual", "true");
+            localStorage.setItem("upforex_language", lang.code);
+            localStorage.setItem("upforex_lang_manual", "true");
 
             /* Clear ALL old googtrans cookies */
             document.cookie =

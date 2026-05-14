@@ -30,6 +30,8 @@ export class LanguageService {
 
   private readonly STORAGE_KEY = 'upforex_language';
   private readonly MANUAL_SELECTION_KEY = 'upforex_lang_manual';
+  private readonly GT_STORAGE_KEY = 'uf_lang';
+  private readonly GT_MANUAL_SELECTION_KEY = 'uf_lang_manual';
 
   // Observable to track language changes
   private currentLanguageSubject: BehaviorSubject<Language>;
@@ -37,8 +39,9 @@ export class LanguageService {
 
   // Country code to language mapping for geo-location detection
   private readonly COUNTRY_LANGUAGE_MAP: { [key: string]: string } = {
-    'IN': 'hi', // India
-    'SA': 'ar', 'AE': 'ar', 'EG': 'ar', 'DZ': 'ar', 'JO': 'ar', 'IQ': 'ar', 'KW': 'ar', 'LB': 'ar', 'LY': 'ar', 'OM': 'ar', 'QA': 'ar', 'SD': 'ar', 'SY': 'ar', 'TN': 'ar', 'YE': 'ar', // Arabic countries
+    'IN': 'en', // India defaults to English; Hindi remains manually selectable
+    'AE': 'en', // UAE defaults to English; Arabic remains manually selectable
+    'SA': 'ar', 'EG': 'ar', 'DZ': 'ar', 'JO': 'ar', 'IQ': 'ar', 'KW': 'ar', 'LB': 'ar', 'LY': 'ar', 'OM': 'ar', 'QA': 'ar', 'SD': 'ar', 'SY': 'ar', 'TN': 'ar', 'YE': 'ar', // Arabic countries
     'FR': 'fr', 'BE': 'fr', 'CH': 'fr', 'CA': 'fr', 'CI': 'fr', 'CM': 'fr', 'GA': 'fr', 'HT': 'fr', 'ML': 'fr', 'SN': 'fr', // French countries
     'ES': 'es', 'MX': 'es', 'AR': 'es', 'CL': 'es', 'CO': 'es', 'PE': 'es', 'VE': 'es', 'BO': 'es', 'EC': 'es', 'PY': 'es', 'UY': 'es', // Spanish countries
     'DE': 'de', 'AT': 'de', // German countries
@@ -72,7 +75,9 @@ export class LanguageService {
     }
 
     const manualSelection = localStorage.getItem(this.MANUAL_SELECTION_KEY);
-    const savedLang = localStorage.getItem(this.STORAGE_KEY);
+    const savedLang =
+      localStorage.getItem(this.STORAGE_KEY) ||
+      localStorage.getItem(this.GT_STORAGE_KEY);
 
     // If user manually selected a language before, use that
     if (manualSelection === 'true' && savedLang) {
@@ -81,15 +86,9 @@ export class LanguageService {
       return;
     }
 
-    // Otherwise, try to detect from geo-location
-    this.detectLanguageFromGeoLocation().then((detectedLang) => {
-      this.translate.setDefaultLang('en');
-      this.setLanguage(detectedLang);
-    }).catch(() => {
-      // Fallback to saved language or 'en'
-      this.translate.setDefaultLang('en');
-      this.setLanguage(savedLang || 'en');
-    });
+    // Default language must stay English unless the user manually changes it.
+    this.translate.setDefaultLang('en');
+    this.setLanguage('en');
   }
 
   /**
@@ -152,10 +151,12 @@ export class LanguageService {
       // Only save to localStorage in browser environment
       if (this.isBrowser()) {
         localStorage.setItem(this.STORAGE_KEY, langCode);
+        localStorage.setItem(this.GT_STORAGE_KEY, langCode);
 
         // Mark if this was a manual selection
         if (isManualSelection) {
           localStorage.setItem(this.MANUAL_SELECTION_KEY, 'true');
+          localStorage.setItem(this.GT_MANUAL_SELECTION_KEY, 'true');
         }
 
         // Set RTL/LTR direction for Arabic
@@ -175,7 +176,14 @@ export class LanguageService {
 
     // Only read from localStorage in browser environment
     if (this.isBrowser()) {
-      savedLang = localStorage.getItem(this.STORAGE_KEY) || 'en';
+      const manualSelection = localStorage.getItem(this.MANUAL_SELECTION_KEY);
+
+      if (manualSelection === 'true') {
+        savedLang =
+          localStorage.getItem(this.STORAGE_KEY) ||
+          localStorage.getItem(this.GT_STORAGE_KEY) ||
+          'en';
+      }
     }
 
     return this.languages.find((l) => l.code === savedLang) || this.languages[0];

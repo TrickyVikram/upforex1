@@ -1,0 +1,31 @@
+Node.js version v25.2.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Warning: src/app/components/home/home.component.html:8:22 - warning NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.
+
+8     currentLanguage?.code === 'ar'
+                       ~~~~
+
+  src/app/components/home/home.component.ts:22:16
+    22   templateUrl: './home.component.html',
+                      ~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component HomeComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Warning: src/app/components/home/home.component.html:8:22 - warning NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.
+
+8     currentLanguage?.code === 'ar'
+                       ~~~~
+
+  src/app/components/home/home.component.ts:22:16
+    22   templateUrl: './home.component.html',
+                      ~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component HomeComponent.
+
+
+
