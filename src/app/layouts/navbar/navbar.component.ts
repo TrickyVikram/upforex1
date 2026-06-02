@@ -1,7 +1,10 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from 'src/app/Store/store';
-import { LanguageService, Language } from 'src/app/core/services/language.service';
+import {
+  LanguageService,
+  Language,
+} from 'src/app/core/services/language.service';
 import { HybridTranslationService } from 'src/app/core/services/hybrid-translation.service';
 
 @Component({
@@ -18,9 +21,9 @@ export class NavbarComponent implements OnInit {
   constructor(
     private route: Router,
     private activatedRoute: ActivatedRoute,
-  private store: Store,
-  public languageService: LanguageService,
-  private hybridTranslation: HybridTranslationService
+    private store: Store,
+    public languageService: LanguageService,
+    private hybridTranslation: HybridTranslationService,
   ) {
     this.s3URL = this.store.s3BaseUrl();
     this.languages = this.languageService.languages;
@@ -152,11 +155,10 @@ export class NavbarComponent implements OnInit {
       name: 'Introduction To Forex',
       routerLink: 'resources/introduction-to-forex',
     },
- {
-    name: 'Legal Documents',
-    routerLink: 'legal-documents',
-
-  },
+    {
+      name: 'Legal Documents',
+      routerLink: 'legal-documents',
+    },
     {
       name: 'Trading Glossary',
       routerLink: 'resources/trading-glossary',
@@ -182,40 +184,66 @@ export class NavbarComponent implements OnInit {
   }
 
   changeLanguage(langCode: string) {
-  this.languageService.setLanguage(langCode, true); // true = manual selection
-  // Notify hybrid translation service so manual overrides are used immediately
-  this.hybridTranslation.setLanguage(langCode);
-  this.currentLanguage = this.languageService.getCurrentLanguage();
-  this.isMenuCollapsed = true;
+    this.languageService.setLanguage(langCode, true); // true = manual selection
+    // Notify hybrid translation service so manual overrides are used immediately
+    this.hybridTranslation.setLanguage(langCode);
+    this.currentLanguage = this.languageService.getCurrentLanguage();
+    this.isMenuCollapsed = true;
 
-  // Also mirror selection to the global Google Translate helper used in index.html
-  try {
-    // mark as manual selection so auto-detect doesn't override
-    localStorage.setItem('uf_lang_manual', 'true');
-    localStorage.setItem('uf_lang', langCode);
+    // Also mirror selection to the global Google Translate helper used in index.html
+    try {
+      // mark as manual selection so auto-detect doesn't override
+      localStorage.setItem('uf_lang_manual', 'true');
+      localStorage.setItem('uf_lang', langCode);
+      localStorage.setItem('upforex_language', langCode);
+      localStorage.setItem('upforex_lang_manual', 'true');
 
-    // Clear old googtrans cookies first
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname + ';';
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname + ';';
+      // Call centralized cookie clearing function from index.html
+      // This clears cookies from all possible domain variants
+      if (typeof (window as any).clearGoogleTranslateCookies === 'function') {
+        (window as any).clearGoogleTranslateCookies();
+      } else {
+        // Fallback: clear common domains
+        var domains = [
+          '',
+          'upforex.com',
+          '.upforex.com',
+          'www.upforex.com',
+          '.www.upforex.com',
+        ];
 
-    if (langCode === 'en') {
-      // Reset to English: reload without new cookie
+        domains.forEach(function (domain) {
+          var cookie =
+            'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Max-Age=0; path=/;';
+
+          if (domain) {
+            cookie += ' domain=' + domain + ';';
+          }
+
+          document.cookie = cookie;
+        });
+      }
+
+      if (langCode === 'en') {
+        // Reset to English: reload without new cookie
+        location.reload();
+        return;
+      }
+
+      // Set fresh cookie for new language - ONLY 2 cookies
+      var cv = '/en/' + langCode;
+      document.cookie = 'googtrans=' + cv + '; path=/;';
+      document.cookie = 'googtrans=' + cv + '; path=/; domain=.upforex.com;';
+
+      // Hide page briefly to prevent content flash while GT runs, then reload
+      document.documentElement.style.visibility = 'hidden';
       location.reload();
-      return;
+    } catch (e) {
+      // If any error (SSR or strict CSP), just ignore and proceed with Angular-only change
+      console.warn(
+        'Language change: unable to sync with Google Translate widget',
+        e,
+      );
     }
-
-    var cv = '/en/' + langCode;
-    document.cookie = 'googtrans=' + cv + '; path=/;';
-    document.cookie = 'googtrans=' + cv + '; path=/; domain=' + location.hostname + ';';
-    document.cookie = 'googtrans=' + cv + '; path=/; domain=.' + location.hostname + ';';
-
-    // Hide page briefly to prevent content flash while GT runs, then reload
-    document.documentElement.style.visibility = 'hidden';
-    location.reload();
-  } catch (e) {
-    // If any error (SSR or strict CSP), just ignore and proceed with Angular-only change
-    console.warn('Language change: unable to sync with Google Translate widget', e);
-  }
   }
 }
