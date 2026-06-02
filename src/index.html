@@ -424,37 +424,37 @@
       }
 
       /* ── Google Translate init callback ── */
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "en,hi,ar,fr,es,de,zh-CN,zh-TW,ja,pt,ru",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-            multilanguagePage: true,
-          },
-          "google_translate_element",
-        );
+function googleTranslateElementInit() {
+  setTimeout(function () {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,hi,ar,fr,es,de,zh-CN,zh-TW,ja,pt,ru",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        multilanguagePage: true,
+      },
+      "google_translate_element",
+    );
 
-        killGoogleBar();
-        setInterval(killGoogleBar, 800);
+    killGoogleBar();
+    setInterval(killGoogleBar, 800);
+    detectManualLanguageChange();
 
-        // Start detecting manual changes
-        detectManualLanguageChange();
+    var saved = localStorage.getItem("uf_lang");
+    var manual = localStorage.getItem("upforex_lang_manual") === "true";
 
-        /* Restore saved language */
-        var saved = localStorage.getItem("uf_lang");
-        var manual = localStorage.getItem("upforex_lang_manual") === "true";
-        if (manual && saved && saved !== "en") {
-          waitForSelectThenTranslate(saved, 60);
-        } else {
-          localStorage.setItem("uf_lang", "en");
-          localStorage.setItem("upforex_language", "en");
-          clearGoogleTranslateCookies();
-          /* English → just show immediately */
-          revealPage();
-        }
-      }
+    if (manual && saved && saved !== "en") {
+      waitForSelectThenTranslate(saved, 60);
+    } else {
+      localStorage.setItem("uf_lang", "en");
+      localStorage.setItem("upforex_language", "en");
+      clearGoogleTranslateCookies();
+      revealPage();
+    }
+  }, 1000);
+}
+    
 
       /* ── Wait for GT <select> then translate ── */
       function waitForSelectThenTranslate(langCode, maxTries) {
