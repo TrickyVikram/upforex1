@@ -145,14 +145,24 @@
     <!-- ===== Google Translate (hidden native widget) ===== -->
     <script type="text/javascript">
       function clearGoogleTranslateCookies() {
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.upforex.com;";
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=upforex.com;";
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=www.upforex.com;";
+        var domains = [
+          "",
+          "upforex.com",
+          ".upforex.com",
+          "www.upforex.com",
+          ".www.upforex.com",
+        ];
+
+        domains.forEach(function (domain) {
+          var cookie =
+            "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Max-Age=0; path=/;";
+
+          if (domain) {
+            cookie += " domain=" + domain + ";";
+          }
+
+          document.cookie = cookie;
+        });
       }
 
       /* ─────────────────────────────────────────────
@@ -330,57 +340,6 @@
           clearGoogleTranslateCookies();
         }
         return;
-        // ❗ If user manually selected a language before → skip auto-detection
-        if (localStorage.getItem("uf_lang_manual")) {
-          return;
-        }
-
-        // Check if we already tried auto-detection in this session
-        if (sessionStorage.getItem("uf_auto_detected")) {
-          return;
-        }
-
-        fetch("https://ipapi.co/json/")
-          .then(function (res) {
-            return res.json();
-          })
-          .then(function (data) {
-            sessionStorage.setItem("uf_auto_detected", "true");
-
-            var country = data.country || "";
-            var previousLang = localStorage.getItem("uf_lang") || "en";
-            var detectedLang = COUNTRY_LANG_MAP[country] || "en";
-
-            // Save auto-detected language
-            localStorage.setItem("uf_lang", detectedLang);
-            localStorage.setItem("upforex_language", detectedLang);
-
-            // Set cookie for Google Translate AND reload to apply
-            if (detectedLang !== "en") {
-              // Always set the cookie for all languages (including Hindi, Chinese, etc)
-              var cv = "/en/" + detectedLang;
-              document.cookie = "googtrans=" + cv + "; path=/;";
-              document.cookie =
-                "googtrans=" + cv + "; path=/; domain=.upforex.com;";
-              document.cookie =
-                "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
-
-              // Hide page while translation happens
-              document.documentElement.style.visibility = "hidden";
-              location.reload();
-            } else {
-            clearGoogleTranslateCookies();
-
-              if (previousLang !== "en") {
-                location.reload();
-              }
-            }
-          })
-          .catch(function (err) {
-            console.log("Country detection failed:", err);
-            sessionStorage.setItem("uf_auto_detected", "true");
-          });
-      }
 
       /* ── Detect manual language selection ── */
       function detectManualLanguageChange() {
@@ -468,12 +427,10 @@
           return;
         }
 
-        /* Set fresh cookie for new language */
+        /* Set fresh cookie for new language - ONLY 2 cookies */
         var cv = "/en/" + langCode;
         document.cookie = "googtrans=" + cv + "; path=/;";
         document.cookie = "googtrans=" + cv + "; path=/; domain=.upforex.com;";
-        document.cookie =
-          "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
 
         /* Reset select to English first, then dispatch the new lang.
            This forces Google Translate to re-trigger even if it was
@@ -568,23 +525,15 @@
             localStorage.setItem("upforex_language", lang.code);
             localStorage.setItem("upforex_lang_manual", "true");
 
-            /* Clear ALL old googtrans cookies */
-            document.cookie =
-              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie =
-              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.upforex.com;";
+            /* Clear all old googtrans cookies using centralized function */
+            clearGoogleTranslateCookies();
 
-            document.cookie =
-              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=www.upforex.com;";
-
-            /* Set fresh cookie for new language */
+            /* Set fresh cookie for new language - ONLY 2 cookies */
             if (lang.code !== "en") {
               var cv = "/en/" + lang.code;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
                 "googtrans=" + cv + "; path=/; domain=.upforex.com;";
-              document.cookie =
-                "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
             }
 
             /* Hide page to prevent flash, then reload */
