@@ -126,7 +126,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <app-root></app-root>
-    <div id="google_translate_element" style="display:none"></div>
+    <div id="google_translate_element" style="display: none"></div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -148,13 +148,11 @@
         document.cookie =
           "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
-          location.hostname +
-          ";";
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.upforex.com;";
         document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-          location.hostname +
-          ";";
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=upforex.com;";
+        document.cookie =
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=www.upforex.com;";
       }
 
       /* ─────────────────────────────────────────────
@@ -325,9 +323,7 @@
 
       /* ── Auto-detect user's country and set language ── */
       function autoDetectLanguageByCountry() {
-        if (
-          localStorage.getItem("upforex_lang_manual") !== "true"
-        ) {
+        if (localStorage.getItem("upforex_lang_manual") !== "true") {
           localStorage.setItem("uf_lang", "en");
           localStorage.setItem("upforex_language", "en");
           sessionStorage.setItem("uf_auto_detected", "true");
@@ -365,32 +361,15 @@
               var cv = "/en/" + detectedLang;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=" +
-                location.hostname +
-                ";";
+                "googtrans=" + cv + "; path=/; domain=.upforex.com;";
               document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=." +
-                location.hostname +
-                ";";
+                "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
 
               // Hide page while translation happens
               document.documentElement.style.visibility = "hidden";
               location.reload();
             } else {
-              document.cookie =
-                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-              document.cookie =
-                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
-                location.hostname +
-                ";";
-              document.cookie =
-                "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-                location.hostname +
-                ";";
+            clearGoogleTranslateCookies();
 
               if (previousLang !== "en") {
                 location.reload();
@@ -424,37 +403,36 @@
       }
 
       /* ── Google Translate init callback ── */
-function googleTranslateElementInit() {
-  setTimeout(function () {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,hi,ar,fr,es,de,zh-CN,zh-TW,ja,pt,ru",
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false,
-        multilanguagePage: true,
-      },
-      "google_translate_element",
-    );
+      function googleTranslateElementInit() {
+        setTimeout(function () {
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: "en",
+              includedLanguages: "en,hi,ar,fr,es,de,zh-CN,zh-TW,ja,pt,ru",
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false,
+              multilanguagePage: true,
+            },
+            "google_translate_element",
+          );
 
-    killGoogleBar();
-    setInterval(killGoogleBar, 800);
-    detectManualLanguageChange();
+          killGoogleBar();
+          setInterval(killGoogleBar, 800);
+          detectManualLanguageChange();
 
-    var saved = localStorage.getItem("uf_lang");
-    var manual = localStorage.getItem("upforex_lang_manual") === "true";
+          var saved = localStorage.getItem("uf_lang");
+          var manual = localStorage.getItem("upforex_lang_manual") === "true";
 
-    if (manual && saved && saved !== "en") {
-      waitForSelectThenTranslate(saved, 60);
-    } else {
-      localStorage.setItem("uf_lang", "en");
-      localStorage.setItem("upforex_language", "en");
-      clearGoogleTranslateCookies();
-      revealPage();
-    }
-  }, 1000);
-}
-    
+          if (manual && saved && saved !== "en") {
+            waitForSelectThenTranslate(saved, 60);
+          } else {
+            localStorage.setItem("uf_lang", "en");
+            localStorage.setItem("upforex_language", "en");
+            clearGoogleTranslateCookies();
+            revealPage();
+          }
+        }, 1000);
+      }
 
       /* ── Wait for GT <select> then translate ── */
       function waitForSelectThenTranslate(langCode, maxTries) {
@@ -478,16 +456,7 @@ function googleTranslateElementInit() {
       /* ── Fire translation ── */
       function doTranslate(sel, langCode) {
         /* Always clear old cookie first */
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
-          location.hostname +
-          ";";
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-          location.hostname +
-          ";";
+       clearGoogleTranslateCookies();
 
         localStorage.setItem("uf_lang", langCode);
         localStorage.setItem("upforex_language", langCode);
@@ -502,10 +471,9 @@ function googleTranslateElementInit() {
         /* Set fresh cookie for new language */
         var cv = "/en/" + langCode;
         document.cookie = "googtrans=" + cv + "; path=/;";
+        document.cookie = "googtrans=" + cv + "; path=/; domain=.upforex.com;";
         document.cookie =
-          "googtrans=" + cv + "; path=/; domain=" + location.hostname + ";";
-        document.cookie =
-          "googtrans=" + cv + "; path=/; domain=." + location.hostname + ";";
+          "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
 
         /* Reset select to English first, then dispatch the new lang.
            This forces Google Translate to re-trigger even if it was
@@ -604,30 +572,19 @@ function googleTranslateElementInit() {
             document.cookie =
               "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie =
-              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
-              location.hostname +
-              ";";
+              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.upforex.com;";
+
             document.cookie =
-              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-              location.hostname +
-              ";";
+              "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=www.upforex.com;";
 
             /* Set fresh cookie for new language */
             if (lang.code !== "en") {
               var cv = "/en/" + lang.code;
               document.cookie = "googtrans=" + cv + "; path=/;";
               document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=" +
-                location.hostname +
-                ";";
+                "googtrans=" + cv + "; path=/; domain=.upforex.com;";
               document.cookie =
-                "googtrans=" +
-                cv +
-                "; path=/; domain=." +
-                location.hostname +
-                ";";
+                "googtrans=" + cv + "; path=/; domain=www.upforex.com;";
             }
 
             /* Hide page to prevent flash, then reload */
@@ -665,19 +622,6 @@ function googleTranslateElementInit() {
           clearInterval(_bIv);
         }
       }, 100);
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const walk = document.createTreeWalker(
-          document.body,
-          NodeFilter.SHOW_TEXT,
-        );
-
-        let node;
-        while ((node = walk.nextNode())) {
-          node.nodeValue = node.nodeValue.replace(/upforex/gi, "UPFOREX");
-        }
-      });
     </script>
     <script
       type="text/javascript"
