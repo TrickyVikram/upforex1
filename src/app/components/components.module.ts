@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AbuDhabiForexComponent } from './country-pages/abu-dhabi-forex/abu-dhabi-forex.component';
+import { CapeTownForexComponent } from './country-pages/cape-town-forex/cape-town-forex.component';
+import { JohannesburgForexComponent } from './country-pages/johannesburg-forex/johannesburg-forex.component';
+import { NairobiForexComponent } from './country-pages/nairobi-forex/nairobi-forex.component';
+import { SouthAfricaForexReview2Component } from './country-pages/south-africa-forex-review/south-africa-forex-review.component';
 import { NgIconsModule } from '@ng-icons/core';
 import {
   matComputer,
@@ -44,6 +49,11 @@ import { BlogsComponent } from './blogs/blogs.component';
     ContactUsComponent,
     ListBlogsComponent,
     BlogsComponent,
+    AbuDhabiForexComponent,
+    CapeTownForexComponent,
+    JohannesburgForexComponent,
+    NairobiForexComponent,
+    SouthAfricaForexReview2Component,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ListBlogsComponent } from './list.blogs/list.blogs.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { LegelDocumentPgeComponent } from '../legel-document-pge/legel-document-pge.component';
+import { AbuDhabiForexComponent } from './country-pages/abu-dhabi-forex/abu-dhabi-forex.component';
+import { CapeTownForexComponent } from './country-pages/cape-town-forex/cape-town-forex.component';
+import { JohannesburgForexComponent } from './country-pages/johannesburg-forex/johannesburg-forex.component';
+import { NairobiForexComponent } from './country-pages/nairobi-forex/nairobi-forex.component';
+import { SouthAfricaForexReview2Component } from './country-pages/south-africa-forex-review/south-africa-forex-review.component';
 
 
 
@@ -24,14 +29,14 @@ const routes: Routes = [
     }
   },
   {
-  path: 'contact-us',
-  component: ContactUsComponent,
-  data: {
-    title: 'Contact UpForex Today | 24/7 Forex Support | Live Help',
-    description: 'Have questions? Our expert forex support team is available 24/7. Get live help with your account, or technical issues. Reach us via phone, email, or live chat.',
-    keywords: 'contact UpForex, forex support 24/7, live forex help, trading assistance, forex customer service'
-  }
-},
+    path: 'contact-us',
+    component: ContactUsComponent,
+    data: {
+      title: 'Contact UpForex Today | 24/7 Forex Support | Live Help',
+      description: 'Have questions? Our expert forex support team is available 24/7. Get live help with your account, or technical issues. Reach us via phone, email, or live chat.',
+      keywords: 'contact UpForex, forex support 24/7, live forex help, trading assistance, forex customer service'
+    }
+  },
 
   {
     path: 'risk-disclosure',
@@ -161,16 +166,16 @@ const routes: Routes = [
   },
 
   {
-  path: 'accounts',
-  data: {
-    title: 'Upforex Account Types – Choose the Forex Trading Account',
-    description: 'Explore Upforex account types – Standard, Pro-ECN, and Elite-ECN. Trade seamlessly on MT5 with low spreads, fast execution, and secure trading conditions.',
-    keywords: 'UpForex accounts, Standard account, Pro-ECN MT5, Elite-ECN MT5, Forex trading accounts, oil trading, indices trading, metals trading'
+    path: 'accounts',
+    data: {
+      title: 'Upforex Account Types – Choose the Forex Trading Account',
+      description: 'Explore Upforex account types – Standard, Pro-ECN, and Elite-ECN. Trade seamlessly on MT5 with low spreads, fast execution, and secure trading conditions.',
+      keywords: 'UpForex accounts, Standard account, Pro-ECN MT5, Elite-ECN MT5, Forex trading accounts, oil trading, indices trading, metals trading'
+    },
+    loadChildren: () => import('./account/account.module').then((m) => m.AccountModule),
   },
-  loadChildren: () => import('./account/account.module').then((m) => m.AccountModule),
-},
 
-//////////////////addddd
+  //////////////////addddd
   {
     path: 'legal-documents',
     component: LegelDocumentPgeComponent,
@@ -180,9 +185,9 @@ const routes: Routes = [
       keywords: 'Legal documents, forex agreements, forex terms and conditions'
     }
   },
-//////////////////addddd
+  //////////////////addddd
 
-  
+
   {
     path: 'blogs',
     component: ListBlogsComponent,
@@ -200,11 +205,16 @@ const routes: Routes = [
       description: 'Deep dive into specific forex topics, market moves, and expert advice.',
       keywords: 'forex blog post, trading news, market details'
     }
-  }
+  },
+  { path: 'forex-trading-abu-dhabi', component: AbuDhabiForexComponent },
+  { path: 'forex-trading-cape-town', component: CapeTownForexComponent },
+  { path: 'forex-trading-johannesburg', component: JohannesburgForexComponent },
+  { path: 'forex-trading-nairobi', component: NairobiForexComponent },
+  { path: 'forex-trading-south-africa', component: SouthAfricaForexReview2Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ComponentsRoutingModule {}
+export class ComponentsRoutingModule { }

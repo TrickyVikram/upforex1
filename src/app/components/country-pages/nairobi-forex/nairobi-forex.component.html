@@ -1,0 +1,605 @@
+<div
+  class="m-0 banner-div tw-relative tw-w-full tw-h-screen tw-overflow-hidden"
+>
+  <img
+    loading="lazy"
+    class="tw-absolute tw-inset-0 tw-w-full tw-h-[85vh] md:tw-h-[95vh] lg:tw-h-[85vh] tw-object-cover tw-opacity-70"
+    [src]="s3URL + 'assets/images/JPG/home_banner_temp_1.webp'"
+    alt="Forex Trading in Nairobi, Kenya"
+  />
+  <div class="row m-0 p-0 tw-h-[80vh] lg:tw-h-[85vh]">
+    <div class="col-12">
+      <div
+        class="tw-w-full md:tw-w-1/2 tw-px-0 md:tw-px-12 tw-h-full tw-flex tw-flex-col tw-justify-center"
+      >
+        <div
+          class="my-2 !tw-font-bold banner-text w-100 tw-font-montserrat tw-px-4 md:tw-pr-20 lg:tw-text-5xl tw-text-4xl"
+        >
+          <h1>
+            Forex Trading in <span class="banner-span">Nairobi, Kenya</span>
+          </h1>
+        </div>
+        <div class="my-2 tw-px-4 pt-2 banner-subtext tw-font-montserrat">
+          Access forex, metals, shares and CFDs through MetaTrader 5 on desktop, mobile and web. Compare three account types by deposit, spreads, commissions and trading needs.
+        </div>
+        <!-- <div
+          class="my-2 md:tw-pt-4 tw-pl-4 tw-flex tw-justify-start tw-gap-4 banner-button"
+        >
+          <a
+            class="tw-px-0 md:tw-pr-12 py-2 btn tw-block tw-font-montserrat"
+            href="https://my.upforex.com/register"
+            target="_blank"
+          >
+            Open an Account
+          </a>
+          <a
+            class="tw-px-0 md:tw-pr-12 py-2 btn tw-block tw-font-montserrat"
+            routerLink="/platforms/mt5"
+          >
+            Explore MetaTrader 5
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8 image-div"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center">
+      <img
+        loading="lazy"
+        [src]="s3URL + 'assets/images/banner_2.webp'"
+        width="100%"
+        class="tw-rounded-2xl"
+        style="aspect-ratio: 2; object-fit: cover"
+        alt="Online Forex Trading for Nairobi Residents"
+      />
+    </div>
+
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-p-4">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 mb-4"
+      >
+        Online Forex Trading for Nairobi Residents
+      </h2>
+      <!-- <p
+        class="tw-text-xl tw-text-white tw-font-bold tw-tracking-wide tw-leading-relaxed tw-font-montserrat !tw-mb-8"
+      >
+        Quick answer: UPFOREX offers eligible users online access to forex,
+        metals, shares and cash CFDs through MetaTrader 5. Three USD account
+        types are available. Kenya is not named in the company's
+        restricted-region list, but availability does not mean the platform is
+        licensed by Kenya's CMA.
+      </p> -->
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+     UPFOREX gives retail and experienced traders online access to global financial markets. Study currency prices, monitor positions and place orders through MetaTrader 5.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+       The service runs fully online. UPFOREX's public contact information doesn't list a Kenyan office. Account access depends on identity checks, local law and the terms of the company providing the trading account.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+      Forex and CFD trading uses leverage, so even small price changes create large gains or losses. Understand margin, lot size, spreads and stop-loss limits before using a live account.
+      </p>
+      <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-4 tw-mt-8">
+        <div class="card tw-p-4" *ngFor="let item of quickCards">
+          <span class="icon"><i [class]="item.icon"></i></span>
+          <div class="text tw-font-montserrat">{{ item.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8 image-div"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 !tw-mb-8"
+      >
+        MetaTrader 5 Trading Platform Features
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+      >
+  MetaTrader 5 combines market analysis, order management and account monitoring in one trading environment.
+      </p>
+      <div class="my-3 d-flex flex-column gap-3">
+        <div
+          class="d-flex gap-2 justify-content-center tw-items-start"
+          *ngFor="let item of platformTools"
+        >
+          <span class="arrow tw-mt-2">
+            <i class="fa-xl fa-solid fa-circle-right"></i>
+          </span>
+          <h5 class="tw-text-white tw-font-montserrat tw-ml-2">
+            <b class="bold-text">{{ item.boldText }}</b>
+            <span *ngIf="item.subText"> {{ item.subText }}</span>
+          </h5>
+        </div>
+      </div>
+       <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+      >
+   UPFOREX currently promotes MetaTrader 5. MT4 isn't listed as an available trading platform.
+      </p>
+    </div>
+    <div
+      class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center tw-items-center"
+    >
+      <img
+        loading="lazy"
+        [src]="s3URL + 'assets/images/JPG/market-experience.webp'"
+        width="100%"
+        class="tw-rounded-2xl"
+        style="aspect-ratio: 2; object-fit: cover"
+        alt="MetaTrader 5 Trading Platform Features"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="tw-pb-8 tw-px-8 smarter-trade-div">
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Forex Trading Markets Available Through MT5
+    </h2>
+    <p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+Trade global markets on MT5 from Kenya: forex, gold, shares, indices and energy CFDs in one place. Check spreads, margin and product rules before opening a live position.
+    </p>
+  </div>
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8"
+  >
+    <div
+      class="text-white card !tw-flex-col tw-p-6"
+      *ngFor="let item of markets"
+    >
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold md:!tw-h-[4rem] lg:!tw-h-[4rem] tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ item.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ item.description }}
+      </p>
+      <!-- <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <div class="tw-flex tw-justify-between tw-items-center tw-w-full">
+        <div
+          class="initial-bg tw-p-2 tw-px-3 tw-rounded-lg !tw-text-black !tw-font-semibold notranslate"
+        >
+          {{ item.initials }}
+        </div>
+        <button
+          [routerLink]="item.routerLink"
+          class="tw-font-montserrat tw-font-semibold"
+        >
+          Explore Now
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </div> -->
+    </div>
+    
+  </div><p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+UPFOREX's account information lists forex, metals, shares and cash CFDs, along with indices, energy and cryptocurrency CFDs. Check product access inside the platform before trading
+    </p>
+  <!-- <div class="tw-flex tw-justify-center tw-mt-8 banner-div">
+    <div class="banner-button">
+      <a
+        class="tw-px-8 py-2 btn tw-block tw-font-montserrat"
+        routerLink="/products/forex-cfds"
+      >
+        View Forex CFDs
+      </a>
+    </div>
+  </div>
+  <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-4 risk-text"
+  >
+    UPFOREX's account information lists forex, metals, shares and cash CFDs. Its
+    product menu also includes indices, energy and cryptocurrency CFDs. Product
+    access should be checked inside the platform before trading.
+  </p> -->
+</div>
+
+<h2
+  class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-font-montserrat tw-font-bold tw-text-white tw-text-center tw-mt-16 tw-mb-8"
+>
+  Forex Trading Account Types
+</h2>
+<div
+  class="tw-w-full container-fluid p-0 tw-overflow-hidden smarter-trade-features-div !tw-h-[280px] md:tw-h-[350px]"
+>
+  <video autoplay loop muted class="tw-w-full tw-object-contain">
+    <source
+      [src]="s3URL + 'assets/videos/smart_trading.webm'"
+      type="video/webm"
+    />
+  </video>
+</div>
+<div
+  class="w-z-10 tw-py-8 tw-px-4 md:tw-px-8 smarter-trade-features-div tw-mt-1 md:tw-mt-11"
+>
+  <div class="tw-text-center tw-mb-6">
+    <!-- <h2
+      class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-font-montserrat tw-font-bold tw-text-white mb-4"
+    >
+      Forex Trading Account Types
+    </h2> -->
+    <p
+      class="tw-text-sm md:tw-text-xl tw-text-white tw-font-light tw-font-montserrat tw-tracking-wide"
+    >
+UPFOREX publishes three account options: Standard, Pro-ECN and Elite-ECN. Each is listed in USD, not Kenyan shillings, with floating spreads, a minimum trade size of 0.01 lots and leverage up to 1:300.
+    </p>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8"
+  >
+    <div
+      class="card tw-bg-white/90 tw-backdrop-blur-md tw-rounded-md tw-p-2 flip-vertical-fwd"
+      *ngFor="let item of accountFeatureData"
+    >
+      <div
+        [style]="{ 'background-color': item.bgColor }"
+        class="tw-p-4 tw-flex tw-mt-4 tw-justify-start tw-items-center tw-rounded-full"
+      >
+        <ng-icon [name]="item.icon" color="black" size="24"></ng-icon>
+      </div>
+      <div
+        class="text tw-text-center tw-text-lg tw-font-semibold tw-font-montserrat tw-my-6"
+      >
+        {{ item.title }}
+      </div>
+    </div>
+  </div>
+
+  <div class="account-table-wrap tw-mt-8">
+    <table class="account-table">
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Minimum deposit</th>
+          <th>Published spread</th>
+          <th>Published commission</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td>{{ account.name }}</td>
+          <td>{{ account.deposit }}</td>
+          <td>{{ account.spread }}</td>
+          <td>{{ account.commission }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8 tw-mt-8 smarter-trade-div"
+  >
+    <div
+      class="text-white card !tw-flex-col tw-p-6"
+      *ngFor="let account of accountDetails"
+    >
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ account.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ account.text }}
+      </p>
+    </div>
+  </div>
+
+  <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-8 risk-text"
+  >
+ Starting spreads aren't fixed or guaranteed; they widen during market news, low liquidity or high volatility. UPFOREX publishes a 50% margin-call level and a 30% stop-out level.
+  </p>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-py-12 md:tw-py-6 tw-p-0 tw-gap-8"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-px-12">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 !tw-mb-8"
+      >
+        Forex Trading Regulation and Trust
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+      >
+      UP Global Markets Ltd holds a Financial Services Commission (FSC) Mauritius licence GB25204570 as an Investment Dealer, Full Service Dealer, Excluding Underwriting, and provides UPFOREX's trading services. Its UAE affiliate, UPFOREX Financial Consultation LLC, holds Category 5 Arrangement and Advice permissions under licence 20200000350, handling advice and introductions rather than trade execution.
+
+      </p>
+      <div class="my-3 d-flex flex-column gap-3">
+        <div
+          class="d-flex gap-2 justify-content-center tw-items-start"
+          *ngFor="let item of trustItems"
+        >
+          <span class="arrow tw-mt-2">
+            <i class="fa-xl fa-solid fa-circle-right"></i>
+          </span>
+          <h5 class="tw-text-white tw-font-montserrat tw-ml-2">
+            <b class="bold-text"> {{ item.boldText }} :</b>
+            {{ item.subText }}
+          </h5>
+        </div>
+      </div>
+      <!-- <div class="tw-flex tw-justify-center tw-mt-8 banner-div">
+        <div class="banner-button">
+          <a
+            class="tw-px-8 py-2 btn tw-block tw-font-montserrat"
+            routerLink="/legal-documents"
+          >
+            Review Legal Documents
+          </a>
+        </div>
+      </div> -->
+    </div>
+    <div
+      class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center tw-items-center"
+    >
+      <ngb-carousel
+        #carousel
+        [showNavigationArrows]="false"
+        [wrap]="true"
+        [keyboard]="true"
+        [interval]="3000"
+      >
+        <ng-template ngbSlide *ngFor="let item of images">
+          <div class="carousel-img-wrapper">
+            <img
+              loading="lazy"
+              appSwipe
+              (leftSwipe)="carousel.next()"
+              (rightSwipe)="carousel.prev()"
+              [src]="s3URL + item"
+              alt="MetaTrader 5 trading platform"
+            />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="video-container tw-h-60 md:tw-h-64 lg:tw-h-72 tw-w-full">
+  <img
+    loading="lazy"
+    class="background-video"
+    [src]="s3URL + 'assets/images/unlock_access.webp'"
+    alt="Start Forex Trading in Nairobi"
+  />
+  <div class="content">
+    <p
+      class="tw-text-white tw-font-semibold tw-text-lg md:tw-text-2xl tw-font-montserrat"
+    >
+      Start Forex Trading in Nairobi
+    </p>
+    <p
+      class="tw-text-white tw-font-semibold tw-text-sm md:tw-text-base tw-tracking-wider tw-font-montserrat"
+    >
+      Compare the three published accounts, explore MetaTrader 5 and verify the
+      broker's regulatory status before starting an application.<br />
+      <a
+        (click)="scrollToTop()"
+        class="tw-text-[#3cff19] text-decoration-none tw-cursor-pointer tw-font-extrabold"
+        routerLink="/accounts"
+        >Start Your Account Application</a
+      >
+    </p>
+  </div>
+</div> -->
+
+<div class="tw-pb-8 tw-px-8 smarter-trade-div extra-content-div">
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Nairobi Forex Trading Details
+    </h2>
+  </div>
+
+  <div class="detail-section tw-mb-8">
+    <div class="tw-w-full tw-p-0 md:tw-p-4 tw-p-6">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 !tw-mb-8"
+      >
+        Online Trading Access Across Nairobi
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+   MT5 is an online platform, so eligible users can connect from residential, business and financial areas including:
+
+      </p>
+      <div
+        class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4 tw-mt-6"
+      >
+        <div class="card tw-p-4" *ngFor="let area of areas">
+          <span class="icon"><i class="fa-xl fa-solid fa-location-dot"></i></span>
+          <div class="text tw-font-montserrat">{{ area }}</div>
+        </div>
+      </div>
+      <!-- <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-6"
+      >
+        This describes remote internet access. It does not mean that UPFOREX has
+        a physical office, representative or CMA-licensed branch in each area.
+      </p> -->
+    </div>
+  </div>
+
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      How to Start Forex Trading 
+    </h2>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8"
+  >
+    <div
+      class="text-white card !tw-flex-col tw-p-6"
+      *ngFor="let item of startSteps"
+    >
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold md:!tw-h-[4rem] lg:!tw-h-[4rem] tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ item.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ item.description }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <div class="tw-flex tw-justify-between tw-items-center tw-w-full">
+        <div
+          class="initial-bg tw-p-2 tw-px-3 tw-rounded-lg !tw-text-black !tw-font-semibold notranslate"
+        >
+          {{ item.initials }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="tw-flex tw-justify-center tw-mt-6 tw-mb-8 banner-div">
+    <div class="banner-button">
+      <a
+        class="tw-px-8 py-2 btn tw-block tw-font-montserrat"
+        routerLink="/contact-us"
+      >
+        Get Account Support
+      </a>
+    </div>
+  </div> -->
+
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Forex Trading Access Across Kenya
+    </h2>
+    <p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+    Eligible users across Kenya access MT5 online from major cities, subject to checks, product rules and the legal entity serving them.
+
+
+    </p>
+  </div>
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8"
+  >
+    <div class="text-white card !tw-flex-col tw-p-6" *ngFor="let city of cities">
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold md:!tw-h-[4rem] lg:!tw-h-[4rem] tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ city.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ city.description }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <div class="tw-flex tw-justify-between tw-items-center tw-w-full">
+        <div
+          class="initial-bg tw-p-2 tw-px-3 tw-rounded-lg !tw-text-black !tw-font-semibold notranslate"
+        >
+          {{ city.initials }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-8 risk-text"
+  >
+    Each location page should include useful local details. It should not copy
+    the Nairobi page word for word.
+  </p> -->
+
+  <div class="tw-pb-8 tw-px-8 forex-faq-style">
+    <div class="tw-w-full tw-p-0 md:tw-p-4">
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size: 2.5rem">
+      Forex Trading FAQs:
+      </p>
+
+      <ng-container *ngFor="let faq of faqs; let i = index">
+        <p class="text-white tw-font-bold md:tw-my-4" style="font-size: 1.5rem">
+          Q: {{ i + 1 }}. {{ faq.question }}
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          {{ faq.answer }}
+        </p>
+      </ng-container>
+    </div>
+  </div>
+
+  <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-8 risk-text"
+  >
+    Risk warning:Forex and CFDs are leveraged products and involve a substantial risk of loss. You may lose part or all of your capital, and losses from derivatives can exceed the original investment. Trading may not be suitable for every person. Confirm the legal entity, regulatory protections, fees and withdrawal rules before depositing funds, and seek independent financial, legal and tax advice where needed.
+  </p>
+</div>
+<div class="video-container tw-h-60 md:tw-h-64 lg:tw-h-72 tw-w-full">
+  <img
+    loading="lazy"
+    class="background-video"
+    [src]="s3URL + 'assets/images/unlock_access.webp'"
+    alt="Start Forex Trading in Nairobi"
+  />
+  <div class="content">
+    <p
+      class="tw-text-white tw-font-semibold tw-text-lg md:tw-text-2xl tw-font-montserrat"
+    >
+      Start Forex Trading in Nairobi
+    </p>
+    <p
+      class="tw-text-white tw-font-semibold tw-text-sm md:tw-text-base tw-tracking-wider tw-font-montserrat"
+    >
+      Compare the three published accounts, explore MetaTrader 5 and verify the
+      broker's regulatory status before starting an application.<br />
+      <a
+        (click)="scrollToTop()"
+        class="tw-text-[#3cff19] text-decoration-none tw-cursor-pointer tw-font-extrabold"
+        routerLink="/accounts"
+        >Start Your Account Application</a
+      >
+    </p>
+  </div>
+</div>
