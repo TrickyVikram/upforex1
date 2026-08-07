@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Store } from 'src/app/Store/store';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-south-africa-forex-review',
@@ -173,18 +175,257 @@ export class SouthAfricaForexReview2Component implements OnInit {
   constructor(
     private store: Store,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this.s3URL = this.store.s3BaseUrl();
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Forex Trading in South Africa | UPFOREX MT5 Review');
+    this.titleService.setTitle(
+      'Forex Trading in South Africa | UPFOREX MT5 Review',
+    );
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': 'https://www.upforex.com/#organization',
+          name: 'UPFOREX',
+          legalName: 'UP Global Markets Ltd',
+          url: 'https://www.upforex.com/',
+          logo: {
+            '@type': 'ImageObject',
+            '@id': 'https://www.upforex.com/#logo',
+            url: 'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            contentUrl:
+              'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            caption: 'UPFOREX',
+          },
+          image: { '@id': 'https://www.upforex.com/#logo' },
+          description:
+            'UPFOREX is an online forex and CFD trading platform providing access to forex, metals, shares,        indices, energy and cryptocurrency CFDs through MetaTrader 5.',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '4th Floor, Docks 4, The Docks, Caudan',
+            addressLocality: 'Port Louis',
+            addressCountry: 'MU',
+          },
+          email: 'support@upforex.com',
+          telephone: '+230 55004578',
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+230 55004578',
+            email: 'support@upforex.com',
+            contactType: 'customer support',
+            availableLanguage: [
+              'English',
+              'Hindi',
+              'Arabic',
+              'French',
+              'Spanish',
+              'German',
+              'Chinese',
+              'Japanese',
+              'Portuguese',
+              'Russian',
+            ],
+          },
+          hasCredential: {
+            '@type': 'EducationalOccupationalCredential',
+            credentialCategory: 'license',
+            name: 'Investment Dealer (Full Service Dealer, Excluding Underwriting) License No. GB25204570',
+            recognizedBy: {
+              '@type': 'GovernmentOrganization',
+              name: 'Financial Services Commission (FSC) Mauritius',
+            },
+          },
+          subOrganization: {
+            '@type': 'Organization',
+            name: 'UPFOREX Financial Consultation LLC',
+            description:
+              'UAE affiliated partner licensed and regulated by the UAE Securities and Commodities          Authority (SCA) under Category 5 - Arrangement & Advice.',
+            hasCredential: {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'license',
+              name: 'SCA Category 5 - Arrangement & Advice License No. 20200000350',
+              recognizedBy: {
+                '@type': 'GovernmentOrganization',
+                name: 'Securities and Commodities Authority (SCA), United Arab Emirates',
+              },
+            },
+          },
+          sameAs: [
+            'https://www.facebook.com/upforexltd',
+            'https://www.instagram.com/upforexltd',
+            'https://www.linkedin.com/company/upforex-ltd',
+            'https://x.com/upforexltd',
+            'https://www.trustpilot.com/review/upforex.com',
+          ],
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            bestRating: '5',
+            reviewCount: '427',
+          },
+          review: [
+            {
+              '@type': 'Review',
+              name: 'Absolutely speechless',
+              reviewBody:
+                'Service of this company was just marvelous! I will definitely use their products again.',
+              author: { '@type': 'Person', name: 'David Narrator' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+            {
+              '@type': 'Review',
+              name: 'Highly Recommended',
+              reviewBody:
+                'I can recommend this company without any doubt. Good job, guys!',
+              author: { '@type': 'Person', name: 'John Doe' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+            {
+              '@type': 'Review',
+              name: 'As good as expected',
+              reviewBody:
+                'I tried a lot of other services, but this one was the best and completely fulfilled my            expectations.',
+              author: { '@type': 'Person', name: 'John Doe' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+          ],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://www.upforex.com/#website',
+          url: 'https://www.upforex.com/',
+          name: 'UPFOREX',
+          publisher: { '@id': 'https://www.upforex.com/#organization' },
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://www.upforex.com/forex-trading-south-africa#webpage',
+          url: 'https://www.upforex.com/forex-trading-south-africa',
+          name: 'Forex Trading in South Africa | UPFOREX MT5 Review',
+          description:
+            'Review forex, metals, shares and available CFDs in South Africa through UPFOREX MT5. Compare        account types, platform tools, regulation notes and risk warnings.',
+          isPartOf: { '@id': 'https://www.upforex.com/#website' },
+          about: {
+            '@id': 'https://www.upforex.com/forex-trading-south-africa#service',
+          },
+          breadcrumb: {
+            '@id':
+              'https://www.upforex.com/forex-trading-south-africa#breadcrumb',
+          },
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: 'https://upforex-assets.s3.eu-north-1.amazonaws.com/assets/images/JPG/home_banner_temp_1.webp',
+          },
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id':
+            'https://www.upforex.com/forex-trading-south-africa#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.upforex.com/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Forex Trading in South Africa',
+            },
+          ],
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.upforex.com/forex-trading-south-africa#service',
+          name: 'Forex Trading in South Africa',
+          serviceType: 'Forex and CFD Trading',
+          description:
+            'Review forex, metals, shares and available CFDs in South Africa through UPFOREX MT5. Compare        account types, platform tools, regulation notes and risk warnings.',
+          provider: { '@id': 'https://www.upforex.com/#organization' },
+          url: 'https://www.upforex.com/forex-trading-south-africa',
+          areaServed: { '@type': 'Country', name: 'South Africa' },
+          availableChannel: {
+            '@type': 'ServiceChannel',
+            name: 'UPFOREX Online Client Portal (MetaTrader 5)',
+            serviceUrl: 'https://client.upforex.live/?tab=register',
+          },
+          brand: { '@type': 'Brand', name: 'UPFOREX' },
+          category: 'Financial Trading Services',
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://www.upforex.com/forex-trading-south-africa#faq',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'What is the minimum deposit?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'The published minimum is $100 for Standard, $1,000 for Pro-ECN and $5,000 for Elite-ECN. The              accounts are denominated in USD.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Can I fund an account with ZAR or EFT?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'The public account table does not confirm a ZAR account or domestic EFT option. Ask support              about payment methods, conversion rates, fees and withdrawals.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Does UPFOREX provide MT4 or MT5?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'UPFOREX publishes MT5 for Windows, Mac, Android, iOS and web terminals. Its account page does              not list MT4.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Do forex traders pay tax?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "Tax treatment depends on each person's activity and circumstances. Keep complete records and              seek advice from a registered tax practitioner.",
+              },
+            },
+          ],
+        },
+      ],
+    };
 
     this.metaService.updateTag({
       name: 'description',
       content:
         'Review forex, metals, shares and available CFDs in South Africa through UPFOREX MT5. Compare account types, platform tools, regulation notes and risk warnings.',
     });
+
+    const existing = this.document.getElementById('south-africa-schema');
+    if (existing) existing.remove();
+    const script = this.document.createElement('script');
+    script.id = 'south-africa-schema';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    this.document.head.appendChild(script);
   }
 }

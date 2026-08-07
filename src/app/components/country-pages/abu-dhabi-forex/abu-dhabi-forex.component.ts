@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Store } from 'src/app/Store/store';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-abu-dhabi-forex',
@@ -205,7 +207,7 @@ export class AbuDhabiForexComponent implements OnInit {
     {
       title: '2. Compare Trading Accounts',
       description:
-      " Review the minimum deposit and pricing model for Standard, Pro-ECN and Elite-ECN. The lowest deposit isn't automatically the most suitable option.",
+        " Review the minimum deposit and pricing model for Standard, Pro-ECN and Elite-ECN. The lowest deposit isn't automatically the most suitable option.",
       initials: '2',
     },
     {
@@ -269,8 +271,7 @@ export class AbuDhabiForexComponent implements OnInit {
     },
     {
       title: 'Ras Al Khaimah',
-      description:
-        'Access MT5 online and compare forex broker terms.',
+      description: 'Access MT5 online and compare forex broker terms.',
       initials: 'RAK',
     },
     {
@@ -337,13 +338,286 @@ export class AbuDhabiForexComponent implements OnInit {
   constructor(
     private store: Store,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this.s3URL = this.store.s3BaseUrl();
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Forex Trading in Abu Dhabi, UAE | UPFOREX MT5 Access');
+    this.titleService.setTitle(
+      'Forex Trading in Abu Dhabi, UAE | UPFOREX MT5 Access',
+    );
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': 'https://www.upforex.com/#organization',
+          name: 'UPFOREX',
+          legalName: 'UP Global Markets Ltd',
+          url: 'https://www.upforex.com/',
+          logo: {
+            '@type': 'ImageObject',
+            '@id': 'https://www.upforex.com/#logo',
+            url: 'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            contentUrl:
+              'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            caption: 'UPFOREX',
+          },
+          image: { '@id': 'https://www.upforex.com/#logo' },
+          description:
+            'UPFOREX is an online forex and CFD trading platform providing access to forex, metals, shares,        indices, energy and cryptocurrency CFDs through MetaTrader 5.',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '4th Floor, Docks 4, The Docks, Caudan',
+            addressLocality: 'Port Louis',
+            addressCountry: 'MU',
+          },
+          email: 'support@upforex.com',
+          telephone: '+230 55004578',
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+230 55004578',
+            email: 'support@upforex.com',
+            contactType: 'customer support',
+            availableLanguage: [
+              'English',
+              'Hindi',
+              'Arabic',
+              'French',
+              'Spanish',
+              'German',
+              'Chinese',
+              'Japanese',
+              'Portuguese',
+              'Russian',
+            ],
+          },
+          hasCredential: {
+            '@type': 'EducationalOccupationalCredential',
+            credentialCategory: 'license',
+            name: 'Investment Dealer (Full Service Dealer, Excluding Underwriting) License No. GB25204570',
+            recognizedBy: {
+              '@type': 'GovernmentOrganization',
+              name: 'Financial Services Commission (FSC) Mauritius',
+            },
+          },
+          subOrganization: {
+            '@type': 'Organization',
+            name: 'UPFOREX Financial Consultation LLC',
+            description:
+              'UAE affiliated partner licensed and regulated by the UAE Securities and Commodities          Authority (SCA) under Category 5 - Arrangement & Advice.',
+            hasCredential: {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'license',
+              name: 'SCA Category 5 - Arrangement & Advice License No. 20200000350',
+              recognizedBy: {
+                '@type': 'GovernmentOrganization',
+                name: 'Securities and Commodities Authority (SCA), United Arab Emirates',
+              },
+            },
+          },
+          sameAs: [
+            'https://www.facebook.com/upforexltd',
+            'https://www.instagram.com/upforexltd',
+            'https://www.linkedin.com/company/upforex-ltd',
+            'https://x.com/upforexltd',
+            'https://www.trustpilot.com/review/upforex.com',
+          ],
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            bestRating: '5',
+            reviewCount: '427',
+          },
+          review: [
+            {
+              '@type': 'Review',
+              name: 'Absolutely speechless',
+              reviewBody:
+                'Service of this company was just marvelous! I will definitely use their products again.',
+              author: { '@type': 'Person', name: 'David Narrator' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+            {
+              '@type': 'Review',
+              name: 'Highly Recommended',
+              reviewBody:
+                'I can recommend this company without any doubt. Good job, guys!',
+              author: { '@type': 'Person', name: 'John Doe' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+            {
+              '@type': 'Review',
+              name: 'As good as expected',
+              reviewBody:
+                'I tried a lot of other services, but this one was the best and completely fulfilled my            expectations.',
+              author: { '@type': 'Person', name: 'John Doe' },
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+              },
+            },
+          ],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://www.upforex.com/#website',
+          url: 'https://www.upforex.com/',
+          name: 'UPFOREX',
+          publisher: { '@id': 'https://www.upforex.com/#organization' },
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#webpage',
+          url: 'https://www.upforex.com/forex-trading-abu-dhabi',
+          name: 'Forex Trading in Abu Dhabi, UAE | UPFOREX MT5 Access',
+          description:
+            'Access forex, metals, shares and available CFDs in Abu Dhabi through UPFOREX MetaTrader 5.        Compare account types, platforms, regulation details and trading risk.',
+          isPartOf: { '@id': 'https://www.upforex.com/#website' },
+          about: {
+            '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#service',
+          },
+          breadcrumb: {
+            '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#breadcrumb',
+          },
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: 'https://upforex-assets.s3.eu-north-1.amazonaws.com/assets/images/JPG/home_banner_temp_1.webp',
+          },
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.upforex.com/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Forex Trading in Abu Dhabi, UAE',
+            },
+          ],
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#service',
+          name: 'Forex Trading in Abu Dhabi, UAE',
+          serviceType: 'Forex and CFD Trading',
+          description:
+            'Access forex, metals, shares and available CFDs in Abu Dhabi through UPFOREX MetaTrader 5.        Compare account types, platforms, regulation details and trading risk.',
+          provider: { '@id': 'https://www.upforex.com/#organization' },
+          url: 'https://www.upforex.com/forex-trading-abu-dhabi',
+          areaServed: [
+            {
+              '@type': 'City',
+              name: 'Abu Dhabi',
+              containedInPlace: {
+                '@type': 'Country',
+                name: 'United Arab Emirates',
+              },
+            },
+            'Al Maryah Island',
+            'Al Reem Island',
+            'Al Khalidiyah',
+            'The Corniche',
+            'Saadiyat Island',
+            'Yas Island',
+            'Al Raha',
+            'Khalifa City',
+            'Masdar City',
+            'Mohammed Bin Zayed City',
+            'Mussafah',
+          ],
+          availableChannel: {
+            '@type': 'ServiceChannel',
+            name: 'UPFOREX Online Client Portal (MetaTrader 5)',
+            serviceUrl: 'https://client.upforex.live/?tab=register',
+          },
+          brand: { '@type': 'Brand', name: 'UPFOREX' },
+          category: 'Financial Trading Services',
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://www.upforex.com/forex-trading-abu-dhabi#faq',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'Can I open a forex trading account from Abu Dhabi?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "Eligible residents can apply online, subject to identity verification, jurisdiction checks and              the applicable entity's onboarding rules.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What is the UPFOREX minimum deposit?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Published minimums are $100 for Standard, $1,000 for Pro-ECN and $5,000 for Elite-ECN. Check              the account page before registering, as terms can change.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Does UPFOREX offer MT4 or MT5?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "UPFOREX publishes MetaTrader 5 for Windows, Mac, Android, iOS and web-terminal access. MT4              isn't listed as an available platform.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Is a demo forex account available?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Yes. UPFOREX offers demo and live registration. A demo account helps you learn platform              functions, though simulated execution and results can differ from live-market conditions.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Does UPFOREX offer Islamic or swap-free trading?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: "The published account table doesn't break out Islamic or swap-free terms, eligibility, charges              or Shariah oversight separately.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What fees can apply to forex trading?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Potential costs include spreads, commissions, overnight financing, currency conversion and              payment-related charges. Pro-ECN publishes a $7 round-lot commission for forex and metals; Standard              and Elite-ECN publish zero separate commission.',
+              },
+            },
+          ],
+        },
+      ],
+    };
+
+    const existing = this.document.getElementById('abu-dhabi-schema');
+    if (existing) existing.remove();
+    const script = this.document.createElement('script');
+    script.id = 'abu-dhabi-schema';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    this.document.head.appendChild(script);
 
     this.metaService.updateTag({
       name: 'description',
