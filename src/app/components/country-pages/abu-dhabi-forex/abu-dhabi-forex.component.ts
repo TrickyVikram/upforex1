@@ -81,7 +81,7 @@ export class AbuDhabiForexComponent implements OnInit {
     {
       title: 'Gold and Precious-Metal Trading',
       description:
-        "Trade gold and silver CFDs on MT5. Precious metals react to inflation, rates and world events. These trades don't give you physical metal.",
+        "Trade <a href='https://www.upforex.com/products/precious-metal'>gold and silver CFDs</a> on MT5. Precious metals react to inflation, rates and world events. These trades don't give you physical metal.",
       initials: 'PM',
       routerLink: '/products/precious-metal',
     },

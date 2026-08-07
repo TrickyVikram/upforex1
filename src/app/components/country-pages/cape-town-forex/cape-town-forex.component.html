@@ -52,7 +52,7 @@
       <p
         class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
       >
-        UPFOREX provides an online platform for retail and experienced traders. Study currency markets, view charts, monitor positions and place supported orders through MetaTrader 5.
+        <a href="https://www.upforex.com/">UPFOREX</a> provides an online platform for retail and experienced traders. Study currency markets, view charts, monitor positions and place supported orders through MetaTrader 5.
       </p>
       <p
         class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
@@ -147,9 +147,8 @@
       <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
       <p
         class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
-      >
-        {{ item.description }}
-      </p>
+        [innerHTML]="item.description"
+      ></p>
     </div>
   </div>
 </div>
@@ -436,9 +435,8 @@
       <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
       <p
         class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
-      >
-        {{ city.description }}
-      </p>
+        [innerHTML]="city.description"
+      ></p>
     </div>
   </div>
 

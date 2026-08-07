@@ -79,7 +79,7 @@ export class CapeTownForexComponent implements OnInit {
     {
       title: 'Oil and Energy CFDs',
       description:
-        'Trade WTI and Brent oil CFDs on MT5 where offered. Energy CFDs move with supply, demand, stock levels and global events. Access varies by account and region.',
+        'Trade <a href="https://www.upforex.com/products/energy-cfds">WTI and Brent oil CFDs</a> on MT5 where offered. Energy CFDs move with supply, demand, stock levels and global events. Access varies by account and region.',
       initials: 'BO',
       routerLink: '/products/energy-cfds',
     },
@@ -243,7 +243,7 @@ export class CapeTownForexComponent implements OnInit {
     {
       title: 'Johannesburg',
       description:
-        ' Compare accounts and MT5 features through the dedicated Johannesburg location page. See /forex-trading-johannesburg.',
+        ' Compare accounts and MT5 features through the dedicated <a href="https://www.upforex.com/forex-trading-johannesburg">Johannesburg location page</a>.',
       initials: 'JHB',
     },
     {

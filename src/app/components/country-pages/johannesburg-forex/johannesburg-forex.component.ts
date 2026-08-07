@@ -65,7 +65,7 @@ export class JohannesburgForexComponent implements OnInit {
     {
       title: 'Shares and Equity CFDs',
       description:
-        'Follow company price moves with share CFDs, without owning the stock. Equity CFDs move with earnings, sector news and wider market trends.',
+        'Follow company price moves with <a href="https://www.upforex.com/products/stock-cfds">share CFDs</a>, without owning the stock. Equity CFDs move with earnings, sector news and wider market trends.',
       initials: 'EQ',
       routerLink: '/products/stock-cfds',
     },

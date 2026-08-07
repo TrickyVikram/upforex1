@@ -72,7 +72,7 @@ quickCards = [
     {
       title: 'Index and Cash CFDs',
       description:
-        'Index CFDs track groups of companies in one market. Cash CFDs follow broad price moves. Check trading hours, contract terms and margin before placing a trade.',
+        '<a href="https://www.upforex.com/products/index-cfds">Index CFDs</a> track groups of companies in one market. Cash CFDs follow broad price moves. Check trading hours, contract terms and margin before placing a trade.',
       initials: 'IX',
       routerLink: '/products/index-cfds',
     },
@@ -241,7 +241,7 @@ quickCards = [
     {
       title: '4. Choose Demo or Live Trading',
       description:
-        'Use a demo account to learn charts, orders and stop-loss tools. Before going live, check the legal entity, deposit currency, withdrawals and loss limit.',
+        'Use a <a href="https://www.upforex.com/demo">demo account</a> to learn charts, orders and stop-loss tools. Before going live, check the legal entity, deposit currency, withdrawals and loss limit.',
       initials: '4',
     },
     // {
