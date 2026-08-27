@@ -15,6 +15,9 @@ import { JohannesburgForexComponent } from './country-pages/johannesburg-forex/j
 import { NairobiForexComponent } from './country-pages/nairobi-forex/nairobi-forex.component';
 import { SouthAfricaForexReview2Component } from './country-pages/south-africa-forex-review/south-africa-forex-review.component';
 
+import { KualaLumpurForexComponent } from './country-pages/kuala-lumpur-forex/kuala-lumpur-forex.component';
+import { ManilaForexComponent } from './country-pages/manila-forex/manila-forex.component';
+import { SingaporeForexComponent } from './country-pages/singapore-forex/singapore-forex.component';
 
 
 const routes: Routes = [
@@ -211,6 +214,22 @@ const routes: Routes = [
   { path: 'forex-trading-johannesburg', component: JohannesburgForexComponent },
   { path: 'forex-trading-nairobi', component: NairobiForexComponent },
   { path: 'forex-trading-south-africa', component: SouthAfricaForexReview2Component },
+
+  {
+    path: 'forex-trading-kuala-lumpur',
+    component: KualaLumpurForexComponent,
+    title: 'Forex Trading in Kuala Lumpur | UPFOREX MT5',
+  },
+  {
+    path: 'forex-trading-manila',
+    component: ManilaForexComponent,
+    title: 'Forex Trading in Manila, Philippines | UPFOREX MT5',
+  },
+  {
+    path: 'forex-trading-singapore',
+    component: SingaporeForexComponent,
+    title: 'Forex Trading in Singapore | UPFOREX MT5',
+  },
 ];
 
 @NgModule({

@@ -38,6 +38,11 @@ import { CommonModules } from '../common/common.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListBlogsComponent } from './list.blogs/list.blogs.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { KualaLumpurForexComponent } from './country-pages/kuala-lumpur-forex/kuala-lumpur-forex.component';
+import { ManilaForexComponent } from './country-pages/manila-forex/manila-forex.component';
+import { SingaporeForexComponent } from './country-pages/singapore-forex/singapore-forex.component';
+
+
 
 @NgModule({
   declarations: [
@@ -51,6 +56,9 @@ import { BlogsComponent } from './blogs/blogs.component';
     BlogsComponent,
     AbuDhabiForexComponent,
     CapeTownForexComponent,
+    KualaLumpurForexComponent,
+    ManilaForexComponent,
+    SingaporeForexComponent,
     JohannesburgForexComponent,
     NairobiForexComponent,
     SouthAfricaForexReview2Component,

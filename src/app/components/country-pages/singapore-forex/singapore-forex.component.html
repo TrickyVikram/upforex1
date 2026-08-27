@@ -1,0 +1,438 @@
+<div
+  class="m-0 banner-div tw-relative tw-w-full tw-h-screen tw-overflow-hidden"
+>
+  <img
+    loading="lazy"
+    class="tw-absolute tw-inset-0 tw-w-full tw-h-[85vh] md:tw-h-[95vh] lg:tw-h-[85vh] tw-object-cover tw-opacity-70"
+    [src]="s3URL + 'assets/images/JPG/home_banner_temp_1.webp'"
+    alt="Forex Trading in Singapore"
+  />
+  <div class="row m-0 p-0 tw-h-[80vh] lg:tw-h-[85vh]">
+    <div class="col-12">
+      <div
+        class="tw-w-full md:tw-w-1/2 tw-px-0 md:tw-px-12 tw-h-full tw-flex tw-flex-col tw-justify-center"
+      >
+        <div
+          class="my-2 !tw-font-bold banner-text w-100 tw-font-montserrat tw-px-4 md:tw-pr-20 lg:tw-text-5xl tw-text-4xl"
+        >
+          <h1>
+            Forex Trading in <span class="banner-span">Singapore</span>
+          </h1>
+        </div>
+        <div class="my-2 tw-px-4 pt-2 banner-subtext tw-font-montserrat">
+         Explore online forex trading in Singapore with UPFOREX through MetaTrader 5. Follow the markets and manage your trades from your desktop, phone, or web browser, wherever it suits you.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8 image-div"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center">
+      <img
+        loading="lazy"
+        [src]="s3URL + 'assets/images/banner_2.webp'"
+        width="100%"
+        class="tw-rounded-2xl"
+        style="aspect-ratio: 2; object-fit: cover"
+        alt="Online Forex and CFD Trading for Singapore Traders"
+      />
+    </div>
+
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-p-4">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 mb-4"
+      >
+        Online Forex and CFD Trading for Singapore Traders
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+       UPFOREX provides online forex and CFD trading through MetaTrader 5. Traders in Singapore can register, complete account verification, manage deposits and withdrawals, study market prices, monitor positions, and place supported orders through the online platform.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        CFDs use leverage, which increases the effect of market movements on a position. Before moving from demo access to live trading, understand margin, floating spreads, position sizes, and stop-loss controls. The client agreement explains that losses can exceed the amount originally deposited.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8 image-div"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 !tw-mb-8"
+      >
+        MT5 Trading Access on Desktop, Mobile and Web
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mb-8"
+      >
+        The UPFOREX MetaTrader 5 platform is available for Windows, Mac, Android, iOS and supported web browsers. Traders can follow prices, examine charts, place orders and manage open positions online.
+      </p>
+      <div class="my-3 d-flex flex-column gap-3">
+        <div
+          class="d-flex gap-2 justify-content-center tw-items-start"
+          *ngFor="let item of platformTools"
+        >
+          <span class="arrow tw-mt-2">
+            <i class="fa-xl fa-solid fa-circle-right"></i>
+          </span>
+          <h5 class="tw-text-white tw-font-montserrat tw-ml-2">
+            <b class="bold-text">{{ item.boldText }}</b>
+            <span *ngIf="item.subText"> {{ item.subText }}</span>
+          </h5>
+        </div>
+      </div>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed !tw-mt-8"
+      >
+        The time displayed on the trading server may differ from Singapore Standard Time. Traders can convert platform time to SGT when following economic announcements, market openings and position-closing times.
+      </p>
+    </div>
+    <div
+      class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center tw-items-center"
+    >
+      <img
+        loading="lazy"
+        [src]="s3URL + 'assets/images/JPG/market-experience.webp'"
+        width="100%"
+        class="tw-rounded-2xl"
+        style="aspect-ratio: 2; object-fit: cover"
+        alt="MT5 Trading Access on Desktop, Mobile and Web"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="tw-pb-8 tw-px-8 smarter-trade-div">
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Currency, Metals, Share and Index Markets
+    </h2>
+    <p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      UPFOREX offers forex, metals, shares, indices, and energy CFDs through one MT5 platform. Forex CFDs follow changes in currency-pair prices without physical delivery. Interest-rate decisions, inflation reports, employment data, and international economic events can all influence exchange rates.
+    </p>
+    <p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Gold and silver CFDs track metal-market prices without providing ownership of physical metals. Share CFDs follow individual company prices, while index CFDs provide exposure to a group of companies. UPFOREX also lists WTI and Brent oil CFDs, which respond to supply, demand, inventories, and international events.
+    </p>
+    <p
+      class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+    >
+      Review the applicable spread, margin requirement, contract size, trading schedule and overnight financing before placing an order.
+    </p>
+  </div>
+</div>
+
+<h2
+  class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-font-montserrat tw-font-bold tw-text-white tw-text-center tw-mt-16 tw-mb-8"
+>
+  Compare UPFOREX Account Conditions
+</h2>
+<div
+  class="tw-w-full container-fluid p-0 tw-overflow-hidden smarter-trade-features-div !tw-h-[280px] md:tw-h-[350px]"
+>
+  <video autoplay loop muted class="tw-w-full tw-object-contain">
+    <source
+      [src]="s3URL + 'assets/videos/smart_trading.webm'"
+      type="video/webm"
+    />
+  </video>
+</div>
+<div
+  class="w-z-10 tw-py-8 tw-px-4 md:tw-px-8 smarter-trade-features-div tw-mt-1 md:tw-mt-11"
+>
+  <div class="tw-text-center tw-mb-6">
+    <p
+      class="tw-text-sm md:tw-text-xl tw-text-white tw-font-light tw-font-montserrat tw-tracking-wide"
+    >
+      UPFOREX publishes three forex trading account types: Standard, Pro Electronic Communication Network (Pro-ECN), and Elite Electronic Communication Network (Elite-ECN). <br/>Each account is denominated in USD and lists floating spreads, a minimum trade size of 0.01 lots, and leverage of up to 1:300. UPFOREX states that leverage can be adjusted according to liquidity and market conditions.
+    </p>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8"
+  >
+    <div
+      class="card tw-bg-white/90 tw-backdrop-blur-md tw-rounded-md tw-p-2 flip-vertical-fwd"
+      *ngFor="let item of accountFeatureData"
+    >
+      <div
+        [style]="{ 'background-color': item.bgColor }"
+        class="tw-p-4 tw-flex tw-mt-4 tw-justify-start tw-items-center tw-rounded-full"
+      >
+        <ng-icon [name]="item.icon" color="black" size="24"></ng-icon>
+      </div>
+      <div
+        class="text tw-text-center tw-text-lg tw-font-semibold tw-font-montserrat tw-my-6"
+      >
+        {{ item.title }}
+      </div>
+    </div>
+  </div>
+
+  <div class="account-table-wrap tw-mt-8">
+    <table class="account-table">
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Minimum deposit</th>
+          <th>Published spread</th>
+          <th>Published commission</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td>{{ account.name }}</td>
+          <td>{{ account.deposit }}</td>
+          <td>{{ account.spread }}</td>
+          <td>{{ account.commission }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8 tw-mt-8 smarter-trade-div"
+  >
+    <div
+      class="text-white card !tw-flex-col tw-p-6"
+      *ngFor="let account of accountDetails"
+    >
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ account.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ account.text }}
+      </p>
+    </div>
+  </div>
+
+  <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-8 tw-text-center risk-text"
+  >
+    Starting spreads are not fixed and can change with market liquidity and volatility. UPFOREX also publishes a 50% margin-call level and a 30% stop-out level.
+  </p>
+</div>
+
+<div class="md:tw-p-0 tw-p-8">
+  <div
+    class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-py-12 md:tw-py-6 tw-p-0 tw-gap-8"
+  >
+    <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-px-12">
+      <h2
+        class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 !tw-mb-8"
+      >
+        Trading Service and Regulatory Information
+      </h2>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        UPFOREX trading services are provided by UP Global Markets Ltd. The company holds a Financial Services Commission (FSC) Mauritius licence GB25204570 as an Investment Dealer, Full Service Dealer, excluding Underwriting.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        A related company, UPFOREX Financial Consultation LLC, holds UAE Category 5 Arrangement and Advice permissions under licence 20200000350. These permissions cover arrangement and advisory activities.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        UPFOREX states that it uses segregated client accounts. Traders can read the current client agreement, risk disclosure, funding terms, and other policies through the UPFOREX legal documents.
+      </p>
+    </div>
+    <div
+      class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center tw-items-center"
+    >
+      <ngb-carousel
+        #carousel
+        [showNavigationArrows]="false"
+        [wrap]="true"
+        [keyboard]="true"
+        [interval]="3000"
+      >
+        <ng-template ngbSlide *ngFor="let item of images">
+          <div class="carousel-img-wrapper">
+            <img
+              loading="lazy"
+              appSwipe
+              (leftSwipe)="carousel.next()"
+              (rightSwipe)="carousel.prev()"
+              [src]="s3URL + item"
+              alt="MetaTrader 5 trading platform"
+            />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>
+
+<div class="tw-pb-8 tw-px-8 smarter-trade-div extra-content-div">
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Choosing a Forex Broker Based on Real Costs
+    </h2>
+  </div>
+
+  <div class="detail-section tw-mb-8">
+    <div class="tw-w-full tw-p-0 md:tw-p-4 tw-p-6">
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+   “Best forex broker” is a comparison phrase, not a guaranteed award. The most suitable account depends on the trader’s experience, available funds, preferred markets, trading approach, and risk tolerance.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        Compare the company providing the account, available instruments, spreads, commissions, overnight financing, currency conversion, funding charges, and withdrawal process. Platform access, customer support, and risk-management tools should also form part of the comparison.
+      </p>
+      <p
+        class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+      >
+        UPFOREX publishes its trading accounts in USD. Traders funding an account in Singapore dollars (SGD) can check the applicable SGD-to-USD exchange rate, conversion charge and payment-provider fee before completing a transaction. The Monetary Authority of Singapore exchange-rate service provides reference exchange-rate data, although the rate used by a payment provider may differ.
+      </p>
+    </div>
+  </div>
+
+  <div class="tw-text-center tw-mt-6 md:tw-mt-0 tw-p-6">
+    <h2
+      class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4"
+    >
+      Four Steps Before Placing a Live Trade
+    </h2>
+  </div>
+
+  <div
+    class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-8"
+  >
+    <div
+      class="text-white card !tw-flex-col tw-p-6"
+      *ngFor="let item of startSteps"
+    >
+      <p
+        class="!tw-text-start tw-font-montserrat tw-text-lg tw-font-extrabold md:!tw-h-[4rem] lg:!tw-h-[4rem] tw-tracking-wider tw-w-full !tw-mb-2"
+      >
+        {{ item.title }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <p
+        class="tw-text-sm tw-font-semibold md:!tw-h-[15rem] lg:!tw-h-[10rem] tw-text-white tw-font-montserrat tw-text-left tw-leading-relaxed tw-tracking-wider"
+      >
+        {{ item.description }}
+      </p>
+      <div class="tw-border-b tw-border-white tw-w-full tw-my-3"></div>
+      <div class="tw-flex tw-justify-between tw-items-center tw-w-full">
+        <div
+          class="initial-bg tw-p-2 tw-px-3 tw-rounded-lg !tw-text-black !tw-font-semibold notranslate"
+        >
+          {{ item.initials }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:tw-p-0 tw-p-0 tw-mt-8 tw-mb-8">
+    <div
+      class="tw-flex tw-justify-center tw-flex-col lg:tw-flex-row lg:tw-p-12 md:tw-p-6 tw-p-0 tw-gap-8 image-div tax-section"
+    >
+      <div class="tw-w-full lg:tw-w-1/2 tw-flex tw-justify-center">
+        <img
+          loading="lazy"
+          [src]="s3URL + 'assets/images/JPG/why-trade.webp'"
+          width="100%"
+          class="tw-rounded-2xl"
+          style="aspect-ratio: 2; object-fit: cover"
+          alt="Singapore Tax Records for Forex and CFD Activity"
+        />
+      </div>
+
+      <div class="tw-w-full lg:tw-w-1/2 tw-p-0 md:tw-p-4">
+        <h2
+          class="text-white tw-text-2xl md:tw-text-2xl lg:tw-text-4xl tw-font-montserrat tw-font-bold md:tw-my-4 mb-4"
+        >
+          Singapore Tax Records for Forex and CFD Activity
+        </h2>
+        <div class="my-3 d-flex flex-column gap-3">
+          <div
+            class="d-flex gap-2 justify-content-center tw-items-start"
+            *ngFor="let item of taxItems"
+          >
+            <span class="arrow tw-mt-2">
+              <i class="fa-xl fa-solid fa-circle-right"></i>
+            </span>
+            <h5 class="tw-text-white tw-font-montserrat tw-ml-2">
+              <b class="bold-text"> {{ item.boldText }} :</b>
+              {{ item.subText }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-pb-8 tw-px-8 forex-faq-style">
+    <div class="tw-w-full tw-p-0 md:tw-p-4">
+      <p class="text-white tw-font-bold md:tw-my-4" style="font-size: 2.5rem">
+        Common Questions About Forex Trading
+      </p>
+
+      <ng-container *ngFor="let faq of faqs; let i = index">
+        <p class="text-white tw-font-bold md:tw-my-4" style="font-size: 1.5rem">
+          Q: {{ i + 1 }}. {{ faq.question }}
+        </p>
+        <p
+          class="tw-text-sm tw-text-white tw-font-semibold tw-tracking-wide tw-leading-relaxed"
+        >
+          {{ faq.answer }}
+        </p>
+      </ng-container>
+    </div>
+  </div>
+
+  <p
+    class="tw-text-sm tw-text-white tw-font-montserrat tw-font-semibold tw-tracking-wide tw-leading-relaxed tw-mt-8 risk-text"
+  >
+    Risk Warning: Forex and CFDs are leveraged products and involve a substantial risk of loss. You may lose part or all of your deposited capital, and losses can exceed deposits under some agreements or market conditions. Trading may not suit every person. Review the serving entity, account conditions, trading costs and withdrawal rules before providing funds, and seek independent financial, legal and tax advice where appropriate.
+  </p>
+</div>
+<div class="video-container tw-h-60 md:tw-h-64 lg:tw-h-72 tw-w-full">
+  <img
+    loading="lazy"
+    class="background-video"
+    [src]="s3URL + 'assets/images/unlock_access.webp'"
+    alt="Examine the Account and Platform Details"
+  />
+  <div class="content">
+    <p
+      class="tw-text-white tw-font-semibold tw-text-lg md:tw-text-2xl tw-font-montserrat"
+    >
+      Examine the Account and Platform Details
+    </p>
+    <p
+      class="tw-text-white tw-font-semibold tw-text-sm md:tw-text-base tw-tracking-wider tw-font-montserrat"
+    >
+      Compare the three published accounts, explore the MT5 platform, and read the current legal documents before selecting an account. Consider the full trading cost, available markets, and the level of risk you are prepared to manage.
+    </p>
+  </div>
+</div>
