@@ -26,8 +26,14 @@
         type="button"
         (click)="isMenuCollapsed = !isMenuCollapsed"
       >
-        <span class="toggle-button"
+        <!-- <span class="toggle-button"
           ><i class="fa-xl fa-solid fa-bars"></i
+        ></span> -->
+        <span class="toggle-button"
+          ><i
+            class="fa-xl fa-solid"
+            [ngClass]="isMenuCollapsed ? 'fa-bars' : 'fa-xmark'"
+          ></i
         ></span>
       </button>
       <div
