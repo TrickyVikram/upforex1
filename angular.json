@@ -49,6 +49,11 @@
                 "glob": "**/*",
                 "input": "node_modules/@kolkov/angular-editor/assets/icons",
                 "output": "assets/ae-icons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@fortawesome/fontawesome-free/webfonts",
+                "output": "webfonts/"
               }
             ],
             "styles": [
