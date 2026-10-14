@@ -43,6 +43,16 @@ export function app(): express.Express {
     })
   );
 
+    // ===== NEW: Short links -> social pages =====
+  const socialRedirects: Record<string, string> = {
+    '/facebook': 'https://www.facebook.com/upforexglobal',
+    '/instagram': 'https://www.instagram.com/upforexglobal/',
+    '/linkedin': 'https://www.linkedin.com/company/upforex-ltd',
+  };
+  Object.entries(socialRedirects).forEach(([path, target]) => {
+    server.get(path, (_req, res) => res.redirect(302, target));
+  });
+
   server.get(
     '*.*',
     express.static(distFolder, {
