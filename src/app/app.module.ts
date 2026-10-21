@@ -77,7 +77,7 @@ import { LegelDocumentPgeComponent } from './legel-document-pge/legel-document-p
     },
     {
       provide: RECAPTCHA_V3_SITE_KEY,
-      useValue: '6Le_bmErAAAAADHcya858sj3rvWeAVLNG4D8YZI8',
+      useValue: '6LezvfktAAAAAO2KR6ffXKYii2lXb-3-50INGcYL',
     }
   ],
   bootstrap: [AppComponent],
