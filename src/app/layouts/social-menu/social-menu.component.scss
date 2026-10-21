@@ -150,6 +150,50 @@
   }
 }
 
+
+// Brand-coloured social badges (footer)
+.icon-bar a.social-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  i {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  &:hover {
+    color: #fff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18);
+  }
+
+  &.sb-facebook { background: #1877f2; }
+
+  &.sb-instagram {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%
+    );
+  }
+
+  &.sb-linkedin { background: #0a66c2; }
+
+  &.sb-tiktok {
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    i { text-shadow: -1.5px -1.5px 0 #25f4ee, 1.5px 1.5px 0 #fe2c55; }
+  }
+}
+
+
+
 @media (max-width: 768px) {
   .footer-links-wrapper {
     padding: 2rem 1.5rem;
