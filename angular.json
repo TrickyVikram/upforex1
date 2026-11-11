@@ -36,6 +36,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/robots.txt",
+              "src/llms.txt",
               "src/google7a4e0e94dc09c007.html",
               {
                 "glob": "_redirects",
