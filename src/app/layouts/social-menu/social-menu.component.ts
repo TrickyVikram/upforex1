@@ -23,8 +23,16 @@ export class SocialMenuComponent implements AfterViewInit {
     this.s3URL = store.s3BaseUrl();
   }
 
+  // ngAfterViewInit(): void {
+  //   this.loadTradingViewScript();
+  // }
   ngAfterViewInit(): void {
-    this.loadTradingViewScript();
+    if (isPlatformBrowser(this.platformId)) {
+      const run = () => setTimeout(() => this.loadTradingViewScript(), 5000);
+      if (document.readyState === 'complete') run();
+      else window.addEventListener('load', run, { once: true });
+    }
+    // ... baaki purana code jaisa ka taisa
   }
 
   homeLinks = [
