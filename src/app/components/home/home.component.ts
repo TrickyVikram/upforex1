@@ -1,6 +1,7 @@
 import {
   Component,
   Inject,
+  OnDestroy, 
   OnInit,
   PLATFORM_ID,
   Renderer2,
@@ -13,16 +14,17 @@ import {
 import * as AOS from 'aos';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from 'src/app/Store/store';
-import { isPlatformBrowser } from '@angular/common';
+// import { isPlatformBrowser } from '@angular/common';
 import { HybridTranslationService } from 'src/app/core/services/hybrid-translation.service';
 import { LanguageService, Language } from 'src/app/core/services/language.service';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';   // DOCUMENT add
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit ,OnDestroy  {
   smarterTradeCardData = smarterTradeData;
   smartTradeFeaturesData = smartTradeFeaturesData;
   mobileAppData = mobileAppData;
@@ -33,6 +35,7 @@ export class HomeComponent implements OnInit {
     private renderer: Renderer2,
     private store: Store,
     @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document,   // <- add
     private hybridTranslation: HybridTranslationService,
     private languageService: LanguageService
   ) {
@@ -72,6 +75,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.addHomeSchema();          // <- add
     this.loadTradingViewScript();
     this.s3URl = this.store.s3BaseUrl();
 
@@ -88,6 +92,105 @@ export class HomeComponent implements OnInit {
   //     duration: 1000,
   //   });
   // }
+
+  private readonly schemaId = 'home-schema';
+
+  private addHomeSchema(): void {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'FinancialService',
+          '@id': 'https://www.upforex.com/#organization',
+          name: 'UPFOREX',
+          legalName: 'UP Global Markets Ltd',
+          url: 'https://www.upforex.com/',
+          logo: {
+            '@type': 'ImageObject',
+            '@id': 'https://www.upforex.com/#logo',
+            url: 'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            contentUrl:
+              'https://www.upforex.com/assets/images/updated-logos/logo-1.webp',
+            caption: 'UPFOREX',
+          },
+          image:
+            'https://upforex-assets.s3.eu-north-1.amazonaws.com/assets/images/JPG/home_banner_temp_1.webp',
+          description:
+            'UPFOREX is a forex trading platform offering fast execution, low spreads and secure global access for Forex, CFDs and Crypto trading on MetaTrader 5.',
+          slogan: 'Trade Smarter. Earn Faster. Grow Globally.',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '4th Floor, Docks 4, The Docks, Caudan',
+            addressLocality: 'Port Louis',
+            addressCountry: 'MU',
+          },
+          identifier: 'GB25204570',
+          knowsAbout: [
+            'Forex Trading',
+            'CFD Trading',
+            'Stock CFDs',
+            'Index CFDs',
+            'Precious Metals Trading',
+            'Energy CFDs',
+            'Cryptocurrency CFDs',
+            'MetaTrader 5',
+          ],
+          sameAs: [
+            'https://www.facebook.com/UpforexGlobal',
+            'https://www.instagram.com/upforexglobal/',
+            'https://www.linkedin.com/company/upforex-ltd/',
+            'https://www.tiktok.com/@upforex.global',
+            'https://www.trustpilot.com/review/upforex.com',
+          ],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://www.upforex.com/#website',
+          url: 'https://www.upforex.com/',
+          name: 'UPFOREX',
+          inLanguage: 'en',
+          publisher: { '@id': 'https://www.upforex.com/#organization' },
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://www.upforex.com/#webpage',
+          url: 'https://www.upforex.com/',
+          name: 'Globally Trusted & Regulated Forex Trading Platform',
+          description:
+            'Trade smarter with UPFOREX, the best forex trading platform offering fast execution, low spreads, and secure global access for Forex, CFDs, and Crypto trading.',
+          inLanguage: 'en',
+          isPartOf: { '@id': 'https://www.upforex.com/#website' },
+          about: { '@id': 'https://www.upforex.com/#organization' },
+          primaryImageOfPage: { '@id': 'https://www.upforex.com/#logo' },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://www.upforex.com/#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.upforex.com/',
+            },
+          ],
+        },
+      ],
+    };
+
+    const existing = this.document.getElementById(this.schemaId);
+    if (existing) existing.remove();
+    const script = this.document.createElement('script');
+    script.id = this.schemaId;
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    this.document.head.appendChild(script);
+  }
+
+  ngOnDestroy(): void {
+    // Home se dusre page par jaate hi schema hat jaye (SPA navigation me bhi)
+    this.document.getElementById(this.schemaId)?.remove();
+  }
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
