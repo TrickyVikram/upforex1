@@ -22,10 +22,11 @@ export class CryptoCfdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Start Cryptocurrency CFD Trading | Crypto Trading - UpForex');
+    this.titleService.setTitle('Crypto CFD Trading | Bitcoin CFDs on MT5 | UPFOREX');
     this.metaService.updateTag({
       name: 'description',
-      content: 'Start Cryptocurrency CFD trading with UpForex. Enjoy fast execution, tight spreads, and 24/7 access to Bitcoin, Ethereum & more. Trade smart with a trusted platform.'
+      content:
+        'Trade Bitcoin and other cryptocurrency CFDs with UPFOREX. Access advanced tools and secure trading platforms with fast execution.'
     });
     this.metaService.updateTag({
       name: 'keywords',

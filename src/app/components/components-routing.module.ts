@@ -21,7 +21,15 @@ import { SingaporeForexComponent } from './country-pages/singapore-forex/singapo
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      title: 'UPFOREX | Forex, CFD & Crypto Trading Platform on MT5',
+      description:
+        'Trade forex, CFDs and crypto on MetaTrader 5 with UPFOREX. Enjoy fast execution, competitive spreads and secure global account access.',
+    },
+  },
   {
     path: 'about-us',
     component: AboutUsComponent,
@@ -35,8 +43,9 @@ const routes: Routes = [
     path: 'contact-us',
     component: ContactUsComponent,
     data: {
-      title: 'Contact UpForex Today | 24/7 Forex Support | Live Help',
-      description: 'Have questions? Our expert forex support team is available 24/7. Get live help with your account, or technical issues. Reach us via phone, email, or live chat.',
+      title: 'Contact UPFOREX | Support for Forex & CFD Traders',
+      description:
+        'Questions about your account or trading? Contact the UPFOREX support team by phone, email or live chat and get the help you need.',
       keywords: 'contact UpForex, forex support 24/7, live forex help, trading assistance, forex customer service'
     }
   },
@@ -106,8 +115,9 @@ const routes: Routes = [
   {
     path: 'partnerships/education-partners',
     data: {
-      title: 'UPFOREX Education Partners Program – Teach & Earn Globally',
-      description: 'Join the UPFOREX Education Partners Program to teach traders, share knowledge, and earn globally while expanding your reach in forex education. Join Now!',
+      title: 'UPFOREX Education Partners Program | Teach & Earn',
+      description:
+        'Join the UPFOREX Education Partners Program to teach traders, share your knowledge and earn globally in forex education.',
       keywords: 'Forex trading education platform, Forex trading, Forex trading for beginners, Forex trading education'
     },
     loadChildren: () => import('./partnership/partnership.module').then((m) => m.PartnershipModule),
@@ -115,8 +125,9 @@ const routes: Routes = [
   {
     path: 'products/cryptocurrencies-cfd',
     data: {
-      title: 'Leading CFD Bitcoin Broker Platform | Live Bitcoin Trading',
-      description: 'UPFOREX is a trusted CFD Bitcoin Broker Platform, offering secure live bitcoin trading with advanced tools, secure platforms and expert features, Join Now!',
+      title: 'Crypto CFD Trading | Bitcoin CFDs on MT5 | UPFOREX',
+      description:
+        'Trade Bitcoin and other cryptocurrency CFDs with UPFOREX. Access advanced tools and secure trading platforms with fast execution.',
       keywords: 'CFD Bitcoin, Live Bitcoin Trading'
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
@@ -124,8 +135,9 @@ const routes: Routes = [
   {
     path: 'products/precious-metal',
     data: {
-      title: 'Trusted Precious Metals Trading Platform​ | Forex Cfd Trading',
-      description: 'UPFOREX is your trusted Precious Metals Trading Platform, offering secure Forex CFD Trading with advanced tools, built for secure, fast, and low-cost trading.',
+      title: 'Precious Metals CFD Trading Platform on MT5 | UPFOREX',
+      description:
+        'Trade precious metals CFDs with UPFOREX on MetaTrader 5. Use advanced tools, fast execution and low-cost trading conditions.',
       keywords: 'Trusted Precious Metals Trading Platform​ | Forex Cfd Trading'
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
@@ -133,8 +145,9 @@ const routes: Routes = [
   {
     path: 'products/stock-cfds',
     data: {
-      title: 'CFD Stock Trading | 200+ Top Company Shares | UPFOREX',
-      description: 'Invest in 200+ top US stocks like Apple & Tesla with CFDs. Benefit from leverage, fractional shares, fast execution & tight spreads. No hidden fees.',
+      title: 'Stock CFD Trading on 200+ Global Shares | UPFOREX',
+      description:
+        'Trade CFDs on 200+ company shares, including US stocks such as Apple and Tesla, with leverage and fast execution on MetaTrader 5.',
       keywords: 'CFD Stock Trading | 200+ Top Company Shares | UPFOREX'
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
@@ -142,18 +155,19 @@ const routes: Routes = [
   {
     path: 'products/index-cfds',
     data: {
-      title: 'Index CFD Trading Platform | Fast Execution | UPFOREX',
-      description: 'Trade OTC Index CFDs on UPFOREX. Enjoy direct market access, ultra-fast execution on any device, and powerful tools for portfolio hedging. Start now.',
+      title: 'Index CFD Trading | Fast Execution on MT5 | UPFOREX',
+      description:
+        'Trade OTC index CFDs with UPFOREX. Enjoy direct market access, fast execution on any device and tools for portfolio hedging.',
       keywords: 'Index CFD Trading Platform | Fast Execution | UPFOREX, cfd index, cfd index trading, Otc trading'
-
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'products/energy-cfds',
     data: {
-      title: 'Online Oil Trading Platform | Energy CFDs | UPFOREX',
-      description: 'Start online oil trading with the UPFOREX platform. Enjoy competitive spreads, flexible leverage, and transparent pricing on global energy markets.',
+      title: 'Oil & Energy CFD Trading Platform on MT5 | UPFOREX',
+      description:
+        'Trade oil and energy CFDs with UPFOREX. Enjoy competitive spreads, flexible leverage and transparent pricing on global energy markets.',
       keywords: 'Index CFD Trading Platform | Fast Execution | UPFOREX'
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
@@ -161,8 +175,9 @@ const routes: Routes = [
   {
     path: 'products/forex-cfds',
     data: {
-      title: 'Leading Online Trading Brokers for Forex Trading in UAE',
-      description: 'Join leading Online Trading Brokers for Forex Trading in UAE with UPFOREX. Access seamless platforms, expert tools, and low fees for advanced forex trading.',
+      title: 'Forex CFD Trading in UAE | MT5 Platform | UPFOREX',
+      description:
+        'Trade forex CFDs with UPFOREX on MetaTrader 5. Access advanced trading tools, fast execution and competitive trading costs in the UAE.',
       keywords: 'Real-time forex trading platform, Real-time forex trading, Real time forex trading, Best Real-time forex trading platform'
     },
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),

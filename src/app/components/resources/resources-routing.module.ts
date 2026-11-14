@@ -10,22 +10,42 @@ const routes: Routes = [
   {
     path: 'introduction-to-forex',
     component: IntroToForexComponent,
-    title: 'What is Forex? – Beginner’s Guide to Forex Trading'
+    title: "What Is Forex? Beginner's Guide to Trading | UPFOREX",
+    data: {
+      title: "What Is Forex? Beginner's Guide to Trading | UPFOREX",
+      description:
+        'New to forex? Learn how currency pairs, bid and ask prices, spreads and leverage work, and understand the risks involved.',
+    },
   },
   {
     path: 'trading-glossary',
     component: TradingGlossaryComponent,
-    title: 'UPFOREX Glossary – Learn Forex, CFD & Trading Terminology'
+    title: 'UPFOREX Glossary | Learn Forex & CFD Trading Terms',
+    data: {
+      title: 'UPFOREX Glossary | Learn Forex & CFD Trading Terms',
+      description:
+        'Find clear definitions of forex, CFD and trading terms in the UPFOREX glossary to help you understand the markets before you trade.',
+    },
   },
   {
     path: 'trading-rules',
     component: TradingRulesComponent,
-    title: 'Trading Rules | Understanding Regulations & Best Practices'
+    title: 'Trading Rules | Understanding Regulations & Best Practices',
+    data: {
+      title: 'Trading Rules | Understanding Regulations & Best Practices',
+      description:
+        'Review forex trading basics, including major currency pairs, base and quote currencies, margin, leverage and profit and loss examples.',
+    },
   },
   {
     path: 'faq',
     component: FaqComponent,
-    title: 'FAQs | Frequently Asked Questions about Forex & CFD Trading'
+    title: 'Forex & CFD Trading FAQs | Help Centre | UPFOREX',
+    data: {
+      title: 'Forex & CFD Trading FAQs | Help Centre | UPFOREX',
+      description:
+        'Find answers to frequently asked questions about forex and CFD trading, accounts and platforms with UPFOREX. Get help in seconds.',
+    },
   },
   // Uncomment this if needed
   // {
@@ -37,7 +57,12 @@ const routes: Routes = [
     path: 'tools',
     loadChildren: () =>
       import('./tools/tools.module').then((m) => m.ToolsModule),
-    title: 'UPFOREX Trading Tools – Calculators, Converters & Analysis'
+    title: 'UPFOREX Trading Tools | Calculators & Converters',
+    data: {
+      title: 'UPFOREX Trading Tools | Calculators & Converters',
+      description:
+        'Use UPFOREX trading tools, including calculators, converters and market analysis, to plan your trades with more confidence.',
+    },
   },
 ];
 

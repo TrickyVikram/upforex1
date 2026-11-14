@@ -22,11 +22,12 @@ export class ForexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Leading Online Trading Brokers for Forex Trading in UAE');
+    this.titleService.setTitle('Forex CFD Trading in UAE | MT5 Platform | UPFOREX');
 
     this.metaService.updateTag({
       name: 'description',
-      content: 'Join leading Online Trading Brokers for Forex Trading in UAE with UPFOREX. Access seamless platforms, expert tools, and low fees for advanced forex trading.'
+      content:
+        'Trade forex CFDs with UPFOREX on MetaTrader 5. Access advanced trading tools, fast execution and competitive trading costs in the UAE.'
     });
 
     this.metaService.updateTag({

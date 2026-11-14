@@ -21,11 +21,12 @@ export class SocialTradingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Forex social trading platform for Beginners & Experts');
+    this.titleService.setTitle('Join UPFOREX Social Trading Program | Trade & Earn');
 
     this.metaService.updateTag({
       name: 'description',
-      content: 'Join UpForex’s forex social trading platform. Copy top traders, grow earnings, and partner with a smarter, community-driven trading experience.'
+      content:
+        'Join the UPFOREX Social Trading Program to follow expert traders, copy winning strategies, and earn commissions while improving your trading skills.'
     });
 
     this.metaService.updateTag({
