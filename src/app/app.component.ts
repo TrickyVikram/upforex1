@@ -8,7 +8,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
@@ -24,6 +24,32 @@ import { LanguageService } from './core/services/language.service';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'upforex_Frontend';
   isAdminRoute: boolean = false;
+  private readonly homeHreflangAlternates = [
+    { hreflang: 'en', href: 'https://www.upforex.com/' },
+    { hreflang: 'hi', href: 'https://www.upforex.com/hi/' },
+    { hreflang: 'ar', href: 'https://www.upforex.com/ar/' },
+    { hreflang: 'fr', href: 'https://www.upforex.com/fr/' },
+    { hreflang: 'es', href: 'https://www.upforex.com/es/' },
+    { hreflang: 'de', href: 'https://www.upforex.com/de/' },
+    { hreflang: 'zh-Hans', href: 'https://www.upforex.com/zh-cn/' },
+    { hreflang: 'zh-Hant', href: 'https://www.upforex.com/zh-tw/' },
+    { hreflang: 'ja', href: 'https://www.upforex.com/ja/' },
+    { hreflang: 'pt-BR', href: 'https://www.upforex.com/pt/' },
+    { hreflang: 'ru', href: 'https://www.upforex.com/ru/' },
+    { hreflang: 'x-default', href: 'https://www.upforex.com/' },
+  ];
+  private readonly localizedLanguageByPath: Record<string, string> = {
+    hi: 'hi',
+    ar: 'ar',
+    fr: 'fr',
+    es: 'es',
+    de: 'de',
+    'zh-cn': 'zh-CN',
+    'zh-tw': 'zh-TW',
+    ja: 'ja',
+    pt: 'pt',
+    ru: 'ru',
+  };
 
   constructor(
     private ngbModal: NgbModal,
@@ -34,6 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private metaService: Meta,
     private canonicalService: UniversalCanonicalService,
     private languageService: LanguageService,
+    @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     if (isPlatformBrowser(this.platformId)) {
@@ -104,6 +131,9 @@ export class AppComponent implements OnInit, OnDestroy {
         content: data['keywords'],
       });
 
+    this.applyLocalizedRouteLanguage();
+    this.updateHomeHreflangTags();
+
     // ✅ Canonical tag update (SSR and client-side compatible)
     const baseUrl = isPlatformBrowser(this.platformId)
       ? (typeof window !== 'undefined' ? window.location.origin : 'https://www.upforex.com')
@@ -111,6 +141,43 @@ export class AppComponent implements OnInit, OnDestroy {
 
     const currentUrl = baseUrl + this.router.url;
     this.canonicalService.setCanonicalURL(currentUrl);
+  }
+
+  private updateHomeHreflangTags(): void {
+    const head = this.document.head;
+    head
+      .querySelectorAll('link[data-home-hreflang]')
+      .forEach((link) => this.renderer.removeChild(head, link));
+
+    const pathSegments = this.getCurrentPathSegments();
+    const isHomePage =
+      pathSegments.length === 0 ||
+      (pathSegments.length === 1 &&
+        this.localizedLanguageByPath[pathSegments[0]] !== undefined);
+    if (!isHomePage) return;
+
+    this.homeHreflangAlternates.forEach(({ hreflang, href }) => {
+      const link = this.renderer.createElement('link');
+      this.renderer.setAttribute(link, 'rel', 'alternate');
+      this.renderer.setAttribute(link, 'hreflang', hreflang);
+      this.renderer.setAttribute(link, 'href', href);
+      this.renderer.setAttribute(link, 'data-home-hreflang', '');
+      this.renderer.appendChild(head, link);
+    });
+  }
+
+  private applyLocalizedRouteLanguage(): void {
+    const [languagePath] = this.getCurrentPathSegments();
+    const language = languagePath
+      ? this.localizedLanguageByPath[languagePath]
+      : undefined;
+
+    if (language) this.languageService.setLanguage(language, true);
+  }
+
+  private getCurrentPathSegments(): string[] {
+    const path = this.router.url.split(/[?#]/, 1)[0].replace(/\/+$/, '');
+    return path.split('/').filter(Boolean);
   }
 
   // ✅ Update canonical URL (SSR-friendly)
